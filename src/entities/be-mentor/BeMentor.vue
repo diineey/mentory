@@ -10,6 +10,7 @@ import useBeMentor from '@/entities/be-mentor/useBeMentor.js'
 import BaseForm from '@/shared/UI/BaseForm.vue'
 import BaseSelect from '@/shared/UI/BaseSelect.vue'
 import RemoveIcon from '@/components/icons/remove.svg?component'
+import UploadIcon from '@/components/icons/upload.svg?component'
 
 const props = defineProps(BeMentorProps)
 const emit = defineEmits(BeMentorEmits)
@@ -226,7 +227,7 @@ const {
                 Загрузить файл
               </template>
               <template #icon>
-                <img src="../../components/icons/upload.svg" alt="">
+                <UploadIcon />
               </template>
             </BaseButton>
 

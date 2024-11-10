@@ -31,7 +31,7 @@ const {
 
         <div class="buttons">
           <BaseButton
-              v-if="!isBeMentorPage"
+              v-if="!isBeMentorPage && !isMentor"
               variant="button-secondary"
               @click="handleRoute"
           >
@@ -40,15 +40,15 @@ const {
             </template>
           </BaseButton>
 
-          <!--          <BaseButton-->
-          <!--            v-if="!isBeMentorPage && !isMentor"-->
-          <!--            variant="button-secondary"-->
-          <!--            @click="router.push('be-mentor')"-->
-          <!--          >-->
-          <!--            <template #text>-->
-          <!--              Стать ментором-->
-          <!--            </template>-->
-          <!--          </BaseButton>-->
+<!--          <BaseButton-->
+<!--              v-if="!isBeMentorPage && !isMentor"-->
+<!--              variant="button-secondary"-->
+<!--              @click="router.push('be-mentor')"-->
+<!--          >-->
+<!--            <template #text>-->
+<!--              Стать ментором-->
+<!--            </template>-->
+<!--          </BaseButton>-->
 
           <BaseButton
               v-if="isAuthenticated && user"

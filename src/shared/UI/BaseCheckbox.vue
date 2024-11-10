@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch, defineProps, defineEmits } from 'vue'
+import IconCheck from '@/components/icons/done.svg'
 
 const props = defineProps({
   label: String,
@@ -48,7 +49,7 @@ watch(() => props.modelValue, (newValue) => {
       class="custom-checkbox"
       :class="{ checked: isChecked }"
     >
-      <img v-if="isChecked" src="../../components/icons/done.svg" alt="check icon" class="icon" />
+      <IconCheck v-if="isChecked" class="icon"/>
     </span>
     <label
       v-if="label"

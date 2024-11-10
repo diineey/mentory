@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { defineProps, defineEmits } from 'vue';
+import IconCheck from '@/components/icons/done.svg'
 
 const props = defineProps({
   label: {
@@ -43,7 +44,7 @@ const handleChange = () => {
     />
 
     <span class="custom-radio">
-      <img class="icon-check" src="../../components/icons/done.svg" alt="checked"/>
+      <IconCheck class="icon-check"/>
     </span>
 
     <span
