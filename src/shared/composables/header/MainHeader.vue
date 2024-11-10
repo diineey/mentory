@@ -4,6 +4,7 @@ import LanguagesSwitch from '@/shared/composables/languages-switch/LanguagesSwit
 import Arrow from '@/components/icons/arrow.svg'
 import useMainHeader from '@/shared/composables/header/useMainHeader.js'
 import UserIcon from '@/components/icons/user.svg'
+import Logo from '@/assets/logo.svg'
 
 const {
   user,
@@ -22,37 +23,37 @@ const {
     <div class="header-wrapper">
 
       <router-link class="center" to="/">
-        <img src="../../../assets/logo.svg" alt="logo" />
+        <Logo/>
       </router-link>
 
       <div class="header-content">
-        <LanguagesSwitch />
+        <LanguagesSwitch/>
 
         <div class="buttons">
-<!--          <BaseButton-->
-<!--            v-if="!isBeMentorPage"-->
-<!--            variant="button-secondary"-->
-<!--            @click="handleRoute"-->
-<!--          >-->
-<!--            <template #text>-->
-<!--              Стать ментором-->
-<!--            </template>-->
-<!--          </BaseButton>-->
-
           <BaseButton
-            v-if="!isBeMentorPage && !isMentor"
-            variant="button-secondary"
-            @click="router.push('be-mentor')"
+              v-if="!isBeMentorPage"
+              variant="button-secondary"
+              @click="handleRoute"
           >
             <template #text>
               Стать ментором
             </template>
           </BaseButton>
 
+          <!--          <BaseButton-->
+          <!--            v-if="!isBeMentorPage && !isMentor"-->
+          <!--            variant="button-secondary"-->
+          <!--            @click="router.push('be-mentor')"-->
+          <!--          >-->
+          <!--            <template #text>-->
+          <!--              Стать ментором-->
+          <!--            </template>-->
+          <!--          </BaseButton>-->
+
           <BaseButton
-            v-if="isAuthenticated && user"
-            variant="button-main"
-            @click="isMentor ? goToProfile() : router.push('/')"
+              v-if="isAuthenticated && user"
+              variant="button-main"
+              @click="isMentor ? goToProfile() : router.push('/')"
           >
             <template #text>
               {{ user.firstname || '' }}
@@ -63,9 +64,9 @@ const {
           </BaseButton>
 
           <BaseButton
-            v-else-if="!isSignInPage"
-            variant="button-main"
-            @click="router.push('/sign-in')"
+              v-else-if="!isSignInPage"
+              variant="button-main"
+              @click="router.push('/sign-in')"
           >
             <template #text>
               Вход

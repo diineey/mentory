@@ -1,5 +1,6 @@
 <script setup>
 import useMainFooter from '@/shared/composables/footer/useMainFooter.js'
+import Logo from '@/assets/logo.svg'
 
 const { isAuthenticated } = useMainFooter()
 </script>
@@ -9,7 +10,7 @@ const { isAuthenticated } = useMainFooter()
     <div class="footer-wrapper">
       <div class="footer-main-section">
         <div class="footer-logo">
-          <img src="../../../assets/logo-white.svg" alt="mentory." />
+          <Logo/>
         </div>
 
         <div class="footer-column">
