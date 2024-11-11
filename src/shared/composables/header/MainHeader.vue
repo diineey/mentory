@@ -40,16 +40,6 @@ const {
             </template>
           </BaseButton>
 
-<!--          <BaseButton-->
-<!--              v-if="!isBeMentorPage && !isMentor"-->
-<!--              variant="button-secondary"-->
-<!--              @click="router.push('be-mentor')"-->
-<!--          >-->
-<!--            <template #text>-->
-<!--              Стать ментором-->
-<!--            </template>-->
-<!--          </BaseButton>-->
-
           <BaseButton
               v-if="isAuthenticated && user"
               variant="button-main"
@@ -64,7 +54,7 @@ const {
           </BaseButton>
 
           <BaseButton
-              v-else-if="!isSignInPage"
+              v-if="!isAuthenticated"
               variant="button-main"
               @click="router.push('/sign-in')"
           >

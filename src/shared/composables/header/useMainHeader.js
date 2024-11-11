@@ -28,8 +28,6 @@ export default function useMainHeader() {
   const isBeMentorPage = computed(() => route.path === '/be-mentor');
 
   const goToProfile = () => {
-    console.log(user.value.mentorUserEntity.id)
-
     router.push({
       name: 'profile',
       query: {

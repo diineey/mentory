@@ -1,7 +1,7 @@
-import { onMounted, ref } from 'vue'
-import { publicApi } from '@/shared/utils/api/axiosInstance.js'
-import { addToast } from '@/shared/utils/notifications.js'
-import { useRoute, useRouter } from 'vue-router'
+import {onMounted, ref, watch} from 'vue'
+import {publicApi} from '@/shared/utils/api/axiosInstance.js'
+import {addToast} from '@/shared/utils/notifications.js'
+import {useRoute, useRouter} from 'vue-router'
 
 export default function useMentorsView() {
   const route = useRoute()
@@ -57,7 +57,6 @@ export default function useMentorsView() {
           size: 10
         },
       })
-
       mentors.value = response.data.mentors
 
       router.push({
@@ -87,6 +86,17 @@ export default function useMentorsView() {
       await getMentors()
     }
   });
+
+  watch(
+      () => route.query.parameter,
+      async (newParameter) => {
+        if (newParameter) {
+          await getMentorsByFilter(newParameter);
+        } else {
+          await getMentors();
+        }
+      }
+  );
 
   return {
     formData,

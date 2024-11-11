@@ -21,7 +21,6 @@ export const useUserTokenStore = defineStore('fingerprint', () => {
 
       return true
     } catch (error) {
-      console.error('Ошибка при декодировании токена:', error)
       return true
     }
   }
@@ -39,8 +38,6 @@ export const useUserTokenStore = defineStore('fingerprint', () => {
 
       return false;
     } catch (error) {
-      console.error('Ошибка при декодировании токена:', error);
-
       return false;
     }
   }
@@ -57,21 +54,19 @@ export const useUserTokenStore = defineStore('fingerprint', () => {
     localStorage.removeItem('fingerprint')
   }
 
-  // setInterval(() => {
-    if (fingerprint.value && isTokenExpired(fingerprint.value)) {
-      addToast.error('Токен истек, нужно обновить его')
+  if (fingerprint.value && isTokenExpired(fingerprint.value)) {
+    addToast.error('Время действия токена истекло')
 
-      localStorage.removeItem('fingerprint')
+    localStorage.removeItem('fingerprint')
 
-      userStore.user = null
+    userStore.user = null
 
-      localStorage.removeItem('user')
+    localStorage.removeItem('user')
 
-      router.push('/sign-in')
+    router.push('/sign-in')
 
-      clearToken()
-    }
-  // }, 5 * 60 * 1000)
+    clearToken()
+  }
 
   return {
     fingerprint,

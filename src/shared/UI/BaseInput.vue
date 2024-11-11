@@ -17,7 +17,8 @@ const props = defineProps({
   required: Boolean,
   fluid: Boolean,
   rows: String,
-  type: String
+  type: String,
+  min: Date
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -45,7 +46,6 @@ const handleDateInput = (event) => {
 
   const isValidDate = moment(value, 'DD.MM.YYYY', true).isValid()
 
-  console.log(isValidDate)
   inputValue.value = value
   emit('update:modelValue', inputValue.value)
 }
@@ -117,6 +117,7 @@ watch(() => props.error, (newVal) => {
       :style="{ width: fluid ? '100%' : '550px' }"
       :placeholder="placeholder"
       :type="type"
+      :min="min"
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"

@@ -13,6 +13,7 @@ const emit = defineEmits(BookFormEmits)
 
 const {
   localFormData,
+  todayDate,
   submitHandler,
   updateModelValue
 } = useBookForm(props, emit)
@@ -79,6 +80,7 @@ const {
                 class="input-50"
                 placeholder="Выберите удобную дату"
                 :error="!!props.errors.date"
+                :min="todayDate()"
                 @input="updateModelValue('date', $event.target.value)"
               />
             </base-form-item>

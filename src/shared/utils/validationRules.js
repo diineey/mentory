@@ -13,7 +13,6 @@ export const requiredCheckbox = {
 export const validDate = {
   validator: (value) => {
     if (!value) return true;
-    console.log(value);
     return moment(value, 'DD.MM.YYYY', true).isValid();
   },
   message: 'Дата должна быть в формате ДД.ММ.ГГГГ и валидной',

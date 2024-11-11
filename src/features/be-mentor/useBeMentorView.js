@@ -1,9 +1,9 @@
-import { useRouter } from 'vue-router'
-import { onMounted, ref } from 'vue'
-import { required, requiredCheckbox } from '@/shared/utils/validationRules.js'
-import { useFormValidation } from '@/shared/utils/formValidate.js'
-import { publicApi, withAuth } from '@/shared/utils/api/axiosInstance.js'
-import { addToast } from '@/shared/utils/notifications.js'
+import {useRouter} from 'vue-router'
+import {onMounted, ref} from 'vue'
+import {required, requiredCheckbox} from '@/shared/utils/validationRules.js'
+import {useFormValidation} from '@/shared/utils/formValidate.js'
+import {publicApi, withAuth} from '@/shared/utils/api/axiosInstance.js'
+import {addToast} from '@/shared/utils/notifications.js'
 
 export default function useBeMentorView() {
   const router = useRouter()
@@ -38,7 +38,7 @@ export default function useBeMentorView() {
     mentorRate: required
   }
 
-  const { errors, validate } = useFormValidation(formData, formRules)
+  const {errors, validate} = useFormValidation(formData, formRules)
 
   const onSubmit = async () => {
     if (validate()) {
@@ -53,29 +53,34 @@ export default function useBeMentorView() {
         yearsOfExperience: '',
         canHelpWith: '',
         about: '',
-        cvName: formData.value.cv ? formData.value.cv.name : ''
+        cvName: '',
       }
 
       // const jsonBlob = new Blob([JSON.stringify(requestData)], { type: 'application/json' });
       // newFormData.append('request', jsonBlob);
 
-        const fileData = new FormData();
+      const fileData = new FormData();
 
-        if (formData.value.cv) {
-          fileData.append('file', formData.value.cv);
-        }
+      if (formData.value.cv) {
+        fileData.append('file', formData.value.cv);
+      }
 
       try {
-        console.log(requestData)
-        await withAuth.post('create-mentor-application', requestData)
-
         if (formData.value.cv) {
-          await withAuth.post('upload-cv', fileData, {
+          const response = await withAuth.post('upload-cv', fileData, {
             headers: {'Content-Type': 'multipart/form-data'}
           })
+
+          requestData.cvFileName = response.data;
+
+          await withAuth.post('create-mentor-application', requestData)
+        } else {
+          await withAuth.post('create-mentor-application', requestData)
         }
 
         addToast.success('Ваша заявка на рассмотрении')
+
+        await router.push({name: 'home'})
       } catch (err) {
         addToast.error('Internal server error')
       }
