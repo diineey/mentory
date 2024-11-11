@@ -50,7 +50,7 @@ const { isAuthenticated } = useMainFooter()
         </div>
 
         <div class="footer-column ml-30">
-          <a class="footer-link menu-footer" href="tel:998901001111">+99890 100-11-11</a>
+<!--          <a class="footer-link menu-footer" href="tel:998901001111">+99890 100-11-11</a>-->
           <a class="footer-link menu-footer" href="mailto:hello@mentory.uz">hello@mentory.uz</a>
         </div>
       </div>
