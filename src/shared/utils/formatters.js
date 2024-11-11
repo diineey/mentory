@@ -9,14 +9,12 @@ export function formatAmount(amount) {
 }
 
 export function formatYearsAndMonths(dateString) {
-  if (!dateString || typeof dateString !== 'string' || !dateString.includes('-')) {
-    return "Нет данных об опыте";
-  }
+  if (!dateString || typeof dateString !== 'string' || !dateString.includes('-')) return
 
   const [years, months] = dateString.split('-').map(Number);
 
   if (isNaN(years) || isNaN(months)) {
-    return "Нет данных об опыте";
+    return "";
   }
 
   let yearWord;
