@@ -46,7 +46,7 @@ const {
           />
         </div>
 
-        <div>
+        <div class="mentors-card-about">
           {{ mentor.about }}
         </div>
 
@@ -150,5 +150,9 @@ const {
 
 .mentors-card-list-wrapper {
   padding: 10px 0 10px 20px;
+}
+
+.mentors-card-about {
+  margin: 10px 0;
 }
 </style>
