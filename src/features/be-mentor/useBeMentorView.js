@@ -42,34 +42,38 @@ export default function useBeMentorView() {
 
   const onSubmit = async () => {
     if (validate()) {
-      const newFormData = new FormData();
-
       const requestData = {
-        skills: JSON.stringify(formData.value.skills.split(',').map(skill => skill.trim())),
-        categories: JSON.stringify(formData.value.categories),
+        skills: formData.value.skills.split(',').map(skill => skill.trim()),
+        categories: formData.value.categories,
         workplace: formData.value.workplace,
         position: formData.value.position,
-        language: JSON.stringify(formData.value.language),
+        language: formData.value.language,
         mentorRate: +formData.value.mentorRate,
         linkedin: formData.value.linkedin,
         yearsOfExperience: '',
         canHelpWith: '',
-        about: ''
+        about: '',
+        cvName: formData.value.cv ? formData.value.cv.name : ''
       }
 
-      console.log(formData.value.cv)
+      // const jsonBlob = new Blob([JSON.stringify(requestData)], { type: 'application/json' });
+      // newFormData.append('request', jsonBlob);
 
-      const jsonBlob = new Blob([JSON.stringify(requestData)], { type: 'application/json' });
-      newFormData.append('request', jsonBlob);
+        const fileData = new FormData();
 
-      if (formData.value.cv) {
-        newFormData.append('file', formData.value.cv);
-      }
+        if (formData.value.cv) {
+          fileData.append('file', formData.value.cv);
+        }
 
       try {
-        await withAuth.post('create-mentor-application', newFormData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
-        })
+        console.log(requestData)
+        await withAuth.post('create-mentor-application', requestData)
+
+        if (formData.value.cv) {
+          await withAuth.post('upload-cv', fileData, {
+            headers: {'Content-Type': 'multipart/form-data'}
+          })
+        }
 
         addToast.success('Ваша заявка на рассмотрении')
       } catch (err) {

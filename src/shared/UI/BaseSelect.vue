@@ -36,6 +36,7 @@ watch(() => props.modelValue, (newId) => {
       v-model="selectedValue"
       :class="{ 'select-error': error }"
     >
+<!--      <option disabled value="">Выберите тариф</option>-->
       <option
         v-for="option in options"
         :key="option.id"
@@ -74,10 +75,6 @@ watch(() => props.modelValue, (newId) => {
   &:active {
     border-color: var(--color-input-stroke);
     color: var(--color-text);
-  }
-
-  &::placeholder {
-    color: var(--color-input-hover);
   }
 }
 

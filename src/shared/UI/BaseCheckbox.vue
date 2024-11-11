@@ -22,21 +22,30 @@ const isChecked = ref(props.modelValue.includes(props.value))
 const hasError = ref(props.error)
 
 const toggleCheckbox = () => {
-  isChecked.value = !isChecked.value
+  isChecked.value = !isChecked.value;
 
-  const updatedValue = [...props.modelValue]
+  const updatedValue = [...props.modelValue];
 
   if (isChecked.value) {
-    updatedValue.push(props.value)
+    updatedValue.push(props.value);
+
+    if (hasError.value) {
+      hasError.value = false;
+      emit('update:error', false);
+    }
   } else {
-    const index = updatedValue.indexOf(props.value)
+    const index = updatedValue.indexOf(props.value);
     if (index !== -1) {
-      updatedValue.splice(index, 1)
+      updatedValue.splice(index, 1);
     }
   }
 
-  emit('update:modelValue', updatedValue)
-}
+  emit('update:modelValue', updatedValue);
+};
+
+watch(() => props.error, (newError) => {
+  hasError.value = newError
+})
 
 watch(() => props.modelValue, (newValue) => {
   isChecked.value = newValue.includes(props.value)
@@ -47,14 +56,14 @@ watch(() => props.modelValue, (newValue) => {
   <div class="base-checkbox" @click="toggleCheckbox">
     <span
       class="custom-checkbox"
-      :class="{ checked: isChecked }"
+      :class="{ checked: isChecked, 'checked-error': hasError }"
     >
       <IconCheck v-if="isChecked" class="icon"/>
     </span>
     <label
       v-if="label"
       class="label input-text"
-      :class="{ 'label-checked': isChecked }"
+      :class="{ 'label-checked': isChecked, 'label-error': hasError }"
     >
       {{ label }}
     </label>
@@ -85,6 +94,10 @@ watch(() => props.modelValue, (newValue) => {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
+.checked-error {
+  border: 2px solid var(--red);
+}
+
 .custom-checkbox.checked {
   background-color: var(--color-text-blue);
   border-color: var(--color-text-blue);
@@ -96,7 +109,7 @@ watch(() => props.modelValue, (newValue) => {
 }
 
 .label-error {
-  color: var(--red);
+  color: var(--red) !important;
 }
 
 .icon {

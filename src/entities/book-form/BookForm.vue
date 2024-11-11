@@ -99,8 +99,6 @@ const {
           </div>
 
           <base-form-item
-            required
-            :error="props.errors.hasToPay"
           >
             <BaseCheckbox
               v-model="localFormData.hasToPay"
