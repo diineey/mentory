@@ -1,6 +1,4 @@
-import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { languageMap } from '@/shared/utils/enums.js'
 
 export default function UseMentorsCard(props) {
   const router = useRouter();
@@ -14,12 +12,7 @@ export default function UseMentorsCard(props) {
     })
   }
 
-  const decodedLanguages =  computed(() => {
-    return props.mentors?.user?.languages?.map(code => languageMap[code] || code).join(", ");
-  })
-
   return {
-    decodedLanguages,
     router,
     goToMentor
   }

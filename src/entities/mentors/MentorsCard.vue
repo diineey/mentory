@@ -12,8 +12,6 @@ const props = defineProps({
 })
 
 const {
-  experience,
-  decodedLanguages,
   goToMentor
 } = useMentorsCard(props)
 
@@ -46,6 +44,10 @@ const {
             :key="category.name"
             :text="category.name"
           />
+        </div>
+
+        <div>
+          {{ mentor.about }}
         </div>
 
 <!--        <div class="mentors-card-list">-->

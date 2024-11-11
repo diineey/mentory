@@ -67,7 +67,7 @@ const {
               />
             </div>
 
-            <p class="text mentor-margins">0 - проведенных занятий</p>
+<!--            <p class="text mentor-margins">0 - проведенных занятий</p>-->
           </div>
 
           <div v-if="props.isEditable">
@@ -98,7 +98,7 @@ const {
 <!--          <p class="text">Samokat — Senior QA</p>-->
 <!--        </div>-->
 
-        <p v-if="props.data.canHelpWith" class="title-2 mentor-margins">Могу помочь с такими направлениями, как</p>
+        <p v-if="props.data.canHelpWith" class="title-2 mentor-margins">С чем могу помочь</p>
 
         <p v-if="props.data.canHelpWith" class="text mb-1">
            {{ props.data.canHelpWith }}

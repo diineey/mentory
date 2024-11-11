@@ -309,6 +309,11 @@ const {
   gap: 20px;
 }
 
+/*
+.be-mentor-categories > *:nth-child(odd):last-child {
+  grid-column: 2;
+*/
+
 .file-name {
   margin: 20px 0 4px 0;
   display: flex;

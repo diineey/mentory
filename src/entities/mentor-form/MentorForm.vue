@@ -129,7 +129,7 @@ const {
         </base-form-item>
 
         <base-form-item
-          label="Могу помочь с такими направлениями, как"
+          label="С чем могу помочь"
         >
           <BaseInput
             v-model="localFormData.canHelpWith"

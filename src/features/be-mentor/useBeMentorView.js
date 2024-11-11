@@ -71,7 +71,7 @@ export default function useBeMentorView() {
             headers: {'Content-Type': 'multipart/form-data'}
           })
 
-          requestData.cvFileName = response.data;
+          requestData.cvName = response.data;
 
           await withAuth.post('create-mentor-application', requestData)
         } else {
