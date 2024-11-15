@@ -21,7 +21,6 @@ const { goToMentorDetails } = useMentorsCards();
         class="mentors-card"
         v-for="mentor in props.mentors"
         :key="mentor.id"
-        @click="goToMentorDetails(mentor.id)"
       >
         <img
           class="mentors-card-photo"
@@ -30,7 +29,7 @@ const { goToMentorDetails } = useMentorsCards();
         />
 
         <div class="mentors-card-text">
-          <p class="title">
+          <p class="title" style="cursor: pointer" @click="goToMentorDetails(mentor.id)">
             {{ mentor.user.firstname }} {{ mentor.user.lastname }}
           </p>
 
@@ -77,7 +76,6 @@ const { goToMentorDetails } = useMentorsCards();
 .mentors-card {
   background: var(--color-background-secondary);
   border-radius: 0 0 10px 10px;
-  cursor: pointer;
 }
 
 .mentors-card-text {
