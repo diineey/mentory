@@ -32,7 +32,7 @@ const { goToMentor } = useMentorsCard(props);
 
       <div class="mentors-card-inner-content">
         <div class="mentors-card-title">
-          <p class="title">
+          <p class="title mentors-title" @click="goToMentor(mentor.id)">
             {{ mentor.user.firstname }} {{ mentor.user.lastname }}
           </p>
 
@@ -148,6 +148,10 @@ const { goToMentor } = useMentorsCard(props);
 .mentors-card-price {
   padding: 20px 20px 0 0;
   margin-left: auto;
+}
+
+.mentors-title {
+  cursor: pointer;
 }
 
 .price {
