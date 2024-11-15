@@ -12,6 +12,6 @@ export default function useRegistrationForm(props, emit) {
 
   return {
     handleSubmit,
-    updateModelValue
-  }
+    updateModelValue,
+  };
 }

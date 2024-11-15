@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import BeMentor from '@/entities/be-mentor/BeMentor.vue'
+import BeMentor from '@/entities/be-mentor/BeMentor.vue';
 import useBeMentorView from './useBeMentorView';
 
-const {
-  categoriesList,
-  rates,
-  formData,
-  formRules,
-  errors,
-  onSubmit
-} = useBeMentorView()
+const { categoriesList, rates, formData, formRules, errors, onSubmit } =
+  useBeMentorView();
 </script>
 
 <template>
@@ -30,4 +24,3 @@ const {
     @handleSubmit="onSubmit"
   />
 </template>
-

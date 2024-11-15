@@ -1,25 +1,25 @@
 <script setup>
-import { ref, watch, defineProps, defineEmits } from 'vue'
-import IconCheck from '@/components/icons/done.svg'
+import { ref, watch, defineProps, defineEmits } from 'vue';
+import IconCheck from '@/components/icons/done.svg';
 
 const props = defineProps({
   label: String,
   modelValue: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   value: {
     type: String,
-    required: true
+    required: true,
   },
-  error: Boolean
-})
+  error: Boolean,
+});
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue']);
 
-const isChecked = ref(props.modelValue.includes(props.value))
+const isChecked = ref(props.modelValue.includes(props.value));
 
-const hasError = ref(props.error)
+const hasError = ref(props.error);
 
 const toggleCheckbox = () => {
   isChecked.value = !isChecked.value;
@@ -43,13 +43,19 @@ const toggleCheckbox = () => {
   emit('update:modelValue', updatedValue);
 };
 
-watch(() => props.error, (newError) => {
-  hasError.value = newError
-})
+watch(
+  () => props.error,
+  (newError) => {
+    hasError.value = newError;
+  }
+);
 
-watch(() => props.modelValue, (newValue) => {
-  isChecked.value = newValue.includes(props.value)
-})
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    isChecked.value = newValue.includes(props.value);
+  }
+);
 </script>
 
 <template>
@@ -58,7 +64,7 @@ watch(() => props.modelValue, (newValue) => {
       class="custom-checkbox"
       :class="{ checked: isChecked, 'checked-error': hasError }"
     >
-      <IconCheck v-if="isChecked" class="icon"/>
+      <IconCheck v-if="isChecked" class="icon" />
     </span>
     <label
       v-if="label"
@@ -91,7 +97,9 @@ watch(() => props.modelValue, (newValue) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
 }
 
 .checked-error {
@@ -101,7 +109,7 @@ watch(() => props.modelValue, (newValue) => {
 .custom-checkbox.checked {
   background-color: var(--color-text-blue);
   border-color: var(--color-text-blue);
-  box-shadow: 0 0 7px 1px #0055FF40;
+  box-shadow: 0 0 7px 1px #0055ff40;
 }
 
 .label-checked {

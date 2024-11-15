@@ -29,13 +29,15 @@ if (!props.noPreventRoute) {
       isModelChanged = true;
     },
     {
-      deep: true
+      deep: true,
     }
   );
 
   onBeforeRouteLeave((_, __, next) => {
     if (!canceled && isModelChanged) {
-      const answer = window.confirm('Вы действительно хотите уйти? Изменения не сохранены.');
+      const answer = window.confirm(
+        'Вы действительно хотите уйти? Изменения не сохранены.'
+      );
 
       if (!answer) return false;
     }
@@ -57,19 +59,14 @@ onBeforeUnmount(() => {
 defineExpose({
   validate: () => formRef.value?.validate(),
   resetValidation: () => formRef.value?.resetValidation(),
-  cancel
+  cancel,
 });
 </script>
 
 <template>
-  <form
-    ref="formRef"
-    v-bind="$attrs"
-    @submit.prevent
-  >
+  <form ref="formRef" v-bind="$attrs" @submit.prevent>
     <slot />
   </form>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

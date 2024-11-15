@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { defineProps, defineEmits } from 'vue';
-import IconCheck from '@/components/icons/done.svg'
+import IconCheck from '@/components/icons/done.svg';
 
 const props = defineProps({
   label: {
@@ -14,18 +14,17 @@ const props = defineProps({
   },
   modelValue: {
     type: String,
-    default: ''
+    default: '',
   },
   name: {
     type: String,
     required: true,
-  }
-})
+  },
+});
 
 const emit = defineEmits(['update:modelValue']);
 
 const isChecked = computed(() => props.modelValue === props.value);
-
 
 const handleChange = () => {
   emit('update:modelValue', props.value);
@@ -44,15 +43,12 @@ const handleChange = () => {
     />
 
     <span class="custom-radio">
-      <IconCheck class="icon-check"/>
+      <IconCheck class="icon-check" />
     </span>
 
-    <span
-      class="input-text base-radio-label"
-    >
+    <span class="input-text base-radio-label">
       {{ label }}
     </span>
-
   </label>
 </template>
 
@@ -101,5 +97,4 @@ const handleChange = () => {
 .active-label {
   color: var(--color-text);
 }
-
 </style>

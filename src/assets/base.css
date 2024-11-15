@@ -1,70 +1,70 @@
 :root {
-    --white: #ffffff;
-    --black: #000000;
-    --blue: #0066FE;
-    --mute-blue: #D3F1FF;
-    --tertiary: #F3FBFE;
-    --turquoise: #1ECAC0;
-    --grey: #868686;
-    --soft-grey: #F0F0F0;
-    --secondary-grey: #4B4B4B;
-    --red: #E90000;
-    --error: #FFE7E9;
-    --success: #E1FFDE;
-    --tertiary-grey: #D4D4D4;
+  --white: #ffffff;
+  --black: #000000;
+  --blue: #0066fe;
+  --mute-blue: #d3f1ff;
+  --tertiary: #f3fbfe;
+  --turquoise: #1ecac0;
+  --grey: #868686;
+  --soft-grey: #f0f0f0;
+  --secondary-grey: #4b4b4b;
+  --red: #e90000;
+  --error: #ffe7e9;
+  --success: #e1ffde;
+  --tertiary-grey: #d4d4d4;
 }
 
 :root {
-    --color-background: var(--mute-blue);
-    --color-background-secondary: var(--tertiary);
-    --color-background-tertiary: var(--black);
-    --color-background-white: var(--white);
-    --color-background-blue: var(--blue);
-    --color-background-tertiary-grey: var(--tertiary-grey);
+  --color-background: var(--mute-blue);
+  --color-background-secondary: var(--tertiary);
+  --color-background-tertiary: var(--black);
+  --color-background-white: var(--white);
+  --color-background-blue: var(--blue);
+  --color-background-tertiary-grey: var(--tertiary-grey);
 
-    --color-text: var(--black);
-    --color-text-white: var(--white);
-    --color-text-blue: var(--blue);
-    --color-text-main-grey: var(--grey);
+  --color-text: var(--black);
+  --color-text-white: var(--white);
+  --color-text-blue: var(--blue);
+  --color-text-main-grey: var(--grey);
 
-    --color-active-language: var(--blue);
+  --color-active-language: var(--blue);
 
-    --color-button-main: var(--blue);
-    --color-button-secondary: var(--black);
-    --color-button-hovered: var(--tertiary-grey);
-    --color-button-no-fill: transparent;
+  --color-button-main: var(--blue);
+  --color-button-secondary: var(--black);
+  --color-button-hovered: var(--tertiary-grey);
+  --color-button-no-fill: transparent;
 
-    --color-border: var(--turquoise);
-    --color-border-tertiary: var(--soft-grey);
+  --color-border: var(--turquoise);
+  --color-border-tertiary: var(--soft-grey);
 
-    --color-input-active: var(--black);
-    --color-input-hover: var(--grey);
-    --color-input-stroke: var(--secondary-grey);
+  --color-input-active: var(--black);
+  --color-input-hover: var(--grey);
+  --color-input-stroke: var(--secondary-grey);
 
-    --color-error: var(--red);
+  --color-error: var(--red);
 }
 
 @font-face {
-    font-family: 'Gilroy-Medium';
-    src: url('./fonts/Gilroy/gilroy-medium.ttf');
+  font-family: 'Gilroy-Medium';
+  src: url('./fonts/Gilroy/gilroy-medium.ttf');
 }
 
 @font-face {
-    font-family: 'Gilroy-Semibold';
-    src: url('./fonts/Gilroy/gilroy-semibold.ttf');
+  font-family: 'Gilroy-Semibold';
+  src: url('./fonts/Gilroy/gilroy-semibold.ttf');
 }
 
 @font-face {
-    font-family: 'Gilroy-Bold';
-    src: url('./fonts/Gilroy/gilroy-bold.ttf');
+  font-family: 'Gilroy-Bold';
+  src: url('./fonts/Gilroy/gilroy-bold.ttf');
 }
 
 @font-face {
-    font-family: 'Gilroy-Extrabold';
-    src: url('./fonts/Gilroy/Gilroy-ExtraBold.otf');
+  font-family: 'Gilroy-Extrabold';
+  src: url('./fonts/Gilroy/Gilroy-ExtraBold.otf');
 }
 
 @font-face {
-    font-family: 'Aeroport';
-    src: url('./fonts/Aeroport/AeroportMono.ttf');
+  font-family: 'Aeroport';
+  src: url('./fonts/Aeroport/AeroportMono.ttf');
 }

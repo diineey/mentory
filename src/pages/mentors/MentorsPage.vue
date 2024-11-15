@@ -1,5 +1,5 @@
 <script setup>
-import MentorsView from '@/features/mentors/MentorsView.vue'
+import MentorsView from '@/features/mentors/MentorsView.vue';
 </script>
 
 <template>

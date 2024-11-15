@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BeMentorView from '@/features/be-mentor/BeMentorView.vue'
+import BeMentorView from '@/features/be-mentor/BeMentorView.vue';
 </script>
 
 <template>

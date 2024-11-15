@@ -1,20 +1,20 @@
 <script setup>
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseTag from '@/shared/UI/BaseTag.vue'
-import Arrow from '@/components/icons/arrow.svg'
-import { formatAmount, formatYearsAndMonths } from '@/shared/utils/formatters.js'
-import useMentorsCard from '@/entities/mentors/useMentorsCard.js'
-import { languageMap } from '@/shared/utils/enums.js'
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseTag from '@/shared/UI/BaseTag.vue';
+import Arrow from '@/components/icons/arrow.svg';
+import {
+  formatAmount,
+  formatYearsAndMonths,
+} from '@/shared/utils/formatters.js';
+import useMentorsCard from '@/entities/mentors/useMentorsCard.js';
+import { languageMap } from '@/shared/utils/enums.js';
 
 const props = defineProps({
   mentors: Array,
-  isLoading: Boolean
-})
+  isLoading: Boolean,
+});
 
-const {
-  goToMentor
-} = useMentorsCard(props)
-
+const { goToMentor } = useMentorsCard(props);
 </script>
 
 <template>
@@ -24,18 +24,35 @@ const {
     :key="mentor.id"
   >
     <div class="mentors-card-content">
-      <img class="mentors-img" src="../../assets/images/card.jpg" alt="photo">
+      <img
+        class="mentors-img"
+        src="../../assets/images/card.jpg"
+        alt="photo"
+      />
 
       <div class="mentors-card-inner-content">
         <div class="mentors-card-title">
-          <p class="title">{{ mentor.user.firstname }} {{ mentor.user.lastname }}</p>
+          <p class="title">
+            {{ mentor.user.firstname }} {{ mentor.user.lastname }}
+          </p>
 
-          <span class="text"> ({{ formatYearsAndMonths(mentor.yearsOfExperience || 0) }})</span>
+          <span class="text">
+            ({{
+              formatYearsAndMonths(mentor.yearsOfExperience || 0)
+            }})</span
+          >
         </div>
 
         <p class="text">{{ mentor.position }} - {{ mentor.workplace }}</p>
 
-        <p class="text">Язык ментора: {{ mentor?.user?.languages?.map(code => languageMap[code] || code).join(", ") }}</p>
+        <p class="text">
+          Язык ментора:
+          {{
+            mentor?.user?.languages
+              ?.map((code) => languageMap[code] || code)
+              .join(', ')
+          }}
+        </p>
 
         <div class="mentors-card-tags">
           <BaseTag
@@ -50,15 +67,15 @@ const {
           {{ mentor.about }}
         </div>
 
-<!--        <div class="mentors-card-list">-->
-<!--          <ul class="mentors-card-list-wrapper">-->
-<!--            <li class="text">Помогу дизайнерам с поиском работы и себя</li>-->
-<!--            <li class="text">Объективно оценю уровень и резюме</li>-->
-<!--            <li class="text">Подскажу по тестовому и рабочим задачам</li>-->
-<!--            <li class="text">Могу рассказать как дизайнеру стать миллионером</li>-->
-<!--            <li class="text">Работаю с компаниями по ...</li>-->
-<!--          </ul>-->
-<!--        </div>-->
+        <!--        <div class="mentors-card-list">-->
+        <!--          <ul class="mentors-card-list-wrapper">-->
+        <!--            <li class="text">Помогу дизайнерам с поиском работы и себя</li>-->
+        <!--            <li class="text">Объективно оценю уровень и резюме</li>-->
+        <!--            <li class="text">Подскажу по тестовому и рабочим задачам</li>-->
+        <!--            <li class="text">Могу рассказать как дизайнеру стать миллионером</li>-->
+        <!--            <li class="text">Работаю с компаниями по ...</li>-->
+        <!--          </ul>-->
+        <!--        </div>-->
 
         <div class="mentors-card-tags">
           <BaseTag
@@ -68,13 +85,10 @@ const {
             :text="skill.name"
           />
         </div>
-
       </div>
 
       <div class="mentors-card-price">
-        <p class="text weight-6">
-          Цена одной консультации:
-        </p>
+        <p class="text weight-6">Цена одной консультации:</p>
 
         <p class="price">
           {{ formatAmount(mentor.rate.costPerHour || 0) }} uzs
@@ -85,9 +99,7 @@ const {
           variant="button-main"
           @click="goToMentor(mentor.id)"
         >
-          <template #text>
-            Посмотреть
-          </template>
+          <template #text> Посмотреть </template>
           <template #icon>
             <Arrow />
           </template>

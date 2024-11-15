@@ -1,23 +1,23 @@
 export const SearchMentorsProps = {
   modelValue: {
     type: Object,
-    required: true
+    required: true,
   },
   rules: {
     type: Object,
-    required: false
+    required: false,
   },
   errors: {
     type: Object,
-    required: false
+    required: false,
   },
   isLoading: Boolean,
-  categories: Array
+  categories: Array,
 };
 
 export const SearchMentorsEmits = [
   'update:modelValue',
   'handleSearchBySkill',
   'handleSearchByCategory',
-  'handleSearchByFilter'
+  'handleSearchByFilter',
 ];

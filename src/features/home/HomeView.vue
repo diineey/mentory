@@ -1,9 +1,9 @@
 <script setup>
-import FindMentor from '@/entities/home/find-mentor/FindMentor.vue'
-import HowItWorks from '@/entities/home/how-it-works/HowItWorks.vue'
-import SearchMentors from '@/entities/home/search/SearchMentors.vue'
-import MentorsCards from '@/entities/home/mentors-cards/MentorsCards.vue'
-import useHomeView from '@/features/home/useHomeView.js'
+import FindMentor from '@/entities/home/find-mentor/FindMentor.vue';
+import HowItWorks from '@/entities/home/how-it-works/HowItWorks.vue';
+import SearchMentors from '@/entities/home/search/SearchMentors.vue';
+import MentorsCards from '@/entities/home/mentors-cards/MentorsCards.vue';
+import useHomeView from '@/features/home/useHomeView.js';
 
 const {
   formData,
@@ -12,7 +12,7 @@ const {
   isCategoriesLoading,
   isMentorsLoading,
   handleSearchMentorsBySkill,
-  handleSearchMentorsByCategory
+  handleSearchMentorsByCategory,
 } = useHomeView();
 </script>
 
@@ -23,13 +23,25 @@ const {
     </section>
 
     <section class="mentors-section">
-      <img class="img-left" src="../../assets/images/left-bg.png" alt="">
+      <img class="img-left" src="../../assets/images/left-bg.png" alt="" />
 
-      <img class="img-right" src="../../assets/images/right-bg.png" alt="">
+      <img
+        class="img-right"
+        src="../../assets/images/right-bg.png"
+        alt=""
+      />
 
-      <img class="img-left-b" src="../../assets/images/left-b-bg.png" alt="">
+      <img
+        class="img-left-b"
+        src="../../assets/images/left-b-bg.png"
+        alt=""
+      />
 
-      <img class="img-right-b" src="../../assets/images/right-b-bg.png" alt="">
+      <img
+        class="img-right-b"
+        src="../../assets/images/right-b-bg.png"
+        alt=""
+      />
 
       <SearchMentors
         v-model="formData"
@@ -40,10 +52,7 @@ const {
         @handle-search-by-category="handleSearchMentorsByCategory"
       />
 
-      <MentorsCards
-        :is-loading="isMentorsLoading"
-        :mentors="mentors"
-      />
+      <MentorsCards :is-loading="isMentorsLoading" :mentors="mentors" />
     </section>
 
     <section class="works-section">

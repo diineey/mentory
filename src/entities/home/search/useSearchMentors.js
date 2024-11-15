@@ -1,4 +1,4 @@
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router';
 
 export default function useSearchMentors(props, emit) {
   const route = useRoute();
@@ -14,16 +14,16 @@ export default function useSearchMentors(props, emit) {
     return route.query.parameter === category.name;
   };
 
-  const handleSearchMentorBySkill = () => emit('handleSearchBySkill')
+  const handleSearchMentorBySkill = () => emit('handleSearchBySkill');
 
   const handleSearchMentorByCategory = (tag) => {
-    emit('handleSearchByCategory', tag.name)
-  }
+    emit('handleSearchByCategory', tag.name);
+  };
 
   return {
     isSelected,
     updateModelValue,
     handleSearchMentorBySkill,
-    handleSearchMentorByCategory
-  }
+    handleSearchMentorByCategory,
+  };
 }

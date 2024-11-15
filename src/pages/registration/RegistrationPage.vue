@@ -1,5 +1,5 @@
 <script setup>
-import RegistrationView from '@/features/auth/registration/RegistrationView.vue'
+import RegistrationView from '@/features/auth/registration/RegistrationView.vue';
 </script>
 
 <template>

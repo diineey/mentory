@@ -1,72 +1,74 @@
 <script setup>
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import LanguagesSwitch from '@/shared/composables/languages-switch/LanguagesSwitch.vue'
-import Arrow from '@/components/icons/arrow.svg'
-import useMainHeader from '@/shared/composables/header/useMainHeader.js'
-import UserIcon from '@/components/icons/user.svg'
-import Logo from '@/assets/logo.svg'
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import LanguagesSwitch from '@/shared/composables/languages-switch/LanguagesSwitch.vue';
+import Arrow from '@/components/icons/arrow.svg';
+import useMainHeader from '@/shared/composables/header/useMainHeader.js';
+import UserIcon from '@/components/icons/user.svg';
+import Logo from '@/assets/logo.svg';
 
 const {
   user,
   router,
   isBeMentorPage,
-  isSignInPage,
   isAuthenticated,
   isMentor,
+  onLogout,
   goToProfile,
-  handleRoute
+  handleRoute,
 } = useMainHeader();
 </script>
 
 <template>
   <header class="header">
     <div class="header-wrapper">
-
       <router-link class="center" to="/">
-        <Logo/>
+        <Logo />
       </router-link>
 
       <div class="header-content">
-        <LanguagesSwitch/>
+        <LanguagesSwitch />
 
         <div class="buttons">
           <BaseButton
-              v-if="!isBeMentorPage && !isMentor"
-              variant="button-secondary"
-              @click="handleRoute"
+            v-if="!isBeMentorPage && !isMentor"
+            variant="button-secondary"
+            @click="handleRoute"
           >
-            <template #text>
-              Стать ментором
-            </template>
+            <template #text> Стать ментором </template>
           </BaseButton>
 
           <BaseButton
-              v-if="isAuthenticated && user"
-              variant="button-main"
-              @click="isMentor ? goToProfile() : router.push('/')"
+            v-if="isAuthenticated && user"
+            variant="button-main"
+            @click="isMentor ? goToProfile() : router.push('/')"
           >
             <template #text>
               {{ user.firstname || '' }}
             </template>
             <template #icon>
-              <UserIcon/>
+              <UserIcon />
             </template>
           </BaseButton>
 
           <BaseButton
-              v-if="!isAuthenticated"
-              variant="button-main"
-              @click="router.push('/sign-in')"
+            v-if="isAuthenticated && user"
+            variant="button-secondary"
+            @click="onLogout"
           >
-            <template #text>
-              Вход
-            </template>
+            <template #text> Выход </template>
+          </BaseButton>
+
+          <BaseButton
+            v-if="!isAuthenticated"
+            variant="button-main"
+            @click="router.push('/sign-in')"
+          >
+            <template #text> Вход </template>
             <template #icon>
-              <Arrow/>
+              <Arrow />
             </template>
           </BaseButton>
         </div>
-
       </div>
     </div>
   </header>

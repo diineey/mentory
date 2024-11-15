@@ -1,46 +1,46 @@
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default function useBeMentor(props, emit) {
-  const isCustomCategorySelected = ref(false)
-  const customCategory = ref('')
-  const selectedCategories = ref([])
-  const selectedLanguages = ref([])
-  const fileInput = ref(null)
-  const fileName = ref('')
+  const isCustomCategorySelected = ref(false);
+  const customCategory = ref('');
+  const selectedCategories = ref([]);
+  const selectedLanguages = ref([]);
+  const fileInput = ref(null);
+  const fileName = ref('');
 
   const onToggleChoice = () => {
-    isCustomCategorySelected.value = !isCustomCategorySelected.value
-  }
+    isCustomCategorySelected.value = !isCustomCategorySelected.value;
+  };
 
   const updateModelValue = (field, value) => {
     if (field === 'language') {
-      selectedLanguages.value = value
+      selectedLanguages.value = value;
     }
 
     if (field === 'categories') {
-      let updatedCategories = [...value]
+      let updatedCategories = [...value];
 
       if (isCustomCategorySelected.value && customCategory.value.trim()) {
-        updatedCategories.push(customCategory.value)
+        updatedCategories.push(customCategory.value);
       }
     }
 
     if (field === 'cv') {
       emit('update:modelValue', {
         ...props.modelValue,
-        cv: value
-      })
+        cv: value,
+      });
     } else {
       emit('update:modelValue', {
         ...props.modelValue,
-        [field]: value
-      })
+        [field]: value,
+      });
     }
-  }
+  };
 
   const triggerFileInput = () => {
-    fileInput.value.click()
-  }
+    fileInput.value.click();
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -52,13 +52,13 @@ export default function useBeMentor(props, emit) {
   };
 
   const removeFile = () => {
-    fileName.value = ''
-    fileInput.value.value = ''
-  }
+    fileName.value = '';
+    fileInput.value.value = '';
+  };
 
   const handleSubmit = () => {
-    emit('handleSubmit')
-  }
+    emit('handleSubmit');
+  };
 
   return {
     fileInput,
@@ -72,6 +72,6 @@ export default function useBeMentor(props, emit) {
     triggerFileInput,
     updateModelValue,
     onToggleChoice,
-    handleSubmit
-  }
+    handleSubmit,
+  };
 }

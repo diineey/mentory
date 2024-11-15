@@ -1,23 +1,23 @@
 export const MentorFormProps = {
   modelValue: {
-    type: Object
+    type: Object,
   },
   rules: {
     type: Object,
-    required: false
+    required: false,
   },
   errors: {
     type: Object,
-    required: false
+    required: false,
   },
   data: Object,
   categoriesList: Array,
   rates: Array,
-  showModal: Boolean
+  showModal: Boolean,
 };
 
 export const MentorFormEmits = [
   'update:modelValue',
   'handleSubmit',
-  'onCloseModal'
+  'onCloseModal',
 ];

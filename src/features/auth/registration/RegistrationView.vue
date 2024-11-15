@@ -1,13 +1,8 @@
 <script setup>
-import RegistrationForm from '@/entities/auth/registration/RegistrationForm.vue'
-import useRegistrationView from '@/features/auth/registration/useRegistrationView.js'
+import RegistrationForm from '@/entities/auth/registration/RegistrationForm.vue';
+import useRegistrationView from '@/features/auth/registration/useRegistrationView.js';
 
-const {
-  formData,
-  formRules,
-  errors,
-  onSubmit
-} = useRegistrationView();
+const { formData, formRules, errors, onSubmit } = useRegistrationView();
 </script>
 
 <template>

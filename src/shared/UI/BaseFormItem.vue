@@ -3,18 +3,15 @@ defineProps({
   label: String,
   required: {
     type: Boolean,
-    default: false
+    default: false,
   },
-  error: String
-})
+  error: String,
+});
 </script>
 
 <template>
   <div class="base-form-item">
-    <label
-      v-if="label"
-      class="label input-title"
-    >
+    <label v-if="label" class="label input-title">
       <span v-if="required" class="required-star">*</span>
       {{ label }}
     </label>

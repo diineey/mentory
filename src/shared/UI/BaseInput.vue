@@ -1,10 +1,14 @@
 <script setup>
-import moment from 'moment'
-import { watch, ref } from 'vue'
-import { allowOnlyLetters, allowOnlyLettersAndSpaces, allowOnlyNumbers } from '@/shared/utils/input-allows-rules.js'
-import { FIELD_MASK } from '@/shared/constants/field-mask.js'
-import { vMaska } from 'maska/vue'
-import SearchIcon from '@/components/icons/search.svg'
+import moment from 'moment';
+import { watch, ref } from 'vue';
+import {
+  allowOnlyLetters,
+  allowOnlyLettersAndSpaces,
+  allowOnlyNumbers,
+} from '@/shared/utils/input-allows-rules.js';
+import { FIELD_MASK } from '@/shared/constants/field-mask.js';
+import { vMaska } from 'maska/vue';
+import SearchIcon from '@/components/icons/search.svg';
 
 const props = defineProps({
   placeholder: String,
@@ -18,73 +22,88 @@ const props = defineProps({
   fluid: Boolean,
   rows: String,
   type: String,
-  min: Date
-})
+  min: Date,
+});
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue']);
 
-const inputValue = ref(props.modelValue || '')
-const isFocused = ref(false)
-const isError = ref(props.error)
+const inputValue = ref(props.modelValue || '');
+const isFocused = ref(false);
+const isError = ref(props.error);
 
 const handleFocus = () => {
-  isFocused.value = true
-}
+  isFocused.value = true;
+};
 
 const handleBlur = () => {
-  isFocused.value = false
-}
+  isFocused.value = false;
+};
 
 const isActive = () => {
-  return inputValue.value.length > 0
-}
+  return inputValue.value.length > 0;
+};
 
 const handleDateInput = (event) => {
-  let value = event.target.value
+  let value = event.target.value;
 
-  value = value.replace(/[^0-9.]/g, '')
+  value = value.replace(/[^0-9.]/g, '');
 
-  const isValidDate = moment(value, 'DD.MM.YYYY', true).isValid()
+  const isValidDate = moment(value, 'DD.MM.YYYY', true).isValid();
 
-  inputValue.value = value
-  emit('update:modelValue', inputValue.value)
-}
+  inputValue.value = value;
+  emit('update:modelValue', inputValue.value);
+};
 
 const handleInput = (event) => {
   if (props.isDate) {
-    handleDateInput(event)
+    handleDateInput(event);
   }
 
   if (props.allowInput === 'numbers') {
-    allowOnlyNumbers(event)
+    allowOnlyNumbers(event);
   } else if (props.allowInput === 'letters') {
-    allowOnlyLetters(event)
+    allowOnlyLetters(event);
   } else if (props.allowInput === 'lettersAndSpaces') {
-    allowOnlyLettersAndSpaces(event)
+    allowOnlyLettersAndSpaces(event);
   }
 
-  inputValue.value = event.target.value
-  emit('update:modelValue', inputValue.value)
+  inputValue.value = event.target.value;
+  emit('update:modelValue', inputValue.value);
 
   if (inputValue.value.length > 0 && isError.value && props.required) {
-    isError.value = false
+    isError.value = false;
   }
-}
+};
 
-watch(() => props.error, (newVal) => {
-  isError.value = newVal
-})
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    inputValue.value = newValue || '';
+  }
+);
 
+watch(
+  () => props.error,
+  (newVal) => {
+    isError.value = newVal;
+  }
+);
 </script>
 
 <template>
   <div class="input-container">
-      <span v-if="search" class="search-icon">
-        <SearchIcon :class="{ 'search-color': !isFocused, 'search-color-active': isFocused || isActive() }" />
-      </span>
+    <span v-if="search" class="search-icon">
+      <SearchIcon
+        :class="{
+          'search-color': !isFocused,
+          'search-color-active': isFocused || isActive(),
+        }"
+      />
+    </span>
 
     <input
       v-if="isPhone"
+      v-bind="$attrs"
       class="input"
       v-model="inputValue"
       v-maska="FIELD_MASK.phone"
@@ -98,6 +117,7 @@ watch(() => props.error, (newVal) => {
 
     <input
       v-if="isDate"
+      v-bind="$attrs"
       class="input"
       v-model="inputValue"
       v-maska="FIELD_MASK.date"
@@ -111,6 +131,7 @@ watch(() => props.error, (newVal) => {
 
     <input
       v-if="type"
+      v-bind="$attrs"
       class="input"
       v-model="inputValue"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
@@ -125,6 +146,7 @@ watch(() => props.error, (newVal) => {
 
     <input
       v-if="!isPhone && !isDate && !rows && !type"
+      v-bind="$attrs"
       class="input"
       v-model="inputValue"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
@@ -137,6 +159,7 @@ watch(() => props.error, (newVal) => {
 
     <textarea
       v-if="rows"
+      v-bind="$attrs"
       class="input textarea"
       v-model="inputValue"
       :class="{ 'input-with-icon': search, 'input-error': isError }"

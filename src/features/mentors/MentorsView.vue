@@ -1,7 +1,8 @@
 <script setup>
-import MentorsCard from '@/entities/mentors/MentorsCard.vue'
-import SearchMentors from '@/entities/home/search/SearchMentors.vue'
-import useMentorsView from '@/features/mentors/useMentorsView.js'
+import MentorsCard from '@/entities/mentors/MentorsCard.vue';
+import SearchMentors from '@/entities/home/search/SearchMentors.vue';
+import useMentorsView from '@/features/mentors/useMentorsView.js';
+import NotFound from '@/entities/not-found/NotFound.vue';
 
 const {
   formData,
@@ -11,7 +12,7 @@ const {
   isMentorsLoading,
   getMentorsBySkill,
   getMentorsByCategory,
-  getMentorsByFilter
+  getMentorsByFilter,
 } = useMentorsView();
 </script>
 
@@ -30,9 +31,12 @@ const {
 
     <div class="mentors-main">
       <MentorsCard
+        v-if="mentors.length > 0 && !isMentorsLoading"
         :mentors="mentors"
         :is-loading="isMentorsLoading"
       />
+
+      <NotFound v-else-if="!isMentorsLoading && mentors.length === 0" />
     </div>
   </main>
 </template>

@@ -1,13 +1,8 @@
 <script setup>
-import useSignInView from '@/features/auth/sign-in/useSignInView.js'
-import SignIn from '@/entities/auth/sign-in/SignIn.vue'
+import useSignInView from '@/features/auth/sign-in/useSignInView.js';
+import SignIn from '@/entities/auth/sign-in/SignIn.vue';
 
-const {
-  formData,
-  formRules,
-  errors,
-  onSubmit
-} = useSignInView()
+const { formData, formRules, errors, onSubmit } = useSignInView();
 </script>
 
 <template>

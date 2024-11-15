@@ -1,12 +1,15 @@
 <script setup>
-import BaseFormItem from '@/shared/UI/BaseFormItem.vue'
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseCard from '@/shared/UI/BaseCard.vue'
-import BaseForm from '@/shared/UI/BaseForm.vue'
-import BaseInput from '@/shared/UI/BaseInput.vue'
-import BaseRadioButton from '@/shared/UI/BaseRadioButton.vue'
-import { RegistrationFormEmits, RegistrationFormProps } from '@/entities/auth/registration/registration-form.types.js'
-import useRegistrationForm from '@/entities/auth/registration/useRegistrationForm.js'
+import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseCard from '@/shared/UI/BaseCard.vue';
+import BaseForm from '@/shared/UI/BaseForm.vue';
+import BaseInput from '@/shared/UI/BaseInput.vue';
+import BaseRadioButton from '@/shared/UI/BaseRadioButton.vue';
+import {
+  RegistrationFormEmits,
+  RegistrationFormProps,
+} from '@/entities/auth/registration/registration-form.types.js';
+import useRegistrationForm from '@/entities/auth/registration/useRegistrationForm.js';
 
 const props = defineProps(RegistrationFormProps);
 const emit = defineEmits(RegistrationFormEmits);
@@ -18,7 +21,7 @@ const {
   dateOfBirth,
   gender,
   handleSubmit,
-  updateModelValue
+  updateModelValue,
 } = useRegistrationForm(props, emit);
 </script>
 
@@ -27,9 +30,13 @@ const {
     <BaseCard class="login-card">
       <div class="login-wrapper">
         <div class="login-text">
-          <RouterLink class="menu inactive-link" to="sign-in">Вход</RouterLink>
+          <RouterLink class="menu inactive-link" to="sign-in"
+            >Вход</RouterLink
+          >
 
-          <RouterLink class="menu active-link" to="sign-up">Регистрация</RouterLink>
+          <RouterLink class="menu active-link" to="sign-up"
+            >Регистрация</RouterLink
+          >
         </div>
 
         <BaseForm
@@ -115,16 +122,9 @@ const {
             </div>
           </base-form-item>
 
-          <BaseButton
-            type="submit"
-            class="w-100"
-            variant="button-main"
-          >
-            <template #text>
-              Регистрация
-            </template>
+          <BaseButton type="submit" class="w-100" variant="button-main">
+            <template #text> Регистрация </template>
           </BaseButton>
-
         </BaseForm>
       </div>
     </BaseCard>

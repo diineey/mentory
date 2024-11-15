@@ -1,31 +1,58 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch } from 'vue';
+import CloseIcon from '@/components/icons/close.svg';
 
 const props = defineProps({
   modelValue: {
     type: Boolean,
-    required: true
-  }
-})
+    required: true,
+  },
+  width: String,
+  padding: String,
+  right: String,
+  top: String,
+});
 
-const isModalOpen = ref(props.modelValue)
+const emit = defineEmits(['closeModal']);
 
-watch(() => props.modelValue, (newVal) => {
-  isModalOpen.value = newVal
-  if (newVal) {
-    document.body.classList.add('modal-open')
-  } else {
-    document.body.classList.remove('modal-open')
+const isModalOpen = ref(props.modelValue);
+
+const closeModal = () => {
+  emit('closeModal');
+};
+
+const handleEscapeKey = (event) => {
+  if (event.key === 'Escape') {
+    closeModal();
   }
-})
+};
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    isModalOpen.value = newVal;
+    if (newVal) {
+      document.body.classList.add('modal-open');
+      document.addEventListener('keydown', handleEscapeKey);
+    } else {
+      document.body.classList.remove('modal-open');
+      document.removeEventListener('keydown', handleEscapeKey);
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
   <div v-if="isModalOpen" class="modal-overlay">
-    <div class="modal-content" @click.stop>
+    <div class="modal-content" :style="{ width: width, padding: padding }">
       <div class="modal-body">
-        <slot>
-        </slot>
+        <CloseIcon
+          class="close-icon"
+          :style="{ right: right, top: top }"
+          @click="closeModal"
+        />
+        <slot> </slot>
       </div>
     </div>
   </div>
@@ -46,6 +73,7 @@ watch(() => props.modelValue, (newVal) => {
 }
 
 .modal-content {
+  position: relative;
   background: var(--white);
   width: 892px;
   padding: 40px;
@@ -67,5 +95,11 @@ watch(() => props.modelValue, (newVal) => {
   flex-direction: column;
   align-items: center;
 }
-</style>
 
+.close-icon {
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  cursor: pointer;
+}
+</style>

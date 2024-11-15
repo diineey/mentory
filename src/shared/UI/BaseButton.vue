@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
-  variant: String
-})
+  variant: String,
+});
 </script>
 
 <template>
@@ -25,7 +25,9 @@ defineProps({
   display: flex;
   gap: 6px;
   justify-content: center;
-  transition: opacity 0.3s, color 0.2s;
+  transition:
+    opacity 0.3s,
+    color 0.2s;
 }
 
 .base-button:hover {

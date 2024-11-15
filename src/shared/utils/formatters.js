@@ -9,31 +9,26 @@ export function formatAmount(amount) {
 }
 
 export function formatYearsAndMonths(dateString) {
-  if (!dateString || typeof dateString !== 'string' || !dateString.includes('-')) return
+  // if (!dateString || typeof dateString !== 'string' || !dateString.includes('-')) return
+  //
+  // const [years, months] = dateString.split('-').map(Number);
 
-  const [years, months] = dateString.split('-').map(Number);
+  // if (isNaN(years) || isNaN(months)) {
+  //   return "";
+  // }
 
-  if (isNaN(years) || isNaN(months)) {
-    return "";
-  }
+  if (isNaN(dateString)) return '';
+
+  const year = Number(dateString);
 
   let yearWord;
-  if (years === 1) {
-    yearWord = "год";
-  } else if (years >= 2 && years <= 4) {
-    yearWord = "года";
+  if (year === 1) {
+    yearWord = 'год';
+  } else if (year >= 2 && year <= 4) {
+    yearWord = 'года';
   } else {
-    yearWord = "лет";
+    yearWord = 'лет';
   }
 
-  let monthWord;
-  if (months === 1) {
-    monthWord = "месяц";
-  } else if (months >= 2 && months <= 4) {
-    monthWord = "месяца";
-  } else {
-    monthWord = "месяцев";
-  }
-
-  return `${years} ${yearWord} ${months} ${monthWord} опыта`;
+  return `${year} ${yearWord} опыта`;
 }

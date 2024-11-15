@@ -1,32 +1,34 @@
 <script setup>
-import Arrow from '@/components/icons/arrow-down.svg'
-import { ref, watch } from 'vue'
+import Arrow from '@/components/icons/arrow-down.svg';
+import { ref, watch } from 'vue';
 
 const props = defineProps({
   options: {
     type: Array,
     required: true,
-    default: () => []
+    default: () => [],
   },
   modelValue: {
     type: [String, Number],
-    default: ''
+    default: '',
   },
-  error: Boolean
-})
+  error: Boolean,
+});
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue']);
 
-const selectedValue = ref(props.modelValue)
+const selectedValue = ref(props.modelValue);
 
+watch(
+  () => props.modelValue,
+  (newId) => {
+    selectedValue.value = newId;
+  }
+);
 
 watch(selectedValue, (newId) => {
-  emit('update:modelValue', newId)
-})
-
-watch(() => props.modelValue, (newId) => {
-  selectedValue.value = newId
-})
+  emit('update:modelValue', newId);
+});
 </script>
 
 <template>
@@ -36,19 +38,16 @@ watch(() => props.modelValue, (newId) => {
       v-model="selectedValue"
       :class="{ 'select-error': error }"
     >
-<!--      <option disabled value="">Выберите тариф</option>-->
+      <!--			<option disabled value="">Выберите тариф</option>-->
       <option
         v-for="option in options"
         :key="option.id"
         :value="option.id"
       >
-      {{ option.name }} - {{ option.costPerHour }}
+        {{ option.name }} - {{ option.costPerHour }}
       </option>
     </select>
-    <Arrow
-      class="select-arrow"
-      :class="{'select-arrow-error': error}"
-    />
+    <Arrow class="select-arrow" :class="{ 'select-arrow-error': error }" />
   </div>
 </template>
 
@@ -98,5 +97,4 @@ watch(() => props.modelValue, (newId) => {
 .select-arrow-error {
   color: var(--red);
 }
-
 </style>

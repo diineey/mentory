@@ -1,22 +1,25 @@
 <script setup>
-import BaseInput from '@/shared/UI/BaseInput.vue'
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseTag from '@/shared/UI/BaseTag.vue'
-import useSearchMentors from '@/entities/home/search/useSearchMentors.js'
-import BaseForm from '@/shared/UI/BaseForm.vue'
-import BaseFormItem from '@/shared/UI/BaseFormItem.vue'
-import { SearchMentorsEmits, SearchMentorsProps } from '@/entities/home/search/search-mentors.types.js'
+import BaseInput from '@/shared/UI/BaseInput.vue';
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseTag from '@/shared/UI/BaseTag.vue';
+import useSearchMentors from '@/entities/home/search/useSearchMentors.js';
+import BaseForm from '@/shared/UI/BaseForm.vue';
+import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
+import {
+  SearchMentorsEmits,
+  SearchMentorsProps,
+} from '@/entities/home/search/search-mentors.types.js';
 
-const props = defineProps(SearchMentorsProps)
-const emit = defineEmits(SearchMentorsEmits)
+const props = defineProps(SearchMentorsProps);
+const emit = defineEmits(SearchMentorsEmits);
 
 const {
   skill,
   isSelected,
   updateModelValue,
   handleSearchMentorBySkill,
-  handleSearchMentorByCategory
-} = useSearchMentors(props, emit)
+  handleSearchMentorByCategory,
+} = useSearchMentors(props, emit);
 </script>
 
 <template>
@@ -27,7 +30,6 @@ const {
       :rules="props.rules"
       @submit.prevent="handleSearchMentorBySkill"
     >
-
       <div class="search">
         <base-form-item class="no-styles">
           <BaseInput
@@ -38,13 +40,8 @@ const {
           />
         </base-form-item>
 
-        <BaseButton
-          type="submit"
-          variant="button-main"
-        >
-          <template #text>
-            Найти специалиста
-          </template>
+        <BaseButton type="submit" variant="button-main">
+          <template #text> Найти специалиста </template>
         </BaseButton>
       </div>
 

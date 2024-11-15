@@ -1,12 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return savedPosition
+      return savedPosition;
     } else {
-      return { top: 0 }
+      return { top: 0 };
     }
   },
   routes: [
@@ -14,70 +14,71 @@ const router = createRouter({
       path: '/',
       name: 'home',
       meta: {
-        title: 'Главная'
+        title: 'Главная',
       },
-      component: () => import('@/pages/home/HomePage.vue')
+      component: () => import('@/pages/home/HomePage.vue'),
     },
     {
       path: '/sign-in',
       name: 'sign-in',
       meta: {
-        title: 'Вход'
+        title: 'Вход',
       },
-      component: () => import('@/pages/login/LoginPage.vue')
+      component: () => import('@/pages/login/LoginPage.vue'),
     },
     {
       path: '/confirm-otp',
       name: 'confirm-otp',
       meta: {
-        title: 'Подтверждение ОТП'
+        title: 'Подтверждение ОТП',
       },
-      component: () => import('@/pages/login-otp/LoginOtp.vue')
+      component: () => import('@/pages/login-otp/LoginOtp.vue'),
     },
     {
       path: '/sign-up',
       name: 'sign-up',
       meta: {
-        title: 'Регистрация'
+        title: 'Регистрация',
       },
-      component: () => import('@/pages/registration/RegistrationPage.vue')
+      component: () => import('@/pages/registration/RegistrationPage.vue'),
     },
     {
       path: '/be-mentor',
       name: 'be-mentor',
       meta: {
-        title: 'Стать ментором'
+        title: 'Стать ментором',
       },
-      component: () => import('@/pages/be-mentor/BeMentorPage.vue')
+      component: () => import('@/pages/be-mentor/BeMentorPage.vue'),
     },
     {
       path: '/mentors',
       name: 'mentors',
       meta: {
         backgroundColor: 'var(--color-background-white)',
-        title: 'Менторы'
+        title: 'Менторы',
       },
-      component: () => import('@/pages/mentors/MentorsPage.vue')
+      component: () => import('@/pages/mentors/MentorsPage.vue'),
     },
     {
       path: '/mentor',
       name: 'mentor',
       meta: {
         backgroundColor: 'var(--color-background-white)',
-        title: 'Ментор'
+        title: 'Ментор',
       },
-      component: () => import('@/pages/mentor/MentorPage.vue')
+      component: () => import('@/pages/mentor/MentorPage.vue'),
     },
     {
       path: '/profile',
       name: 'profile',
       meta: {
         backgroundColor: 'var(--color-background-white)',
-        title: 'Ментор'
+        title: 'Ментор',
       },
-      component: () => import('@/pages/mentor-profile/MentorProfilePage.vue')
-    }
-  ]
-})
+      component: () =>
+        import('@/pages/mentor-profile/MentorProfilePage.vue'),
+    },
+  ],
+});
 
-export default router
+export default router;

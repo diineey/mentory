@@ -1,25 +1,25 @@
-import {computed, ref, watch} from 'vue'
-import {useUserTokenStore} from '@/stores/authStore.js'
-import {useRouter} from 'vue-router'
+import { computed, ref, watch } from 'vue';
+import { useUserTokenStore } from '@/stores/authStore.js';
+import { useRouter } from 'vue-router';
 
 export default function useBookForm(props, emit) {
-  const userToken = useUserTokenStore()
-  const router = useRouter()
-  const localFormData = ref({...props.modelValue})
+  const userToken = useUserTokenStore();
+  const router = useRouter();
+  const localFormData = ref({ ...props.modelValue });
 
-  const isAuthenticated = computed(() => userToken.isAuthenticated)
+  const isAuthenticated = computed(() => userToken.isAuthenticated);
 
   const todayDate = () => {
     const now = new Date();
     return now.toISOString().split('T')[0];
-  }
+  };
 
   const updateModelValue = () => {
     localFormData.value = {
-      ...localFormData.value
-    }
+      ...localFormData.value,
+    };
 
-    emit('update:modelValue', localFormData.value)
+    emit('update:modelValue', localFormData.value);
   };
 
   const handleSubmit = () => {
@@ -28,29 +28,28 @@ export default function useBookForm(props, emit) {
 
   function submitHandler() {
     if (isAuthenticated.value) {
-      handleSubmit()
+      handleSubmit();
+
+      emit('update:modelValue', {});
     } else {
-      router.push({name: 'sign-in'})
+      router.push({ name: 'sign-in' });
     }
   }
 
-  const onOpenModal = () => emit('handleOpenEditModal')
-
   watch(
-      () => props.modelValue,
-      (newValue) => {
-        localFormData.value = {...newValue}
-      },
-      {deep: true, immediate: true}
-  )
+    () => props.modelValue,
+    (newValue) => {
+      localFormData.value = { ...newValue };
+    },
+    { deep: true, immediate: true }
+  );
 
   return {
     isAuthenticated,
     router,
     localFormData,
     todayDate,
-    onOpenModal,
     updateModelValue,
-    submitHandler
-  }
+    submitHandler,
+  };
 }

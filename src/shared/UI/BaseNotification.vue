@@ -1,10 +1,10 @@
 <script setup>
-import { notificationsList } from '../utils/notifications.js'
+import { notificationsList } from '../utils/notifications.js';
 
 const getIcon = (type) => {
   return type === 'success'
     ? new URL('../../components/icons/success.svg', import.meta.url).href
-    : new URL('../../components/icons/error.svg', import.meta.url).href
+    : new URL('../../components/icons/error.svg', import.meta.url).href;
 };
 </script>
 
@@ -16,9 +16,10 @@ const getIcon = (type) => {
       class="notification input-title"
       :class="notification.type"
     >
-      <img :src="getIcon(notification.type)"
-           :alt="notification.type === 'error' ? 'Error' : 'Success'"
-           class="notification-icon"
+      <img
+        :src="getIcon(notification.type)"
+        :alt="notification.type === 'error' ? 'Error' : 'Success'"
+        class="notification-icon"
       />
 
       {{ notification.message }}

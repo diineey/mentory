@@ -1,10 +1,12 @@
 import { reactive, computed } from 'vue';
 
 export const notificationStore = reactive({
-  notifications: []
+  notifications: [],
 });
 
-export const notificationsList = computed(() => notificationStore.notifications);
+export const notificationsList = computed(
+  () => notificationStore.notifications
+);
 
 export function addNotification(message, type = 'success') {
   const notification = { message, type };
@@ -22,5 +24,5 @@ export const addToast = {
   },
   error(message) {
     addNotification(message, 'error');
-  }
+  },
 };

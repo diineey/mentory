@@ -1,35 +1,23 @@
 <template>
   <div class="works-wrapper">
-    <h3>
-      Как это работает?
-    </h3>
+    <h3>Как это работает?</h3>
 
     <div class="works-cards">
       <div class="works-card">
-        <p class="title">
-          Выберите ментора по необходимому направлению
-        </p>
-        <p class="text">
-          К примеру необходимо разобраться в Semantic UI
-        </p>
+        <p class="title">Выберите ментора по необходимому направлению</p>
+        <p class="text">К примеру необходимо разобраться в Semantic UI</p>
       </div>
 
       <div class="works-card">
-        <p class="title">
-          Ознакомьтесь с кратким резюме ментора
-        </p>
+        <p class="title">Ознакомьтесь с кратким резюме ментора</p>
         <p class="text">
           Опыт работы, заслуги за годы службы, рейтинги, отзывы
         </p>
       </div>
 
       <div class="works-card">
-        <p class="title">
-          Бронируйте удобное для вас время
-        </p>
-        <p class="text">
-          Вы можете выбрать удобное для вас время
-        </p>
+        <p class="title">Бронируйте удобное для вас время</p>
+        <p class="text">Вы можете выбрать удобное для вас время</p>
       </div>
     </div>
   </div>

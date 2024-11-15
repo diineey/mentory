@@ -1,7 +1,7 @@
 <script setup>
-import MentorDetails from '@/entities/mentor/MentorDetails.vue'
-import MentorForm from '@/entities/mentor-form/MentorForm.vue'
-import useMentorProfile from '@/features/mentor-profile/useMentorProfile.js'
+import MentorDetails from '@/entities/mentor/MentorDetails.vue';
+import MentorForm from '@/entities/mentor-form/MentorForm.vue';
+import useMentorProfile from '@/features/mentor-profile/useMentorProfile.js';
 
 const {
   data,
@@ -10,7 +10,7 @@ const {
   rates,
   isEditModalActive,
   onToggleEditModal,
-  onSubmit
+  onSubmit,
 } = useMentorProfile();
 </script>
 

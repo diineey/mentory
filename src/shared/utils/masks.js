@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from 'moment';
 
 export const unmaskPhoneNumber = (value) => {
   return value.replace(/\D/g, '');

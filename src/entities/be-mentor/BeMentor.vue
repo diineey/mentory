@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import BaseCard from '@/shared/UI/BaseCard.vue'
-import BaseInput from '@/shared/UI/BaseInput.vue'
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseFormItem from '@/shared/UI/BaseFormItem.vue'
-import BaseCheckbox from '@/shared/UI/BaseCheckbox.vue'
-import BaseBreadcrumbs from '@/shared/UI/breadcrumbs/BaseBreadcrumbs.vue'
-import { BeMentorProps, BeMentorEmits } from '@/entities/be-mentor/be-mentor.types.js'
-import useBeMentor from '@/entities/be-mentor/useBeMentor.js'
-import BaseForm from '@/shared/UI/BaseForm.vue'
-import BaseSelect from '@/shared/UI/BaseSelect.vue'
-import RemoveIcon from '@/components/icons/remove.svg?component'
-import UploadIcon from '@/components/icons/upload.svg?component'
+import BaseCard from '@/shared/UI/BaseCard.vue';
+import BaseInput from '@/shared/UI/BaseInput.vue';
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
+import BaseCheckbox from '@/shared/UI/BaseCheckbox.vue';
+import BaseBreadcrumbs from '@/shared/UI/breadcrumbs/BaseBreadcrumbs.vue';
+import {
+  BeMentorProps,
+  BeMentorEmits,
+} from '@/entities/be-mentor/be-mentor.types.js';
+import useBeMentor from '@/entities/be-mentor/useBeMentor.js';
+import BaseForm from '@/shared/UI/BaseForm.vue';
+import BaseSelect from '@/shared/UI/BaseSelect.vue';
+import RemoveIcon from '@/components/icons/remove.svg?component';
+import UploadIcon from '@/components/icons/upload.svg?component';
 
-const props = defineProps(BeMentorProps)
-const emit = defineEmits(BeMentorEmits)
+const props = defineProps(BeMentorProps);
+const emit = defineEmits(BeMentorEmits);
 
 const {
   isCustomCategorySelected,
@@ -32,8 +35,8 @@ const {
   triggerFileInput,
   onToggleChoice,
   handleSubmit,
-  updateModelValue
-} = useBeMentor(props, emit)
+  updateModelValue,
+} = useBeMentor(props, emit);
 </script>
 
 <template>
@@ -44,30 +47,35 @@ const {
         <h3 class="be-mentor-card-title">Ментороство - это</h3>
         <div class="be-mentor-card">
           <p class="text be-mentor-text">
-            Путь к самопознанию и развитию. Ментор – это опытный проводник, который помогает вам раскрыть свой потенциал
-            и
-            достичь новых высот. Он делится своим опытом, знаниями и мудростью, чтобы вы могли избежать типичных ошибок
-            и
-            сделать правильный выбор.
+            Путь к самопознанию и развитию. Ментор – это опытный проводник,
+            который помогает вам раскрыть свой потенциал и достичь новых
+            высот. Он делится своим опытом, знаниями и мудростью, чтобы вы
+            могли избежать типичных ошибок и сделать правильный выбор.
           </p>
 
           <p class="be-mentor-text text">
-            Взаимодействие, основанное на доверии и открытости. Ментор создает безопасное пространство для вас, чтобы вы
-            могли задавать вопросы, делиться сомнениями и получать честную обратную связь.
+            Взаимодействие, основанное на доверии и открытости. Ментор
+            создает безопасное пространство для вас, чтобы вы могли
+            задавать вопросы, делиться сомнениями и получать честную
+            обратную связь.
           </p>
 
           <p class="be-mentor-text text">
-            Не только обучение, но и вдохновение. Ментор – это не просто источник знаний, но и источник мотивации. Он
-            помогает вам увидеть свои сильные стороны, поверить в себя и с уверенностью двигаться к своим целям.
+            Не только обучение, но и вдохновение. Ментор – это не просто
+            источник знаний, но и источник мотивации. Он помогает вам
+            увидеть свои сильные стороны, поверить в себя и с уверенностью
+            двигаться к своим целям.
           </p>
 
           <p class="be-mentor-text text">
-            Инвестиции в будущее. Вкладывая время и энергию в менторство, вы не только развиваете себя, но и помогаете
-            другим раскрыть свой потенциал.
+            Инвестиции в будущее. Вкладывая время и энергию в менторство,
+            вы не только развиваете себя, но и помогаете другим раскрыть
+            свой потенциал.
           </p>
 
           <p class="be-mentor-text text">
-            Более чем просто отношения, это партнерство в достижении успеха.
+            Более чем просто отношения, это партнерство в достижении
+            успеха.
           </p>
         </div>
       </BaseCard>
@@ -177,7 +185,12 @@ const {
             <BaseInput
               v-model="customCategory"
               placeholder=""
-              @input="updateModelValue('categories', [...selectedCategories, $event.target.value])"
+              @input="
+                updateModelValue('categories', [
+                  ...selectedCategories,
+                  $event.target.value,
+                ])
+              "
             />
           </base-form-item>
 
@@ -206,13 +219,11 @@ const {
             />
           </base-form-item>
 
-          <base-form-item
-            label="Или загрузите файл с вашим резюме"
-          >
+          <base-form-item label="Или загрузите файл с вашим резюме">
             <div v-if="fileName" class="file-name">
               <p class="input-text">{{ fileName }}</p>
 
-              <RemoveIcon @click="removeFile" class="file-remove-icon"/>
+              <RemoveIcon @click="removeFile" class="file-remove-icon" />
 
               <div class="success-upload text">Файл загружен</div>
             </div>
@@ -223,9 +234,7 @@ const {
               type="button"
               @click="triggerFileInput"
             >
-              <template #text>
-                Загрузить файл
-              </template>
+              <template #text> Загрузить файл </template>
               <template #icon>
                 <UploadIcon />
               </template>
@@ -234,7 +243,7 @@ const {
             <input
               type="file"
               ref="fileInput"
-              style="display: none;"
+              style="display: none"
               @change="handleFileChange"
             />
           </base-form-item>
@@ -244,9 +253,7 @@ const {
             class="mt-1 w-100"
             variant="button-main"
           >
-            <template #text>
-              Оставить заявку
-            </template>
+            <template #text> Оставить заявку </template>
           </BaseButton>
         </BaseForm>
       </BaseCard>

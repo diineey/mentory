@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import BaseFormItem from '@/shared/UI/BaseFormItem.vue'
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseCard from '@/shared/UI/BaseCard.vue'
-import BaseForm from '@/shared/UI/BaseForm.vue'
-import BaseInput from '@/shared/UI/BaseInput.vue'
-import useOtpForm from '@/entities/auth/otp/useFormOtp.js'
-import { OtpFormProps, OtpFormEmits } from '@/entities/auth/otp/confirm-otp.types'
+import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseCard from '@/shared/UI/BaseCard.vue';
+import BaseForm from '@/shared/UI/BaseForm.vue';
+import BaseInput from '@/shared/UI/BaseInput.vue';
+import useOtpForm from '@/entities/auth/otp/useFormOtp.js';
+import {
+  OtpFormProps,
+  OtpFormEmits,
+} from '@/entities/auth/otp/confirm-otp.types';
 
-const props = defineProps(OtpFormProps)
-const emit = defineEmits(OtpFormEmits)
+const props = defineProps(OtpFormProps);
+const emit = defineEmits(OtpFormEmits);
 
-const {
-  phoneNumber,
-  otp,
-  handleSubmit,
-  updateModelValue
-} = useOtpForm(props, emit);
+const { phoneNumber, otp, handleSubmit, updateModelValue } = useOtpForm(
+  props,
+  emit
+);
 </script>
 
 <template>
@@ -26,7 +27,7 @@ const {
 
         <p class="input-text login-confirmation-text">
           Мы выслали Вам код подтверждения, на номер телефона
-          <br/>
+          <br />
           {{ phoneNumber }}
         </p>
 
@@ -36,10 +37,7 @@ const {
           :rules="props.rules"
           @submit.prevent="handleSubmit"
         >
-          <base-form-item
-            label="ОТП-код"
-            :error="props.errors.otp"
-          >
+          <base-form-item label="ОТП-код" :error="props.errors.otp">
             <BaseInput
               v-model="otp"
               placeholder="Введите ОТП-код"
@@ -50,24 +48,15 @@ const {
             />
           </base-form-item>
 
-        <div class="login-buttons">
-          <BaseButton
-            variant="button-secondary"
-          >
-            <template #text>
-              Отправить заново
-            </template>
-          </BaseButton>
+          <div class="login-buttons">
+            <BaseButton variant="button-secondary">
+              <template #text> Отправить заново </template>
+            </BaseButton>
 
-          <BaseButton
-            type="submit"
-            variant="button-main"
-          >
-            <template #text>
-              Войти
-            </template>
-          </BaseButton>
-        </div>
+            <BaseButton type="submit" variant="button-main">
+              <template #text> Войти </template>
+            </BaseButton>
+          </div>
         </BaseForm>
       </div>
     </BaseCard>

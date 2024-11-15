@@ -17,6 +17,6 @@ export default function useLanguageSwitch() {
   return {
     languages,
     currentLanguage,
-    changeLanguage
-  }
+    changeLanguage,
+  };
 }

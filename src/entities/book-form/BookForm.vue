@@ -1,31 +1,28 @@
 <script setup>
-import BaseCheckbox from '@/shared/UI/BaseCheckbox.vue'
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseFormItem from '@/shared/UI/BaseFormItem.vue'
-import BaseForm from '@/shared/UI/BaseForm.vue'
-import BaseInput from '@/shared/UI/BaseInput.vue'
-import ArrowIcon from '@/components/icons/arrow.svg'
-import { BookFormEmits, BookFormProps } from '@/entities/book-form/book-form.types.js'
-import useBookForm from '@/entities/book-form/useBookForm.js'
+import BaseCheckbox from '@/shared/UI/BaseCheckbox.vue';
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
+import BaseForm from '@/shared/UI/BaseForm.vue';
+import BaseInput from '@/shared/UI/BaseInput.vue';
+import ArrowIcon from '@/components/icons/arrow.svg';
+import {
+  BookFormEmits,
+  BookFormProps,
+} from '@/entities/book-form/book-form.types.js';
+import useBookForm from '@/entities/book-form/useBookForm.js';
 
-const props = defineProps(BookFormProps)
-const emit = defineEmits(BookFormEmits)
+const props = defineProps(BookFormProps);
+const emit = defineEmits(BookFormEmits);
 
-const {
-  localFormData,
-  todayDate,
-  submitHandler,
-  updateModelValue
-} = useBookForm(props, emit)
+const { localFormData, todayDate, submitHandler, updateModelValue } =
+  useBookForm(props, emit);
 </script>
 
 <template>
   <div class="mentor-book-wrapper" id="book-form-section">
     <div class="mentor-book-container">
       <div class="book-section">
-        <p class="menu mb-3">
-          Забронировать встречу с ментором
-        </p>
+        <p class="menu mb-3">Забронировать встречу с ментором</p>
 
         <BaseForm
           no-prevent-route
@@ -33,10 +30,7 @@ const {
           :rules="props.rules"
           @submit.prevent="submitHandler"
         >
-          <base-form-item
-            label="Тема"
-            :error="props.errors.title"
-          >
+          <base-form-item label="Тема" :error="props.errors.title">
             <BaseInput
               v-model="localFormData.title"
               fluid
@@ -64,9 +58,7 @@ const {
             />
           </base-form-item>
 
-          <p class="menu mb-3">
-            Выберите дату и время
-          </p>
+          <p class="menu mb-3">Выберите дату и время</p>
 
           <div class="date-and-time">
             <base-form-item
@@ -100,8 +92,7 @@ const {
             </base-form-item>
           </div>
 
-          <base-form-item
-          >
+          <base-form-item>
             <BaseCheckbox
               v-model="localFormData.hasToPay"
               label="Обязуюсь оплатить ментору за сессию"
@@ -116,9 +107,7 @@ const {
             variant="button-main"
             type="submit"
           >
-            <template #text>
-              Запросить консультацию
-            </template>
+            <template #text> Запросить консультацию </template>
             <template #icon>
               <ArrowIcon />
             </template>
@@ -134,7 +123,6 @@ const {
 </template>
 
 <style scoped>
-
 .mentor-book-wrapper {
   background: var(--color-background-secondary);
   margin: 40px 0 100px 0;

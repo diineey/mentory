@@ -1,21 +1,18 @@
 export const OtpFormProps = {
   modelValue: {
     type: Object,
-    required: true
+    required: true,
   },
   rules: {
     type: Object,
-    required: false
+    required: false,
   },
   errors: {
     type: Object,
-    required: false
+    required: false,
   },
   phone: String,
-  title: String
+  title: String,
 };
 
-export const OtpFormEmits = [
-  'update:modelValue',
-  'handleSubmit'
-];
+export const OtpFormEmits = ['update:modelValue', 'handleSubmit'];

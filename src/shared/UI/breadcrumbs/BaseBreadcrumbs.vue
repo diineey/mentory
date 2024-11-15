@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import ArrowType from '@/components/icons/arrow-long.svg'
+import ArrowType from '@/components/icons/arrow-long.svg';
 
 const route = useRoute();
 
@@ -16,10 +16,7 @@ const currentPageTitle = computed(() => {
 
     <ArrowType />
 
-    <span
-      v-if="currentPageTitle"
-      class="tag"
-    >
+    <span v-if="currentPageTitle" class="tag">
       {{ currentPageTitle }}
     </span>
   </nav>

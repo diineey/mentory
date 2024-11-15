@@ -1,32 +1,23 @@
 <script setup>
 defineProps({
-  backgroundColor: String
-})
+  backgroundColor: String,
+});
 </script>
 
 <template>
-  <nav :style="{ backgroundColor: backgroundColor }" class="menu-nav center">
-    <RouterLink
-      to="mentors"
-      class="menu"
-      active-class="active-link-nav"
-    >
+  <nav
+    :style="{ backgroundColor: backgroundColor }"
+    class="menu-nav center"
+  >
+    <RouterLink to="mentors" class="menu" active-class="active-link-nav">
       Менторы
     </RouterLink>
 
-    <RouterLink
-      to="faq"
-      class="menu"
-      active-class="active-link-nav"
-    >
+    <RouterLink to="faq" class="menu" active-class="active-link-nav">
       FAQ
     </RouterLink>
 
-    <RouterLink
-      to="contacts"
-      class="menu"
-      active-class="active-link-nav"
-    >
+    <RouterLink to="contacts" class="menu" active-class="active-link-nav">
       Контакты
     </RouterLink>
   </nav>
@@ -45,6 +36,6 @@ defineProps({
 }
 
 .active-link-nav {
-  color: var(--color-text-blue)
+  color: var(--color-text-blue);
 }
 </style>

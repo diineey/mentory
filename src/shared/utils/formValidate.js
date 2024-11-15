@@ -22,6 +22,6 @@ export function useFormValidation(formData, formRules) {
 
   return {
     errors,
-    validate
+    validate,
   };
 }

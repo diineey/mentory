@@ -1,8 +1,6 @@
 export const MentorDetailsFormProps = {
   data: Object,
-  isEditable: Boolean
+  isEditable: Boolean,
 };
 
-export const MentorDetailsFormEmits = [
-  'scrollToBookingSection'
-];
+export const MentorDetailsFormEmits = ['scrollToBookingSection'];

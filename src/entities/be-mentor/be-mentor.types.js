@@ -1,21 +1,18 @@
 export const BeMentorProps = {
   modelValue: {
     type: Object,
-    required: true
+    required: true,
   },
   rules: {
     type: Object,
-    required: false
+    required: false,
   },
   errors: {
     type: Object,
-    required: false
+    required: false,
   },
   categoriesList: Array,
-  rates: Array
+  rates: Array,
 };
 
-export const BeMentorEmits = [
-  'update:modelValue',
-  'handleSubmit'
-];
+export const BeMentorEmits = ['update:modelValue', 'handleSubmit'];

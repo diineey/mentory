@@ -12,6 +12,6 @@ export default function useSignIn(props, emit) {
 
   return {
     handleSubmit,
-    updateModelValue
+    updateModelValue,
   };
 }

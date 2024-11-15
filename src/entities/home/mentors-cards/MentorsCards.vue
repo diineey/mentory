@@ -1,15 +1,15 @@
 <script setup>
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseTag from '@/shared/UI/BaseTag.vue'
-import Arrow from '@/components/icons/arrow.svg'
-import useMentorsCards from '@/entities/home/mentors-cards/useMentorsCards.js'
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseTag from '@/shared/UI/BaseTag.vue';
+import Arrow from '@/components/icons/arrow.svg';
+import useMentorsCards from '@/entities/home/mentors-cards/useMentorsCards.js';
 
 const props = defineProps({
   mentors: Array,
-  isLoading: Boolean
-})
+  isLoading: Boolean,
+});
 
-const { goToMentorDetails } = useMentorsCards()
+const { goToMentorDetails } = useMentorsCards();
 </script>
 
 <template>
@@ -17,11 +17,22 @@ const { goToMentorDetails } = useMentorsCards()
     <h3 class="center">Наши менторы</h3>
 
     <div class="mentors-cards">
-      <div class="mentors-card" v-for="mentor in props.mentors" :key="mentor.id">
-        <img class="mentors-card-photo" src="../../../assets/images/card.jpg" alt="Card">
+      <div
+        class="mentors-card"
+        v-for="mentor in props.mentors"
+        :key="mentor.id"
+        @click="goToMentorDetails(mentor.id)"
+      >
+        <img
+          class="mentors-card-photo"
+          src="../../../assets/images/card.jpg"
+          alt="Card"
+        />
 
         <div class="mentors-card-text">
-          <p class="title">{{ mentor.user.firstname }} {{ mentor.user.lastname }}</p>
+          <p class="title">
+            {{ mentor.user.firstname }} {{ mentor.user.lastname }}
+          </p>
 
           <p class="text">{{ mentor.workplace }}</p>
 
@@ -38,9 +49,7 @@ const { goToMentorDetails } = useMentorsCards()
             variant="button-no-fill"
             @click="goToMentorDetails(mentor.id)"
           >
-            <template #text>
-              Подробнее
-            </template>
+            <template #text> Подробнее </template>
             <template #icon>
               <Arrow />
             </template>
@@ -68,6 +77,7 @@ const { goToMentorDetails } = useMentorsCards()
 .mentors-card {
   background: var(--color-background-secondary);
   border-radius: 0 0 10px 10px;
+  cursor: pointer;
 }
 
 .mentors-card-text {

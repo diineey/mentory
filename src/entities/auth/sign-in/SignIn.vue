@@ -1,20 +1,19 @@
 <script setup>
-import BaseCard from '@/shared/UI/BaseCard.vue'
-import BaseFormItem from '@/shared/UI/BaseFormItem.vue'
-import BaseInput from '@/shared/UI/BaseInput.vue'
-import BaseButton from '@/shared/UI/BaseButton.vue'
-import BaseForm from '@/shared/UI/BaseForm.vue'
-import { SignInFormEmits, SignInFormProps } from '@/entities/auth/sign-in/sign-in.types.js'
-import useSignIn from '@/entities/auth/sign-in/useSignIn.js'
+import BaseCard from '@/shared/UI/BaseCard.vue';
+import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
+import BaseInput from '@/shared/UI/BaseInput.vue';
+import BaseButton from '@/shared/UI/BaseButton.vue';
+import BaseForm from '@/shared/UI/BaseForm.vue';
+import {
+  SignInFormEmits,
+  SignInFormProps,
+} from '@/entities/auth/sign-in/sign-in.types.js';
+import useSignIn from '@/entities/auth/sign-in/useSignIn.js';
 
-const props = defineProps(SignInFormProps)
-const emit = defineEmits(SignInFormEmits)
+const props = defineProps(SignInFormProps);
+const emit = defineEmits(SignInFormEmits);
 
-const {
-  phone,
-  handleSubmit,
-  updateModelValue
-} = useSignIn(props, emit)
+const { phone, handleSubmit, updateModelValue } = useSignIn(props, emit);
 </script>
 
 <template>
@@ -22,16 +21,9 @@ const {
     <BaseCard class="login-card">
       <div class="login-wrapper">
         <div class="login-text">
-          <RouterLink
-            class="menu active-link"
-            to=""
-          >
-            Вход
-          </RouterLink>
+          <RouterLink class="menu active-link" to=""> Вход </RouterLink>
 
-          <RouterLink
-            class="menu inactive-link"
-            to="sign-up">
+          <RouterLink class="menu inactive-link" to="sign-up">
             Регистрация
           </RouterLink>
         </div>
@@ -62,11 +54,8 @@ const {
             variant="button-main"
             type="submit"
           >
-            <template #text>
-              Войти
-            </template>
+            <template #text> Войти </template>
           </BaseButton>
-
         </BaseForm>
       </div>
     </BaseCard>

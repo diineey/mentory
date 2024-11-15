@@ -11,18 +11,21 @@ const withAuth = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
-withAuth.interceptors.request.use((config) => {
-  const userTokenStore = useUserTokenStore();
-  const token = userTokenStore.fingerprint;
+withAuth.interceptors.request.use(
+  (config) => {
+    const userTokenStore = useUserTokenStore();
+    const token = userTokenStore.fingerprint;
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-
-  return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+);
 
 const publicApi = axiosBase;
 

@@ -1,12 +1,8 @@
 <script setup>
-import useLanguageSwitch from '@/shared/composables/languages-switch/useLanguageSwitch.js'
-import formatCamelCase from '@/shared/utils/formatCamelCase.js'
+import useLanguageSwitch from '@/shared/composables/languages-switch/useLanguageSwitch.js';
+import formatCamelCase from '@/shared/utils/formatCamelCase.js';
 
-const {
-  currentLanguage,
-  changeLanguage,
-  languages
-} = useLanguageSwitch();
+const { currentLanguage, changeLanguage, languages } = useLanguageSwitch();
 </script>
 
 <template>

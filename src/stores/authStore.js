@@ -1,27 +1,27 @@
-import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { addToast } from '@/shared/utils/notifications.js'
-import router from '@/router/index.js'
-import { jwtDecode } from 'jwt-decode'
-import { useUserStore } from '@/stores/userStore.js'
+import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
+import { addToast } from '@/shared/utils/notifications.js';
+import router from '@/router/index.js';
+import { jwtDecode } from 'jwt-decode';
+import { useUserStore } from '@/stores/userStore.js';
 
 export const useUserTokenStore = defineStore('fingerprint', () => {
-  const fingerprint = ref(localStorage.getItem('fingerprint') || null)
+  const fingerprint = ref(localStorage.getItem('fingerprint') || null);
 
-  const userStore = useUserStore()
+  const userStore = useUserStore();
 
   function isTokenExpired(token) {
     try {
-      const decodedToken = jwtDecode(token)
+      const decodedToken = jwtDecode(token);
 
       if (decodedToken.exp) {
-        const currentTime = Math.floor(Date.now() / 1000)
-        return decodedToken.exp < currentTime
+        const currentTime = Math.floor(Date.now() / 1000);
+        return decodedToken.exp < currentTime;
       }
 
-      return true
+      return true;
     } catch (error) {
-      return true
+      return true;
     }
   }
 
@@ -42,30 +42,32 @@ export const useUserTokenStore = defineStore('fingerprint', () => {
     }
   }
 
-  const isAuthenticated = computed(() => !!(fingerprint.value && !isTokenExpired(fingerprint.value)))
+  const isAuthenticated = computed(
+    () => !!(fingerprint.value && !isTokenExpired(fingerprint.value))
+  );
 
   const setToken = (newToken) => {
-    fingerprint.value = newToken
-    localStorage.setItem('fingerprint', newToken)
-  }
+    fingerprint.value = newToken;
+    localStorage.setItem('fingerprint', newToken);
+  };
 
   const clearToken = () => {
-    fingerprint.value = null
-    localStorage.removeItem('fingerprint')
-  }
+    fingerprint.value = null;
+    localStorage.removeItem('fingerprint');
+  };
 
   if (fingerprint.value && isTokenExpired(fingerprint.value)) {
-    addToast.error('Время действия токена истекло')
+    addToast.error('Время действия токена истекло');
 
-    localStorage.removeItem('fingerprint')
+    localStorage.removeItem('fingerprint');
 
-    userStore.user = null
+    userStore.user = null;
 
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
 
-    router.push('/sign-in')
+    router.push('/sign-in');
 
-    clearToken()
+    clearToken();
   }
 
   return {
@@ -73,6 +75,6 @@ export const useUserTokenStore = defineStore('fingerprint', () => {
     isAuthenticated,
     isTokenExpired,
     setToken,
-    clearToken
-  }
-})
+    clearToken,
+  };
+});

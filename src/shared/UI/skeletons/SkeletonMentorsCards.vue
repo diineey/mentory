@@ -12,17 +12,29 @@
         <div class="skeleton language-skeleton pulsing-background"></div>
 
         <div class="mentors-card-tags">
-          <div class="skeleton tag-skeleton pulsing-background" v-for="n in 3" :key="n"></div>
+          <div
+            class="skeleton tag-skeleton pulsing-background"
+            v-for="n in 3"
+            :key="n"
+          ></div>
         </div>
 
         <div class="mentors-card-list">
           <div class="mentors-card-list-wrapper">
-            <div class="skeleton bullet-skeleton pulsing-background" v-for="n in 4" :key="n"></div>
+            <div
+              class="skeleton bullet-skeleton pulsing-background"
+              v-for="n in 4"
+              :key="n"
+            ></div>
           </div>
         </div>
 
         <div class="mentors-card-tags">
-          <div class="skeleton tag-skeleton pulsing-background" v-for="n in 3" :key="n"></div>
+          <div
+            class="skeleton tag-skeleton pulsing-background"
+            v-for="n in 3"
+            :key="n"
+          ></div>
         </div>
       </div>
 
@@ -37,10 +49,10 @@
 <style scoped>
 @keyframes color-wave {
   0% {
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
   }
   50% {
-    background-color: #B0B0B0;
+    background-color: #b0b0b0;
   }
   100% {
     background-color: var(--color-background-tertiary-grey);

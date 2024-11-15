@@ -1,5 +1,5 @@
-import { computed } from 'vue'
-import formatPhoneNumber from '@/shared/utils/formatters.js'
+import { computed } from 'vue';
+import formatPhoneNumber from '@/shared/utils/formatters.js';
 
 export default function useOtpForm(props, emit) {
   const updateModelValue = (field, value) => {
@@ -9,9 +9,7 @@ export default function useOtpForm(props, emit) {
     });
   };
 
-  const phoneNumber = computed(
-    () => formatPhoneNumber(props.phone)
-  )
+  const phoneNumber = computed(() => formatPhoneNumber(props.phone));
 
   const handleSubmit = () => {
     emit('handleSubmit');
@@ -20,6 +18,6 @@ export default function useOtpForm(props, emit) {
   return {
     phoneNumber,
     handleSubmit,
-    updateModelValue
-  }
+    updateModelValue,
+  };
 }

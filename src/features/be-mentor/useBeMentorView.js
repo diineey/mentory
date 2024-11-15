@@ -1,14 +1,17 @@
-import {useRouter} from 'vue-router'
-import {onMounted, ref} from 'vue'
-import {required, requiredCheckbox} from '@/shared/utils/validationRules.js'
-import {useFormValidation} from '@/shared/utils/formValidate.js'
-import {publicApi, withAuth} from '@/shared/utils/api/axiosInstance.js'
-import {addToast} from '@/shared/utils/notifications.js'
+import { useRouter } from 'vue-router';
+import { onMounted, ref } from 'vue';
+import {
+  required,
+  requiredCheckbox,
+} from '@/shared/utils/validationRules.js';
+import { useFormValidation } from '@/shared/utils/formValidate.js';
+import { publicApi, withAuth } from '@/shared/utils/api/axiosInstance.js';
+import { addToast } from '@/shared/utils/notifications.js';
 
 export default function useBeMentorView() {
-  const router = useRouter()
-  const categoriesList = ref([])
-  const rates = ref([])
+  const router = useRouter();
+  const categoriesList = ref([]);
+  const rates = ref([]);
 
   const formData = ref({
     skills: '',
@@ -18,15 +21,15 @@ export default function useBeMentorView() {
     language: [],
     mentorRate: '',
     linkedin: '',
-    cv: null
-  })
+    cv: null,
+  });
 
   const linkedInOrCVRequired = {
     validator: () => {
-      return !!formData.value.linkedin || !!formData.value.cv
+      return !!formData.value.linkedin || !!formData.value.cv;
     },
-    message: 'Заполните либо ссылку на LinkedIn, либо загрузите файл'
-  }
+    message: 'Заполните либо ссылку на LinkedIn, либо загрузите файл',
+  };
 
   const formRules = {
     skills: required,
@@ -35,15 +38,17 @@ export default function useBeMentorView() {
     workplace: required,
     position: required,
     language: requiredCheckbox,
-    mentorRate: required
-  }
+    mentorRate: required,
+  };
 
-  const {errors, validate} = useFormValidation(formData, formRules)
+  const { errors, validate } = useFormValidation(formData, formRules);
 
   const onSubmit = async () => {
     if (validate()) {
       const requestData = {
-        skills: formData.value.skills.split(',').map(skill => skill.trim()),
+        skills: formData.value.skills
+          .split(',')
+          .map((skill) => skill.trim()),
         categories: formData.value.categories,
         workplace: formData.value.workplace,
         position: formData.value.position,
@@ -54,7 +59,7 @@ export default function useBeMentorView() {
         canHelpWith: '',
         about: '',
         cvName: '',
-      }
+      };
 
       // const jsonBlob = new Blob([JSON.stringify(requestData)], { type: 'application/json' });
       // newFormData.append('request', jsonBlob);
@@ -68,51 +73,52 @@ export default function useBeMentorView() {
       try {
         if (formData.value.cv) {
           const response = await withAuth.post('upload-cv', fileData, {
-            headers: {'Content-Type': 'multipart/form-data'}
-          })
+            headers: { 'Content-Type': 'multipart/form-data' },
+          });
 
           requestData.cvName = response.data;
 
-          await withAuth.post('create-mentor-application', requestData)
+          await withAuth.post('create-mentor-application', requestData);
         } else {
-          await withAuth.post('create-mentor-application', requestData)
+          await withAuth.post('create-mentor-application', requestData);
         }
 
-        addToast.success('Ваша заявка на рассмотрении')
+        addToast.success('Ваша заявка на рассмотрении');
 
-        await router.push({name: 'home'})
+        await router.push({ name: 'home' });
       } catch (err) {
-        addToast.error('Internal server error')
+        addToast.error('Internal server error');
       }
     }
-  }
+  };
 
   const getCategories = async () => {
     try {
-      const response = await publicApi.get('dictionary/get-all-categories')
+      const response = await publicApi.get(
+        'dictionary/get-all-categories'
+      );
 
-      categoriesList.value = response.data.categoryList
+      categoriesList.value = response.data.categoryList;
     } catch (err) {
-      addToast.error('Internal server error')
+      addToast.error('Internal server error');
     }
-  }
+  };
 
   const getRates = async () => {
     try {
-      const response = await publicApi.get('dictionary/get-all-mentor-rates')
+      const response = await publicApi.get(
+        'dictionary/get-all-mentor-rates'
+      );
 
-      rates.value = response.data.mentorRates
+      rates.value = response.data.mentorRates;
     } catch (err) {
-      addToast.error('Internal server error')
+      addToast.error('Internal server error');
     }
-  }
+  };
 
   onMounted(async () => {
-    await Promise.all([
-      getCategories(),
-      getRates()
-    ])
-  })
+    await Promise.all([getCategories(), getRates()]);
+  });
 
   return {
     categoriesList,
@@ -120,6 +126,6 @@ export default function useBeMentorView() {
     formData,
     formRules,
     errors,
-    onSubmit
-  }
+    onSubmit,
+  };
 }

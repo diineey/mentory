@@ -2,8 +2,8 @@
 defineProps({
   text: String,
   variant: String,
-  isClickable: Boolean
-})
+  isClickable: Boolean,
+});
 </script>
 
 <template>
@@ -11,7 +11,6 @@ defineProps({
     <p class="tag">
       {{ text }}
     </p>
-
   </div>
 </template>
 
