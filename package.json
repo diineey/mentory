@@ -1,6 +1,6 @@
 {
   "name": "mentory",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -30,7 +30,7 @@
     "eslint-plugin-vue": "^9.23.0",
     "prettier": "^3.2.5",
     "sass-embedded": "^1.79.2",
-    "vite": "^5.3.1",
+    "vite": "5.4.6",
     "vite-svg-loader": "^5.1.0",
     "vue-svg-loader": "^0.16.0"
   }

@@ -6,10 +6,14 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import svgLoader from 'vite-svg-loader';
 
 export default defineConfig({
-  plugins: [vue(), vueJsx(), svgLoader()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    svgLoader()
+  ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
-});
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
+})
