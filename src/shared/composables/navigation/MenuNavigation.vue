@@ -9,9 +9,14 @@ defineProps({
     :style="{ backgroundColor: backgroundColor }"
     class="menu-nav center"
   >
-    <RouterLink to="mentors" class="menu" active-class="active-link-nav">
+<!--    <RouterLink to="mentors" class="menu" active-class="active-link-nav">-->
+<!--      Менторы-->
+<!--    </RouterLink>-->
+    
+    <div class="menu soon-link">
+      <img src="@/assets/images/soon.png" alt="Soon" class="menu-soon">
       Менторы
-    </RouterLink>
+    </div>
 
     <RouterLink to="faq" class="menu" active-class="active-link-nav">
       FAQ
@@ -31,8 +36,25 @@ defineProps({
   transition: color 0.5s ease;
 }
 
+.menu-soon {
+  width: 63px;
+  position: absolute;
+  top: -8px;
+  left: -9px;
+}
+
 .menu:hover {
   color: var(--color-text-blue);
+}
+
+.soon-link {
+  cursor: pointer;
+  position: relative;
+  color: var(--color-text-main-grey);
+}
+
+.soon-link:hover {
+  color: var(--color-text-main-grey);
 }
 
 .active-link-nav {
