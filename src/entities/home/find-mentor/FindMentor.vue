@@ -10,7 +10,8 @@ import ArrowType from '@/components/icons/arrow-long.svg';
       Mentory - найди наставника и получи ответы на вопросы
     </h1>
 
-    <BaseButton variant="button-main" @click="router.push('mentors')">
+<!--    <BaseButton variant="button-main" @click="router.push('mentors')">-->
+    <BaseButton variant="button-main">
       <template #text> Посмотреть менторов </template>
       <template #icon>
         <ArrowType class="white" />

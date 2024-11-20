@@ -14,7 +14,7 @@ const { isAuthenticated } = useMainFooter();
         </div>
 
         <div class="footer-column">
-          <RouterLink class="footer-link menu-footer" to="mentors">
+          <RouterLink class="footer-link menu-footer" to="">
             Наши менторы
           </RouterLink>
 

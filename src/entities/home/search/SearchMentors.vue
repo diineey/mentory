@@ -24,11 +24,16 @@ const {
 
 <template>
   <div class="search-mentors center">
+    <!--    <BaseForm-->
+    <!--      no-prevent-route-->
+    <!--      :model="props.modelValue"-->
+    <!--      :rules="props.rules"-->
+    <!--      @submit.prevent="handleSearchMentorBySkill"-->
+    <!--    >-->
     <BaseForm
       no-prevent-route
       :model="props.modelValue"
       :rules="props.rules"
-      @submit.prevent="handleSearchMentorBySkill"
     >
       <div class="search">
         <base-form-item class="no-styles">
@@ -39,12 +44,23 @@ const {
             @input="updateModelValue('skill', $event.target.value)"
           />
         </base-form-item>
-
+        
         <BaseButton type="submit" variant="button-main">
-          <template #text> Найти специалиста </template>
+          <template #text> Найти специалиста</template>
         </BaseButton>
       </div>
-
+      
+<!--      <div class="search-tags">-->
+<!--        <BaseTag-->
+<!--          v-for="tag in props.categories"-->
+<!--          is-clickable-->
+<!--          :key="tag.id"-->
+<!--          :text="tag.name"-->
+<!--          :variant="isSelected(tag) ? 'tag-selected' : 'tag-primary'"-->
+<!--          @click="handleSearchMentorByCategory(tag)"-->
+<!--        />-->
+<!--      </div>-->
+      
       <div class="search-tags">
         <BaseTag
           v-for="tag in props.categories"
@@ -52,7 +68,6 @@ const {
           :key="tag.id"
           :text="tag.name"
           :variant="isSelected(tag) ? 'tag-selected' : 'tag-primary'"
-          @click="handleSearchMentorByCategory(tag)"
         />
       </div>
     </BaseForm>
