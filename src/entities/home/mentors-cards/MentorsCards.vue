@@ -16,7 +16,7 @@ const { goToMentorDetails } = useMentorsCards();
   <div class="mentors-cards-wrapper">
     <h3 class="center">Наши менторы</h3>
 
-    <div class="mentors-cards" style="display: flex; justify-content: center;">
+    <div class="mentors-cards" style="display: flex; justify-content: center; position: relative">
       <img src="@/assets/images/mentors-blur.png" alt="Soon" width="100%" height="100%">
       
       <img src="@/assets/images/mentors-soon.png" alt="Soon" class="img-soon" >
@@ -67,7 +67,7 @@ const { goToMentorDetails } = useMentorsCards();
   position: absolute;
   height: auto;
   width: 100%;
-  top: 63%
+  top: 22%
 }
 
 .mentors-cards-wrapper {
