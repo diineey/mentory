@@ -67,7 +67,7 @@ const { goToMentorDetails } = useMentorsCards();
   position: absolute;
   height: auto;
   width: 100%;
-  top: 63%
+  top: 59%
 }
 
 .mentors-cards-wrapper {
