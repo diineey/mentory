@@ -15,4 +15,8 @@ export const OtpFormProps = {
   title: String,
 };
 
-export const OtpFormEmits = ['update:modelValue', 'handleSubmit'];
+export const OtpFormEmits = [
+  'update:modelValue',
+  'handleSubmit',
+  'getOtp'
+];

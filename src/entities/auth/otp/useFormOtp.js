@@ -14,9 +14,12 @@ export default function useOtpForm(props, emit) {
   const handleSubmit = () => {
     emit('handleSubmit');
   };
+  
+  const getOtp = () => emit('getOtp');
 
   return {
     phoneNumber,
+    getOtp,
     handleSubmit,
     updateModelValue,
   };

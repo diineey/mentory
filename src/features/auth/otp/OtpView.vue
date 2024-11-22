@@ -2,8 +2,15 @@
 import useOtpView from '@/features/auth/otp/useOtpView.js';
 import ConfirmOtp from '@/entities/auth/otp/ConfirmOtp.vue';
 
-const { formData, formRules, phone, errors, title, onSubmit } =
-  useOtpView();
+const {
+  formData,
+  formRules,
+  phone,
+  errors,
+  title,
+  onSubmit,
+  getOtpAgain
+} = useOtpView();
 </script>
 
 <template>
@@ -15,5 +22,6 @@ const { formData, formRules, phone, errors, title, onSubmit } =
     :rules="formRules"
     :errors="errors"
     @handleSubmit="onSubmit"
+    @getOtp="getOtpAgain"
   />
 </template>

@@ -42,10 +42,15 @@ export default function useOtpView() {
 
         router.push('/');
       } catch (err) {
-        addToast.error('Internal server error');
+        const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+        addToast.error(errorMessage);
       }
     }
   };
+  
+  const getOtpAgain = async () => {
+    await publicApi.post('auth/login-otp', { phone })
+  }
 
   return {
     formData,
@@ -53,6 +58,7 @@ export default function useOtpView() {
     errors,
     title,
     phone,
-    onSubmit,
+    getOtpAgain,
+    onSubmit
   };
 }

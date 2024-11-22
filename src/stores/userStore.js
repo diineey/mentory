@@ -22,7 +22,8 @@ export const useUserStore = defineStore('user', () => {
 
       localStorage.setItem('user', JSON.stringify(response.data));
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 

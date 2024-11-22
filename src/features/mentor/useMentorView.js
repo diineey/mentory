@@ -45,7 +45,8 @@ export default function useMentorView() {
 
       data.value = response.data;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 
@@ -68,7 +69,8 @@ export default function useMentorView() {
 
         isSuccessModalActive.value = true;
       } catch (err) {
-        addToast.error('Internal server error');
+        const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+        addToast.error(errorMessage);
       }
     }
   };

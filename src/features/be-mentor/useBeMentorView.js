@@ -61,9 +61,6 @@ export default function useBeMentorView() {
         cvName: '',
       };
 
-      // const jsonBlob = new Blob([JSON.stringify(requestData)], { type: 'application/json' });
-      // newFormData.append('request', jsonBlob);
-
       const fileData = new FormData();
 
       if (formData.value.cv) {
@@ -87,7 +84,8 @@ export default function useBeMentorView() {
 
         await router.push({ name: 'home' });
       } catch (err) {
-        addToast.error('Internal server error');
+        const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+        addToast.error(errorMessage);
       }
     }
   };
@@ -100,7 +98,8 @@ export default function useBeMentorView() {
 
       categoriesList.value = response.data.categoryList;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 
@@ -112,7 +111,8 @@ export default function useBeMentorView() {
 
       rates.value = response.data.mentorRates;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 

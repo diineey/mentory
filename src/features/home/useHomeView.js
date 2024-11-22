@@ -27,7 +27,8 @@ export default function useHomeView() {
 
       mentors.value = response.data.mentors;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     } finally {
       isMentorsLoading.value = false;
     }
@@ -43,7 +44,8 @@ export default function useHomeView() {
 
       categories.value = response.data.categoryList;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     } finally {
       isCategoriesLoading.value = false;
     }

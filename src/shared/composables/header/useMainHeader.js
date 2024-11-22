@@ -48,7 +48,8 @@ export default function useMainHeader() {
 
       userStore.removeUser();
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 

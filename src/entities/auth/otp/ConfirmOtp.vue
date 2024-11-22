@@ -13,10 +13,13 @@ import {
 const props = defineProps(OtpFormProps);
 const emit = defineEmits(OtpFormEmits);
 
-const { phoneNumber, otp, handleSubmit, updateModelValue } = useOtpForm(
-  props,
-  emit
-);
+const {
+  phoneNumber,
+  otp,
+  handleSubmit,
+  updateModelValue,
+  getOtp
+} = useOtpForm(props, emit);
 </script>
 
 <template>
@@ -49,7 +52,7 @@ const { phoneNumber, otp, handleSubmit, updateModelValue } = useOtpForm(
           </base-form-item>
 
           <div class="login-buttons">
-            <BaseButton variant="button-secondary">
+            <BaseButton variant="button-secondary" @click="getOtp">
               <template #text> Отправить заново </template>
             </BaseButton>
 

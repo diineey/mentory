@@ -59,11 +59,12 @@ export default function useRegistrationView() {
       try {
         await publicApi.post('auth/signup', dataToSend);
 
-        // await publicApi.post('auth/login-otp', { phone: formData.value.phoneNumber })
+        await publicApi.post('auth/login-otp', { phone: formData.value.phoneNumber })
 
         goToOtp();
       } catch (err) {
-        addToast.error('Internal server error');
+        const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+        addToast.error(errorMessage);
       }
     }
   };

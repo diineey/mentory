@@ -36,11 +36,12 @@ export default function useSignInView() {
 
     if (validate()) {
       try {
-        // await publicApi.post('auth/login-otp', formData.value);
+        await publicApi.post('auth/login-otp', formData.value);
 
         goToOtp();
       } catch (err) {
-        addToast.error('Internal server error');
+        const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+        addToast.error(errorMessage);
       }
     }
   };

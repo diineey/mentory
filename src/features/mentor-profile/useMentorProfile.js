@@ -23,6 +23,7 @@ export default function useMentorProfile() {
     about: '',
     canHelpWith: '',
     yearsOfExperience: '',
+    photo
   });
 
   const getMentorInfo = async () => {
@@ -48,12 +49,11 @@ export default function useMentorProfile() {
         about: data.value.about || '',
         canHelpWith: data.value.canHelpWith || '',
         yearsOfExperience: data.value.yearsOfExperience || '',
-        // yearsOfExperience: data.value.yearsOfExperience
-        //   ? String(parseInt(data.value.yearsOfExperience.split('-')[0]))
-        //   : ''
+        photo: ''
       };
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 
@@ -65,7 +65,8 @@ export default function useMentorProfile() {
 
       categoriesList.value = response.data.categoryList;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 
@@ -77,7 +78,8 @@ export default function useMentorProfile() {
 
       rates.value = response.data.mentorRates;
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 
@@ -97,7 +99,7 @@ export default function useMentorProfile() {
       mentorRateId: formData.value.mentorRateId.id || '',
       about: formData.value.about || '',
       canHelpWith: formData.value.canHelpWith || '',
-      yearsOfExperience: formData.value.yearsOfExperience || '',
+      yearsOfExperience: formData.value.yearsOfExperience || ''
     };
 
     try {
@@ -109,7 +111,8 @@ export default function useMentorProfile() {
 
       addToast.success('Успешно!');
     } catch (err) {
-      addToast.error('Internal server error');
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
     }
   };
 
