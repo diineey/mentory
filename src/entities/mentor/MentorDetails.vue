@@ -28,6 +28,14 @@ const {
         :class="{ 'mentor-editable': props.isEditable }"
       >
         <img
+          v-if="props.mentorPhoto"
+          class="mentors-img"
+          :src="props.mentorPhoto"
+          alt="photo"
+        />
+        
+        <img
+          v-else
           class="mentors-img"
           src="../../assets/images/card.jpg"
           alt="photo"

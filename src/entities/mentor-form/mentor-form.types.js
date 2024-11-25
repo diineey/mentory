@@ -14,6 +14,7 @@ export const MentorFormProps = {
   categoriesList: Array,
   rates: Array,
   showModal: Boolean,
+  mentorPhoto: String
 };
 
 export const MentorFormEmits = [

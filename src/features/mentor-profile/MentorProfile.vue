@@ -8,6 +8,7 @@ const {
   formData,
   categoriesList,
   rates,
+  mentorPhoto,
   isEditModalActive,
   onToggleEditModal,
   onSubmit,
@@ -18,6 +19,7 @@ const {
   <main class="mentor-main">
     <MentorDetails
       :data="data"
+      :mentorPhoto="mentorPhoto"
       is-editable
       @handleOpenEditModal="onToggleEditModal"
     />
@@ -28,6 +30,7 @@ const {
       :categoriesList="categoriesList"
       :rates="rates"
       :data="data"
+      :mentorPhoto="mentorPhoto"
       @onCloseModal="onToggleEditModal"
       @handleSubmit="onSubmit"
     />
