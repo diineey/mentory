@@ -25,6 +25,14 @@ const { goToMentor } = useMentorsCard(props);
   >
     <div class="mentors-card-content">
       <img
+        v-if="mentor.photoUrl"
+        class="mentors-img"
+        :src="mentor.photoUrl"
+        alt="photo"
+      />
+      
+      <img
+        v-else
         class="mentors-img"
         src="../../assets/images/card.jpg"
         alt="photo"
@@ -123,7 +131,7 @@ const { goToMentor } = useMentorsCard(props);
 .mentors-img {
   width: 314px;
   height: 240px;
-  background-color: var(--grey);
+  object-fit: cover;
 }
 
 .mentors-card-inner-content {

@@ -162,8 +162,10 @@ export default function useMentorProfile() {
   });
   
   onUnmounted(() => {
-    URL.revokeObjectURL(mentorPhoto.value);
-    mentorPhoto.value = null;
+    if (mentorPhoto.value) {
+      URL.revokeObjectURL(mentorPhoto.value);
+      mentorPhoto.value = null;
+    }
   })
   
   return {

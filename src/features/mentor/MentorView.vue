@@ -9,6 +9,7 @@ const {
   errors,
   formData,
   formRules,
+  mentorPhoto,
   isSuccessModalActive,
   scrollToBookingSection,
   onSubmit,
@@ -20,6 +21,7 @@ const {
   <main class="mentor-main">
     <MentorDetails
       :data="data"
+      :mentor-photo="mentorPhoto"
       @scrollToBookingSection="scrollToBookingSection"
     />
 

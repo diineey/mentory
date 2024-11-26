@@ -153,7 +153,6 @@ const {
 .mentors-img {
   width: 325px;
   height: 240px;
-  background-color: var(--grey);
 }
 
 .mentors-card-inner-content {

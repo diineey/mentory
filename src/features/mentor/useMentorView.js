@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { useFormValidation } from '@/shared/utils/formValidate.js';
 import {
   required,
@@ -15,6 +15,7 @@ export default function useMentorView() {
   const isSuccessModalActive = ref(false);
   const categoriesList = ref([]);
   const rates = ref([]);
+  const mentorPhoto = ref('')
 
   const formData = ref({
     title: '',
@@ -44,6 +45,8 @@ export default function useMentorView() {
       );
 
       data.value = response.data;
+      
+      if (data.value.isPhotoExist) await getPhoto();
     } catch (err) {
       const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
       addToast.error(errorMessage);
@@ -74,6 +77,21 @@ export default function useMentorView() {
       }
     }
   };
+  
+  const getPhoto = async () => {
+    try {
+      const response = await publicApi.get('mentor-common-info/get-mentor-photo', {
+        params: { id: mentorId },
+        responseType: 'blob',
+      });
+      
+      const blob = new Blob([response.data], { type: response.headers['content-type'] });
+      mentorPhoto.value = URL.createObjectURL(blob);
+    } catch (err) {
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
+    }
+  }
 
   const onCloseModal = () => {
     isSuccessModalActive.value = false;
@@ -89,6 +107,13 @@ export default function useMentorView() {
 
   onMounted(async () => {
     await Promise.all([getMentorInfo()]);
+    
+    onUnmounted(() => {
+      if (mentorPhoto.value) {
+        URL.revokeObjectURL(mentorPhoto.value);
+        mentorPhoto.value = null;
+      }
+    })
   });
 
   return {
@@ -98,6 +123,7 @@ export default function useMentorView() {
     formRules,
     categoriesList,
     rates,
+    mentorPhoto,
     isSuccessModalActive,
     scrollToBookingSection,
     onCloseModal,
