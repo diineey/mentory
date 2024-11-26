@@ -49,7 +49,7 @@ export default function useOtpView() {
   };
   
   const getOtpAgain = async () => {
-    await publicApi.post('auth/login-otp', { phone })
+    await publicApi.post(`auth/login-otp?phone=${phone}`)
   }
 
   return {

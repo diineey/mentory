@@ -36,7 +36,7 @@ export default function useSignInView() {
 
     if (validate()) {
       try {
-        await publicApi.post('auth/login-otp', formData.value);
+        await publicApi.post(`auth/login-otp?phone=${formData.value.phone}`);
 
         goToOtp();
       } catch (err) {
