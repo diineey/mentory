@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { useUserStore } from '@/stores/userStore.js';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +78,22 @@ const router = createRouter({
       },
       component: () =>
         import('@/pages/mentor-profile/MentorProfilePage.vue'),
+      beforeEnter: async (to, from, next) => {
+        const userStore = useUserStore();
+        
+        if (!userStore.user) {
+          await userStore.getUser();
+        }
+        
+        const loggedInUserId = userStore.user?.mentorUserEntity?.id;
+        const profileId = to.query.id;
+        
+        if (loggedInUserId && profileId && String(loggedInUserId) === String(profileId)) {
+          next();
+        } else {
+          next({ path: '/' });
+        }
+      }
     },
   ],
 });
