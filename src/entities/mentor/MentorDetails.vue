@@ -130,9 +130,9 @@ const {
         <div v-if="props.data.skillList" class="mentors-card-tags">
           <BaseTag
             v-for="skill in props.data.skillList"
-            :key="skill.id"
+            :key="skill"
             variant="tag-tertiary"
-            :text="skill.name"
+            :text="skill"
           />
         </div>
       </div>

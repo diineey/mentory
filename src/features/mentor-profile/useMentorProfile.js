@@ -40,6 +40,11 @@ export default function useMentorProfile() {
       
       if (data.value.isPhotoExist) await getPhoto();
       
+      if (!data.value.isPhotoExist && mentorPhoto.value) {
+        URL.revokeObjectURL(mentorPhoto.value);
+        mentorPhoto.value = '';
+      }
+      
       formData.value = {
         firstname: data.value.firstname || '',
         lastname: data.value.lastname || '',
@@ -112,14 +117,26 @@ export default function useMentorProfile() {
     }
   }
   
+  const deletePhoto = async () => {
+    try {
+      await withAuth.delete('mentor-manager/delete-photo');
+    } catch (err) {
+      const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
+      addToast.error(errorMessage);
+    }
+  }
+  
   const onSubmit = async () => {
     const payload = {
       firstname: formData.value.firstname || '',
       lastname: formData.value.lastname || '',
-      skills:
-        typeof formData.value.skills === 'string' &&
-        formData.value.skills.trim() !== ''
-          ? formData.value.skills.split(',').map((skill) => skill.trim())
+      skills: Array.isArray(formData.value.skills)
+        ? formData.value.skills
+        : formData.value.skills.trim() !== ''
+          ? formData.value.skills
+            .split(',')
+            .map((skill) => skill.trim())
+            .filter((skill) => skill !== '')
           : [],
       categories: formData.value.categories || [],
       currentWorkplace: formData.value.currentWorkplace || '',
@@ -175,7 +192,8 @@ export default function useMentorProfile() {
     rates,
     mentorPhoto,
     isEditModalActive,
+    deletePhoto,
     onToggleEditModal,
-    onSubmit,
+    onSubmit
   };
 }

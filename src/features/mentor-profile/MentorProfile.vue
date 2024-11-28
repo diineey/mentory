@@ -12,6 +12,7 @@ const {
   isEditModalActive,
   onToggleEditModal,
   onSubmit,
+  deletePhoto
 } = useMentorProfile();
 </script>
 
@@ -33,6 +34,7 @@ const {
       :mentorPhoto="mentorPhoto"
       @onCloseModal="onToggleEditModal"
       @handleSubmit="onSubmit"
+      @deletePhoto="deletePhoto"
     />
   </main>
 </template>

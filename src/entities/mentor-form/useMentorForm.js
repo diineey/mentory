@@ -4,6 +4,10 @@ export default function useMentorForm(props, emit) {
   const isCustomCategorySelected = ref(false);
   const customCategory = ref('');
   const localFormData = ref({ ...props.modelValue });
+  const skills = ref(Array.isArray(props.modelValue.skills)
+    ? props.modelValue.skills.join(',')
+    : props.modelValue.skills || ''
+  );
   const selectedCategories = ref([...localFormData.value.categories]);
   const selectedLanguages = ref([...localFormData.value.languages]);
   const selectedMentorRate = ref(localFormData.value.mentorRateId.id);
@@ -19,6 +23,10 @@ export default function useMentorForm(props, emit) {
   const updateModelValue = (field, value) => {
     if (field === 'language') {
       selectedLanguages.value = value;
+    }
+    
+    if (field === 'skills') {
+      skills.value = value;
     }
     
     if (field === 'categories') {
@@ -43,15 +51,11 @@ export default function useMentorForm(props, emit) {
     
     localFormData.value = {
       ...localFormData.value,
+      skills: skills.value,
       languages: selectedLanguages.value,
       categories: selectedCategories.value,
       mentorRateId: mentorRate,
     };
-    
-    // emit('update:modelValue', {
-    //   ...props.modelValue,
-    //   [field]: value,
-    // });
     
     emit('update:modelValue', localFormData.value);
   };
@@ -79,9 +83,15 @@ export default function useMentorForm(props, emit) {
     }
     
     updateModelValue('photo', null);
+    
+    if (props.mentorPhoto) emit('deletePhoto');
   };
   
   const handleSubmit = () => {
+    localFormData.value.skills = Array.isArray(skills.value)
+      ? skills.value.join(',')
+      : skills.value.trim();
+    
     emit('handleSubmit');
   };
   
@@ -99,6 +109,9 @@ export default function useMentorForm(props, emit) {
     () => props.modelValue,
     (newValue) => {
       localFormData.value = { ...newValue };
+      skills.value = Array.isArray(newValue.skills)
+        ? newValue.skills.join(',')
+        : newValue.skills || '';
       selectedCategories.value = [...newValue.categories];
       selectedLanguages.value = [...newValue.languages];
       selectedMentorRate.value = newValue.mentorRateId.id;

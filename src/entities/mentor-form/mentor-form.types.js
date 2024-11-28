@@ -21,4 +21,5 @@ export const MentorFormEmits = [
   'update:modelValue',
   'handleSubmit',
   'onCloseModal',
+  'deletePhoto'
 ];
