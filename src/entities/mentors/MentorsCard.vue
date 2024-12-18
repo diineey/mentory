@@ -72,7 +72,7 @@ const { goToMentor } = useMentorsCard(props);
         </div>
 
         <div class="mentors-card-about">
-          {{ mentor.about }}
+          <p class="text">{{ mentor.about }}</p>
         </div>
 
         <!--        <div class="mentors-card-list">-->

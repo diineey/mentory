@@ -10,6 +10,7 @@ import {
   RegistrationFormProps,
 } from '@/entities/auth/registration/registration-form.types.js';
 import useRegistrationForm from '@/entities/auth/registration/useRegistrationForm.js';
+import BaseOffer from '@/shared/UI/BaseOffer.vue';
 
 const props = defineProps(RegistrationFormProps);
 const emit = defineEmits(RegistrationFormEmits);
@@ -20,8 +21,11 @@ const {
   phoneNumber,
   dateOfBirth,
   gender,
+  isOfferChecked,
+  onToggleOffer,
   handleSubmit,
   updateModelValue,
+  onDownloadOffer
 } = useRegistrationForm(props, emit);
 </script>
 
@@ -121,8 +125,15 @@ const {
               />
             </div>
           </base-form-item>
+          
+          <BaseOffer
+            label="Оферту менти"
+            :is-checked="isOfferChecked"
+            @toggle-offer="onToggleOffer"
+            @download-offer="onDownloadOffer"
+          />
 
-          <BaseButton type="submit" class="w-100" variant="button-main">
+          <BaseButton type="submit" class="w-100" variant="button-main" :disabled="!isOfferChecked">
             <template #text> Регистрация </template>
           </BaseButton>
         </BaseForm>

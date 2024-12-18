@@ -14,6 +14,7 @@ import BaseForm from '@/shared/UI/BaseForm.vue';
 import BaseSelect from '@/shared/UI/BaseSelect.vue';
 import RemoveIcon from '@/components/icons/remove.svg?component';
 import UploadIcon from '@/components/icons/upload.svg?component';
+import BaseOffer from '@/shared/UI/BaseOffer.vue';
 
 const props = defineProps(BeMentorProps);
 const emit = defineEmits(BeMentorEmits);
@@ -30,12 +31,15 @@ const {
   mentorRate,
   fileInput,
   fileName,
+  isOfferChecked,
+  onToggleOffer,
   handleFileChange,
   removeFile,
   triggerFileInput,
   onToggleChoice,
   handleSubmit,
   updateModelValue,
+  onDownloadOffer
 } = useBeMentor(props, emit);
 </script>
 
@@ -44,7 +48,7 @@ const {
     <BaseBreadcrumbs class="mb-4" />
     <main class="be-mentor-main">
       <BaseCard class="mb-4">
-        <h3 class="be-mentor-card-title">Ментороство - это</h3>
+        <h3 class="be-mentor-card-title">Менторство - это</h3>
         <div class="be-mentor-card">
           <p class="text be-mentor-text">
             Путь к самопознанию и развитию. Ментор – это опытный проводник,
@@ -247,11 +251,20 @@ const {
               @change="handleFileChange"
             />
           </base-form-item>
+          
+          <BaseOffer
+            class="w-100 mt-1"
+            label="Оферту ментора"
+            :is-checked="isOfferChecked"
+            @toggle-offer="onToggleOffer"
+            @download-offer="onDownloadOffer"
+          />
 
           <BaseButton
             type="submit"
             class="mt-1 w-100"
             variant="button-main"
+            :disabled="!isOfferChecked"
           >
             <template #text> Оставить заявку </template>
           </BaseButton>

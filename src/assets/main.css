@@ -5,8 +5,7 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
-  font-family: 'Gilroy-Medium', sans-serif;
+  /*font-family: 'Gilroy-Medium', sans-serif;*/
 }
 
 #app {
@@ -197,3 +196,75 @@ input {
 .modal-open {
   overflow: hidden;
 }
+
+/* promo*/
+.button-promo {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.a-promo {
+  font-family: inherit;
+}
+
+.h1-promo {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-size: 51px;
+  font-weight: 900;
+  line-height: 56px;
+}
+
+.h2-promo {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 37px;
+  text-align: center;
+}
+
+.h3-promo {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.promo-main {
+  padding: 60px;
+}
+
+.p-promo {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .promo-main {
+    padding: 20px;
+  }
+
+  .promo-body {
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  .h1-promo {
+    font-size: 26px;
+    line-height: 28px;
+  }
+
+  .h2-promo {
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .h3-promo {
+    font-size: 19px;
+    line-height: 21px;
+  }
+}
+

@@ -21,6 +21,7 @@ const { currentLanguage, changeLanguage, languages } = useLanguageSwitch();
 
 <style scoped>
 .lang-wrapper {
+  font-family: 'Gilroy-Medium', sans-serif;
   display: flex;
   gap: 16px;
   align-items: center;
@@ -28,6 +29,7 @@ const { currentLanguage, changeLanguage, languages } = useLanguageSwitch();
 }
 
 .language-button {
+  font-family: 'Gilroy-Medium', sans-serif;
   background: none;
   border: none;
   cursor: pointer;

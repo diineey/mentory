@@ -13,10 +13,12 @@ export const OtpFormProps = {
   },
   phone: String,
   title: String,
+  buttonText: String,
+  isButtonDisabled: Boolean
 };
 
 export const OtpFormEmits = [
   'update:modelValue',
   'handleSubmit',
-  'getOtp'
+  'handleResendClick'
 ];

@@ -15,4 +15,4 @@ export const BeMentorProps = {
   rates: Array,
 };
 
-export const BeMentorEmits = ['update:modelValue', 'handleSubmit'];
+export const BeMentorEmits = ['update:modelValue', 'handleSubmit', 'downloadOffer'];

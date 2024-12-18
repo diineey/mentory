@@ -10,6 +10,7 @@ const {
   rates,
   mentorPhoto,
   isEditModalActive,
+  isSubmitting,
   onToggleEditModal,
   onSubmit,
   deletePhoto
@@ -32,6 +33,7 @@ const {
       :rates="rates"
       :data="data"
       :mentorPhoto="mentorPhoto"
+      :isLoading="isSubmitting"
       @onCloseModal="onToggleEditModal"
       @handleSubmit="onSubmit"
       @deletePhoto="deletePhoto"

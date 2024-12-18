@@ -8,8 +8,10 @@ const {
   phone,
   errors,
   title,
+  buttonText,
+  isButtonDisabled,
   onSubmit,
-  getOtpAgain
+  handleResendClick
 } = useOtpView();
 </script>
 
@@ -21,7 +23,9 @@ const {
     :title="title"
     :rules="formRules"
     :errors="errors"
+    :button-text="buttonText"
+    :is-button-disabled="isButtonDisabled"
     @handleSubmit="onSubmit"
-    @getOtp="getOtpAgain"
+    @handleResendClick="handleResendClick"
   />
 </template>

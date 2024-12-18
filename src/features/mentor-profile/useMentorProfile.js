@@ -11,6 +11,7 @@ export default function useMentorProfile() {
   const categoriesList = ref([]);
   const rates = ref([]);
   const mentorPhoto = ref('')
+  const isSubmitting = ref(false);
   
   const formData = ref({
     firstname: '',
@@ -149,6 +150,8 @@ export default function useMentorProfile() {
     };
     
     try {
+      isSubmitting.value = true;
+      
       await withAuth.post('mentor-manager/add-info-about', payload);
       
       if (formData.value.photo
@@ -164,6 +167,8 @@ export default function useMentorProfile() {
     } catch (err) {
       const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
       addToast.error(errorMessage);
+    } finally {
+      isSubmitting.value = false;
     }
   };
   
@@ -192,6 +197,7 @@ export default function useMentorProfile() {
     rates,
     mentorPhoto,
     isEditModalActive,
+    isSubmitting,
     deletePhoto,
     onToggleEditModal,
     onSubmit

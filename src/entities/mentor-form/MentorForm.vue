@@ -241,7 +241,12 @@ const {
         />
       </base-form-item>
       
-      <BaseButton type="submit" class="mt-1 w-100" variant="button-main">
+      <BaseButton
+        type="submit"
+        class="mt-1 w-100"
+        variant="button-main"
+        :disabled="props.isLoading"
+      >
         <template #text> Сохранить</template>
       </BaseButton>
     </BaseForm>
@@ -271,6 +276,8 @@ const {
 .img-upload-photo {
   width: 208px;
   height: 154px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .img-upload-button {

@@ -11,16 +11,14 @@ export default function useOtpForm(props, emit) {
 
   const phoneNumber = computed(() => formatPhoneNumber(props.phone));
 
-  const handleSubmit = () => {
-    emit('handleSubmit');
-  };
+  const handleSubmit = () => emit('handleSubmit');
   
-  const getOtp = () => emit('getOtp');
-
+  const handleResendClick = () => emit('handleResendClick');
+  
   return {
     phoneNumber,
-    getOtp,
     handleSubmit,
     updateModelValue,
+    handleResendClick
   };
 }

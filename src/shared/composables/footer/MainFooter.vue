@@ -2,7 +2,12 @@
 import useMainFooter from '@/shared/composables/footer/useMainFooter.js';
 import Logo from '@/assets/logo.svg';
 
-const { isAuthenticated } = useMainFooter();
+const {
+  isAuthenticated,
+  downloadAgreement,
+  downloadMentyAgreement,
+  downloadMentorAgreement
+} = useMainFooter();
 </script>
 
 <template>
@@ -28,14 +33,18 @@ const { isAuthenticated } = useMainFooter();
           >
             Стать ментором
           </RouterLink>
-
-          <RouterLink class="footer-link menu-footer" to="">
-            Юридическая информация
-          </RouterLink>
-
-          <RouterLink class="footer-link menu-footer" to="">
+          
+          <p class="footer-link menu-footer" @click="downloadAgreement">
             Пользовательское соглашение
-          </RouterLink>
+          </p>
+
+          <p class="footer-link menu-footer" @click="downloadMentyAgreement">
+            Оферта менти
+          </p>
+          
+          <p class="footer-link menu-footer" @click="downloadMentorAgreement">
+            Оферта ментора
+          </p>
         </div>
 
         <div class="footer-column ml-30">
@@ -59,6 +68,10 @@ const { isAuthenticated } = useMainFooter();
 .footer {
   background-color: var(--color-background-blue);
   width: 100%;
+}
+
+.footer-link {
+  cursor: pointer;
 }
 
 .footer-link:hover {

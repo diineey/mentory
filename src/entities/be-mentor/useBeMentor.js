@@ -7,6 +7,7 @@ export default function useBeMentor(props, emit) {
   const selectedLanguages = ref([]);
   const fileInput = ref(null);
   const fileName = ref('');
+  const isOfferChecked = ref(false);
 
   const onToggleChoice = () => {
     isCustomCategorySelected.value = !isCustomCategorySelected.value;
@@ -56,9 +57,13 @@ export default function useBeMentor(props, emit) {
     fileInput.value.value = '';
   };
 
-  const handleSubmit = () => {
-    emit('handleSubmit');
-  };
+  const handleSubmit = () => emit('handleSubmit');
+  
+  const onDownloadOffer = () => emit('downloadOffer');
+  
+  const onToggleOffer = () => {
+    isOfferChecked.value = !isOfferChecked.value;
+  }
 
   return {
     fileInput,
@@ -67,11 +72,14 @@ export default function useBeMentor(props, emit) {
     selectedLanguages,
     selectedCategories,
     customCategory,
+    isOfferChecked,
+    onToggleOffer,
     removeFile,
     handleFileChange,
     triggerFileInput,
     updateModelValue,
     onToggleChoice,
     handleSubmit,
+    onDownloadOffer
   };
 }

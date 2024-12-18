@@ -95,6 +95,11 @@ const router = createRouter({
         }
       }
     },
+    {
+      path: '/promo',
+      name: 'promo',
+      component: () => import('@/pages/promo/PromoPage.vue'),
+    },
   ],
 });
 

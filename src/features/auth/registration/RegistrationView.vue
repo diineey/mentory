@@ -2,7 +2,13 @@
 import RegistrationForm from '@/entities/auth/registration/RegistrationForm.vue';
 import useRegistrationView from '@/features/auth/registration/useRegistrationView.js';
 
-const { formData, formRules, errors, onSubmit } = useRegistrationView();
+const {
+  formData,
+  formRules,
+  errors,
+  onSubmit,
+  downloadMentyAgreement
+} = useRegistrationView();
 </script>
 
 <template>
@@ -16,5 +22,6 @@ const { formData, formRules, errors, onSubmit } = useRegistrationView();
     :rules="formRules"
     :errors="errors"
     @handleSubmit="onSubmit"
+    @downloadOffer="downloadMentyAgreement"
   />
 </template>

@@ -1,11 +1,16 @@
 <script setup>
-defineProps({
+const props = defineProps({
   variant: String,
+  disabled: Boolean
 });
 </script>
 
 <template>
-  <button class="base-button" :class="['base-button', 'button', variant]">
+  <button
+    class="base-button"
+    :class="['base-button', 'button', variant, { 'button-disabled': disabled }]"
+    :disabled="disabled"
+  >
     <template v-if="variant === 'button-no-fill-borders'">
       <slot name="icon"></slot>
       <slot name="text"></slot>
@@ -61,5 +66,10 @@ defineProps({
 
 .button-no-fill:hover {
   color: var(--color-text-blue);
+}
+
+.button-disabled {
+  background-color: var(--color-button-hovered);
+  color: var(--color-input-hover);
 }
 </style>

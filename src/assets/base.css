@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap');
+
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -12,6 +14,9 @@
   --error: #ffe7e9;
   --success: #e1ffde;
   --tertiary-grey: #d4d4d4;
+  --pink: #FFEFEF;
+  --soft-red: #FF7171;
+  --soft-blue: #F3FBFE
 }
 
 :root {
@@ -21,6 +26,11 @@
   --color-background-white: var(--white);
   --color-background-blue: var(--blue);
   --color-background-tertiary-grey: var(--tertiary-grey);
+
+  --color-background-promo: var(--white);
+  --color-background-secondary-promo: var(--soft-blue);
+  --color-background-soft: var(--pink);
+  --color-background-mute: var(--red);
 
   --color-text: var(--black);
   --color-text-white: var(--white);

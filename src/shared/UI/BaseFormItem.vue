@@ -17,7 +17,7 @@ defineProps({
     </label>
 
     <slot></slot>
-    <span v-if="error" class="error-text">{{ error }}</span>
+    <span v-if="error" class="error-text text">{{ error }}</span>
   </div>
 </template>
 

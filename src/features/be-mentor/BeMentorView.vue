@@ -2,8 +2,15 @@
 import BeMentor from '@/entities/be-mentor/BeMentor.vue';
 import useBeMentorView from './useBeMentorView';
 
-const { categoriesList, rates, formData, formRules, errors, onSubmit } =
-  useBeMentorView();
+const {
+  categoriesList,
+  rates,
+  formData,
+  formRules,
+  errors,
+  onSubmit,
+  downloadMentorAgreement
+} = useBeMentorView();
 </script>
 
 <template>
@@ -22,5 +29,6 @@ const { categoriesList, rates, formData, formRules, errors, onSubmit } =
     :errors="errors"
     :rules="formRules"
     @handleSubmit="onSubmit"
+    @downloadOffer="downloadMentorAgreement"
   />
 </template>

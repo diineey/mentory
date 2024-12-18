@@ -18,7 +18,7 @@ const {
   otp,
   handleSubmit,
   updateModelValue,
-  getOtp
+  handleResendClick
 } = useOtpForm(props, emit);
 </script>
 
@@ -52,8 +52,12 @@ const {
           </base-form-item>
 
           <div class="login-buttons">
-            <BaseButton variant="button-secondary" @click="getOtp">
-              <template #text> Отправить заново </template>
+            <BaseButton
+              variant="button-secondary"
+              @click="handleResendClick"
+              :disabled="props.isButtonDisabled"
+            >
+              <template #text>{{ buttonText }}</template>
             </BaseButton>
 
             <BaseButton type="submit" variant="button-main">
