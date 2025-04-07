@@ -22,7 +22,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([ 'update:modelValue' ]);
 
 const isChecked = computed(() => props.modelValue === props.value);
 
@@ -40,7 +40,7 @@ const handleChange = () => {
       :value="value"
       :checked="isChecked"
       @change="handleChange"
-    />
+    >
 
     <span class="custom-radio">
       <IconCheck class="icon-check" />

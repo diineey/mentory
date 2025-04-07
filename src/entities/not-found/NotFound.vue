@@ -32,7 +32,7 @@ const parameter = computed(() => route.query.parameter);
       class="not-found-img"
       src="../../assets/images/not-found.png"
       alt="Not Found"
-    />
+    >
   </div>
 </template>
 

@@ -25,22 +25,22 @@ export const useUserTokenStore = defineStore('fingerprint', () => {
     }
   }
 
-  function isTokenExpiringSoon(token, warningTimeInMinutes = 5) {
-    try {
-      const decodedToken = jwtDecode(token);
-      if (decodedToken.exp) {
-        const currentTime = Math.floor(Date.now() / 1000);
+  // function isTokenExpiringSoon(token, warningTimeInMinutes = 5) {
+  //   try {
+  //     const decodedToken = jwtDecode(token);
+  //     if (decodedToken.exp) {
+  //       const currentTime = Math.floor(Date.now() / 1000);
 
-        const warningTime = currentTime + warningTimeInMinutes * 60;
+  //       const warningTime = currentTime + warningTimeInMinutes * 60;
 
-        return decodedToken.exp < warningTime;
-      }
+  //       return decodedToken.exp < warningTime;
+  //     }
 
-      return false;
-    } catch (error) {
-      return false;
-    }
-  }
+  //     return false;
+  //   } catch (error) {
+  //     return false;
+  //   }
+  // }
 
   const isAuthenticated = computed(
     () => !!(fingerprint.value && !isTokenExpired(fingerprint.value))

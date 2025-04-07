@@ -4,7 +4,9 @@ import ru from '../locales/ru.json';
 import uz from '../locales/uz.json';
 
 function loadLocaleMessages() {
-  return { en, ru, uz };
+  return {
+    en, ru, uz
+  };
 }
 
 const savedLanguage = localStorage.getItem('language') || 'ru';

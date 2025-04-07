@@ -13,7 +13,7 @@ const props = defineProps({
   top: String,
 });
 
-const emit = defineEmits(['closeModal']);
+const emit = defineEmits([ 'closeModal' ]);
 
 const isModalOpen = ref(props.modelValue);
 
@@ -44,15 +44,21 @@ watch(
 </script>
 
 <template>
-  <div v-if="isModalOpen" class="modal-overlay">
-    <div class="modal-content" :style="{ width: width, padding: padding }">
+  <div
+    v-if="isModalOpen"
+    class="modal-overlay"
+  >
+    <div
+      class="modal-content"
+      :style="{ width: width, padding: padding }"
+    >
       <div class="modal-body">
         <CloseIcon
           class="close-icon"
           :style="{ right: right, top: top }"
           @click="closeModal"
         />
-        <slot> </slot>
+        <slot />
       </div>
     </div>
   </div>

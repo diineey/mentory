@@ -3,13 +3,9 @@ import { useUserTokenStore } from '@/stores/authStore.js';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-const axiosBase = axios.create({
-  baseURL: baseUrl,
-});
+const axiosBase = axios.create({ baseURL: baseUrl, });
 
-const withAuth = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-});
+const withAuth = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL, });
 
 withAuth.interceptors.request.use(
   (config) => {

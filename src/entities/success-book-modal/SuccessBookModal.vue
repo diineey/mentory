@@ -21,23 +21,29 @@ const { onCloseModal } = useSuccessBookModal(props, emit);
     padding="48px"
     right="30px"
     top="30px"
-    @closeModal="onCloseModal"
+    @close-modal="onCloseModal"
     @keydown.esc="onCloseModal"
-    @update:modelValue="showModal = $event"
+    @update:model-value="showModal = $event"
   >
     <div class="book-modal">
       <SuccessIcon />
 
-      <p class="title">Заявка принята</p>
+      <p class="title">
+        Заявка принята
+      </p>
 
-      <p class="input-text">Свяжемся с вами в ближайшее время</p>
+      <p class="input-text">
+        Свяжемся с вами в ближайшее время
+      </p>
 
       <BaseButton
         variant="button-secondary"
         class="w-100"
         @click="onCloseModal"
       >
-        <template #text> Ок </template>
+        <template #text>
+          Ок
+        </template>
       </BaseButton>
     </div>
   </BaseModal>

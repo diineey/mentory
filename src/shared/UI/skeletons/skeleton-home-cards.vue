@@ -1,13 +1,17 @@
 <template>
   <div class="skeleton mentors-card">
-    <div class="skeleton-photo"></div>
+    <div class="skeleton-photo" />
     <div class="skeleton-text">
-      <div class="skeleton-title"></div>
-      <div class="skeleton-subtitle"></div>
+      <div class="skeleton-title" />
+      <div class="skeleton-subtitle" />
       <div class="skeleton-tags">
-        <div class="skeleton-tag" v-for="n in 3" :key="n"></div>
+        <div
+          v-for="n in 3"
+          :key="n"
+          class="skeleton-tag"
+        />
       </div>
-      <div class="skeleton-button"></div>
+      <div class="skeleton-button" />
     </div>
   </div>
 </template>

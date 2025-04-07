@@ -6,7 +6,7 @@ export default function useLanguageSwitch() {
   const languageStore = useLanguageStore();
   const { locale } = useI18n();
 
-  const languages = ['uz', 'ru', 'en'];
+  const languages = [ 'uz', 'ru', 'en' ];
   const currentLanguage = computed(() => languageStore.currentLanguage);
 
   const changeLanguage = (lang) => {

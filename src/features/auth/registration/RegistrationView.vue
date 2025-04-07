@@ -21,7 +21,7 @@ const {
     v-model:phoneNumber="formData.phoneNumber"
     :rules="formRules"
     :errors="errors"
-    @handleSubmit="onSubmit"
-    @downloadOffer="downloadMentyAgreement"
+    @handle-submit="onSubmit"
+    @download-offer="downloadMentyAgreement"
   />
 </template>

@@ -1,7 +1,7 @@
 <script setup>
-import useIsMobile from '@/promo/shared/utils/useIsMobile.js'
+import useIsMobile from '@/promo/shared/utils/useIsMobile.js';
 
-const { isMobile } = useIsMobile()
+const { isMobile } = useIsMobile();
 
 const whyCards = [
   {
@@ -28,7 +28,7 @@ const whyCards = [
     title: 'conditions',
     description: 'conditions-text'
   }
-]
+];
 </script>
 
 <template>
@@ -39,7 +39,10 @@ const whyCards = [
           {{ $t('why-we') }}
         </h2>
 
-        <p v-html="$t('we-create')" class="text-center p-promo" />
+        <p
+          class="text-center p-promo"
+          v-html="$t('we-create')"
+        />
       </div>
 
       <swiper-container
@@ -58,30 +61,53 @@ const whyCards = [
           '450': {
             slidesPerView: 1.7,
             spaceBetween: 30
-         },
-         '375': {
+          },
+          '375': {
             slidesPerView: 1.3,
             spaceBetween: 30
-         }
+          }
         }"
       >
-        <swiper-slide v-for="(card, index) in whyCards" :key="'second-'+ index">
+        <swiper-slide
+          v-for="(card, index) in whyCards"
+          :key="'second-'+ index"
+        >
           <div class="why-card">
-            <img :src="card.imgSrc" :alt="card.altText">
-            <h3 class="h3-promo">{{ $t(card.title) }}</h3>
-            <p class="text-center p-promo">{{ $t(card.description) }}</p>
+            <img
+              :src="card.imgSrc"
+              :alt="card.altText"
+            >
+            <h3 class="h3-promo">
+              {{ $t(card.title) }}
+            </h3>
+            <p class="text-center p-promo">
+              {{ $t(card.description) }}
+            </p>
           </div>
         </swiper-slide>
       </swiper-container>
 
-      <div class="why-cards" v-else>
-        <div class="why-card" v-for="(card, index) in whyCards" :key="'second-'+ index">
-          <img :src="card.imgSrc" :alt="card.altText">
-          <h3 class="h3-promo">{{ $t(card.title) }}</h3>
-          <p class="text-center p-promo">{{ $t(card.description) }}</p>
+      <div
+        v-else
+        class="why-cards"
+      >
+        <div
+          v-for="(card, index) in whyCards"
+          :key="'second-'+ index"
+          class="why-card"
+        >
+          <img
+            :src="card.imgSrc"
+            :alt="card.altText"
+          >
+          <h3 class="h3-promo">
+            {{ $t(card.title) }}
+          </h3>
+          <p class="text-center p-promo">
+            {{ $t(card.description) }}
+          </p>
         </div>
       </div>
-
     </div>
   </main>
 </template>

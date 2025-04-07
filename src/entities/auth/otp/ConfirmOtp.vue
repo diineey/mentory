@@ -26,11 +26,13 @@ const {
   <main class="login-main">
     <BaseCard class="login-card">
       <div class="login-wrapper">
-        <p class="menu center">{{ props.title }}</p>
+        <p class="menu center">
+          {{ props.title }}
+        </p>
 
         <p class="input-text login-confirmation-text">
           Мы выслали Вам код подтверждения, на номер телефона
-          <br />
+          <br>
           {{ phoneNumber }}
         </p>
 
@@ -40,7 +42,10 @@ const {
           :rules="props.rules"
           @submit.prevent="handleSubmit"
         >
-          <base-form-item label="ОТП-код" :error="props.errors.otp">
+          <base-form-item
+            label="ОТП-код"
+            :error="props.errors.otp"
+          >
             <BaseInput
               v-model="otp"
               placeholder="Введите ОТП-код"
@@ -54,14 +59,21 @@ const {
           <div class="login-buttons">
             <BaseButton
               variant="button-secondary"
-              @click="handleResendClick"
               :disabled="props.isButtonDisabled"
+              @click="handleResendClick"
             >
-              <template #text>{{ buttonText }}</template>
+              <template #text>
+                {{ buttonText }}
+              </template>
             </BaseButton>
 
-            <BaseButton type="submit" variant="button-main">
-              <template #text> Войти </template>
+            <BaseButton
+              type="submit"
+              variant="button-main"
+            >
+              <template #text>
+                Войти
+              </template>
             </BaseButton>
           </div>
         </BaseForm>

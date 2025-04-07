@@ -20,7 +20,7 @@ const getIcon = (type) => {
         :src="getIcon(notification.type)"
         :alt="notification.type === 'error' ? 'Error' : 'Success'"
         class="notification-icon"
-      />
+      >
 
       {{ notification.message }}
     </div>

@@ -1,7 +1,5 @@
 <script setup>
-defineProps({
-  backgroundColor: String,
-});
+defineProps({ backgroundColor: String, });
 </script>
 
 <template>
@@ -9,20 +7,33 @@ defineProps({
     :style="{ backgroundColor: backgroundColor }"
     class="menu-nav center"
   >
-<!--    <RouterLink to="mentors" class="menu" active-class="active-link-nav">-->
-<!--      Менторы-->
-<!--    </RouterLink>-->
-    
-    <div class="menu soon-link">
+    <RouterLink
+      to="mentors"
+      class="menu"
+      active-class="active-link-nav"
+      ы
+    >
+      Менторы
+    </RouterLink>
+
+    <!-- <div class="menu soon-link">
       <img src="@/assets/images/soon.png" alt="Soon" class="menu-soon">
       Менторы
-    </div>
+    </div> -->
 
-    <RouterLink to="faq" class="menu" active-class="active-link-nav">
+    <RouterLink
+      to="faq"
+      class="menu"
+      active-class="active-link-nav"
+    >
       FAQ
     </RouterLink>
 
-    <RouterLink to="contacts" class="menu" active-class="active-link-nav">
+    <RouterLink
+      to="contacts"
+      class="menu"
+      active-class="active-link-nav"
+    >
       Контакты
     </RouterLink>
   </nav>

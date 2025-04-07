@@ -1,46 +1,46 @@
 <template>
   <div class="mentors-cards-wrapper">
     <div class="mentors-card-content">
-      <div class="mentors-img skeleton pulsing-background"></div>
+      <div class="mentors-img skeleton pulsing-background" />
 
       <div class="mentors-card-inner-content">
         <div class="mentors-card-title">
-          <div class="skeleton title-skeleton pulsing-background"></div>
-          <div class="skeleton years-skeleton pulsing-background"></div>
+          <div class="skeleton title-skeleton pulsing-background" />
+          <div class="skeleton years-skeleton pulsing-background" />
         </div>
 
-        <div class="skeleton language-skeleton pulsing-background"></div>
+        <div class="skeleton language-skeleton pulsing-background" />
 
         <div class="mentors-card-tags">
           <div
-            class="skeleton tag-skeleton pulsing-background"
             v-for="n in 3"
             :key="n"
-          ></div>
+            class="skeleton tag-skeleton pulsing-background"
+          />
         </div>
 
         <div class="mentors-card-list">
           <div class="mentors-card-list-wrapper">
             <div
-              class="skeleton bullet-skeleton pulsing-background"
               v-for="n in 4"
               :key="n"
-            ></div>
+              class="skeleton bullet-skeleton pulsing-background"
+            />
           </div>
         </div>
 
         <div class="mentors-card-tags">
           <div
-            class="skeleton tag-skeleton pulsing-background"
             v-for="n in 3"
             :key="n"
-          ></div>
+            class="skeleton tag-skeleton pulsing-background"
+          />
         </div>
       </div>
 
       <div class="mentors-card-price">
-        <div class="skeleton price-skeleton pulsing-background"></div>
-        <div class="skeleton button-skeleton pulsing-background"></div>
+        <div class="skeleton price-skeleton pulsing-background" />
+        <div class="skeleton button-skeleton pulsing-background" />
       </div>
     </div>
   </div>

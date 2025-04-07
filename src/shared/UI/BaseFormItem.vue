@@ -11,13 +11,22 @@ defineProps({
 
 <template>
   <div class="base-form-item">
-    <label v-if="label" class="label input-title">
-      <span v-if="required" class="required-star">*</span>
+    <label
+      v-if="label"
+      class="label input-title"
+    >
+      <span
+        v-if="required"
+        class="required-star"
+      >*</span>
       {{ label }}
     </label>
 
-    <slot></slot>
-    <span v-if="error" class="error-text text">{{ error }}</span>
+    <slot />
+    <span
+      v-if="error"
+      class="error-text text"
+    >{{ error }}</span>
   </div>
 </template>
 

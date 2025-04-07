@@ -13,4 +13,4 @@ export const RegistrationFormProps = {
   },
 };
 
-export const RegistrationFormEmits = ['update:modelValue', 'handleSubmit', 'downloadOffer'];
+export const RegistrationFormEmits = [ 'update:modelValue', 'handleSubmit', 'downloadOffer' ];

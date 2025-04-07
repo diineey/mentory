@@ -14,14 +14,14 @@ const props = defineProps({
   isLoading: Boolean,
 });
 
-const { goToMentor } = useMentorsCard(props);
+const { goToMentor } = useMentorsCard();
 </script>
 
 <template>
   <div
-    class="mentors-cards-wrapper"
     v-for="mentor in props.mentors"
     :key="mentor.id"
+    class="mentors-cards-wrapper"
   >
     <div class="mentors-card-content">
       <img
@@ -29,29 +29,33 @@ const { goToMentor } = useMentorsCard(props);
         class="mentors-img"
         :src="mentor.photoUrl"
         alt="photo"
-      />
-      
+      >
+
       <img
         v-else
         class="mentors-img"
         src="../../assets/images/card.jpg"
         alt="photo"
-      />
+      >
 
       <div class="mentors-card-inner-content">
         <div class="mentors-card-title">
-          <p class="title mentors-title" @click="goToMentor(mentor.id)">
+          <p
+            class="title mentors-title"
+            @click="goToMentor(mentor.id)"
+          >
             {{ mentor.user.firstname }} {{ mentor.user.lastname }}
           </p>
 
           <span class="text">
             ({{
               formatYearsAndMonths(mentor.yearsOfExperience || 0)
-            }})</span
-          >
+            }})</span>
         </div>
 
-        <p class="text">{{ mentor.position }} - {{ mentor.workplace }}</p>
+        <p class="text">
+          {{ mentor.position }} - {{ mentor.workplace }}
+        </p>
 
         <p class="text">
           Язык ментора:
@@ -65,14 +69,16 @@ const { goToMentor } = useMentorsCard(props);
         <div class="mentors-card-tags">
           <BaseTag
             v-for="category in mentor.categoryList"
-            variant="tag-secondary"
             :key="category.name"
+            variant="tag-secondary"
             :text="category.name"
           />
         </div>
 
         <div class="mentors-card-about">
-          <p class="text">{{ mentor.about }}</p>
+          <p class="text">
+            {{ mentor.about }}
+          </p>
         </div>
 
         <!--        <div class="mentors-card-list">-->
@@ -96,7 +102,9 @@ const { goToMentor } = useMentorsCard(props);
       </div>
 
       <div class="mentors-card-price">
-        <p class="text weight-6">Цена одной консультации:</p>
+        <p class="text weight-6">
+          Цена одной консультации:
+        </p>
 
         <p class="price">
           {{ formatAmount(mentor.rate.costPerHour || 0) }} uzs
@@ -107,7 +115,9 @@ const { goToMentor } = useMentorsCard(props);
           variant="button-main"
           @click="goToMentor(mentor.id)"
         >
-          <template #text> Посмотреть </template>
+          <template #text>
+            Посмотреть
+          </template>
           <template #icon>
             <Arrow />
           </template>

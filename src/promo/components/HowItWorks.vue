@@ -1,7 +1,7 @@
 <script setup>
-import useIsMobile from '@/promo/shared/utils/useIsMobile.js'
+import useIsMobile from '@/promo/shared/utils/useIsMobile.js';
 
-const {isMobile} = useIsMobile()
+const { isMobile } = useIsMobile();
 
 const cards = [
   {
@@ -22,7 +22,7 @@ const cards = [
     title: 'easy-booking',
     description: 'easy-booking-text'
   }
-]
+];
 </script>
 
 <template>
@@ -32,14 +32,17 @@ const cards = [
         {{ $t('how-it-works') }}
       </h2>
 
-      <p v-html="$t('mentory-is')" class="text-center p-promo"/>
+      <p
+        class="text-center p-promo"
+        v-html="$t('mentory-is')"
+      />
 
       <swiper-container
-          v-if="isMobile"
-          class="work-cards"
-          :space-between="20"
-          :slides-per-view="1.1"
-          :breakpoints="{
+        v-if="isMobile"
+        class="work-cards"
+        :space-between="20"
+        :slides-per-view="1.1"
+        :breakpoints="{
           '650': {
             slidesPerView: 2.5,
             spaceBetween: 20
@@ -51,30 +54,53 @@ const cards = [
           '450': {
             slidesPerView: 1.8,
             spaceBetween: 20
-         },
-         '375': {
+          },
+          '375': {
             slidesPerView: 1.4,
             spaceBetween: 30
-         }
+          }
         }"
       >
-        <swiper-slide v-for="(card, index) in cards" :key="'first-' + index">
+        <swiper-slide
+          v-for="(card, index) in cards"
+          :key="'first-' + index"
+        >
           <div class="works-card">
-            <img :src="card.imgSrc" :alt="card.altText">
-            <h3 class="h3-promo">{{ $t(card.title) }}</h3>
-            <p class="text-center p-promo">{{ $t(card.description) }}</p>
+            <img
+              :src="card.imgSrc"
+              :alt="card.altText"
+            >
+            <h3 class="h3-promo">
+              {{ $t(card.title) }}
+            </h3>
+            <p class="text-center p-promo">
+              {{ $t(card.description) }}
+            </p>
           </div>
         </swiper-slide>
       </swiper-container>
 
-      <div class="works-cards" v-else>
-        <div class="works-card" v-for="(card, index) in cards" :key="'first-' + index">
-          <img :src="card.imgSrc" :alt="card.altText">
-          <h3 class="h3-promo">{{ $t(card.title) }}</h3>
-          <p class="text-center p-promo">{{ $t(card.description) }}</p>
+      <div
+        v-else
+        class="works-cards"
+      >
+        <div
+          v-for="(card, index) in cards"
+          :key="'first-' + index"
+          class="works-card"
+        >
+          <img
+            :src="card.imgSrc"
+            :alt="card.altText"
+          >
+          <h3 class="h3-promo">
+            {{ $t(card.title) }}
+          </h3>
+          <p class="text-center p-promo">
+            {{ $t(card.description) }}
+          </p>
         </div>
       </div>
-
     </div>
   </main>
 </template>

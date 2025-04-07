@@ -19,7 +19,7 @@ export default function useBeMentor(props, emit) {
     }
 
     if (field === 'categories') {
-      let updatedCategories = [...value];
+      let updatedCategories = [ ...value ];
 
       if (isCustomCategorySelected.value && customCategory.value.trim()) {
         updatedCategories.push(customCategory.value);
@@ -58,12 +58,12 @@ export default function useBeMentor(props, emit) {
   };
 
   const handleSubmit = () => emit('handleSubmit');
-  
+
   const onDownloadOffer = () => emit('downloadOffer');
-  
+
   const onToggleOffer = () => {
     isOfferChecked.value = !isOfferChecked.value;
-  }
+  };
 
   return {
     fileInput,

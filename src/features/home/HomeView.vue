@@ -23,25 +23,29 @@ const {
     </section>
 
     <section class="mentors-section">
-      <img class="img-left" src="../../assets/images/left-bg.png" alt="" />
+      <img
+        class="img-left"
+        src="../../assets/images/left-bg.png"
+        alt=""
+      >
 
       <img
         class="img-right"
         src="../../assets/images/right-bg.png"
         alt=""
-      />
+      >
 
       <img
         class="img-left-b"
         src="../../assets/images/left-b-bg.png"
         alt=""
-      />
+      >
 
       <img
         class="img-right-b"
         src="../../assets/images/right-b-bg.png"
         alt=""
-      />
+      >
 
       <SearchMentors
         v-model="formData"
@@ -52,7 +56,10 @@ const {
         @handle-search-by-category="handleSearchMentorsByCategory"
       />
 
-      <MentorsCards :is-loading="isMentorsLoading" :mentors="mentors" />
+      <MentorsCards
+        :is-loading="isMentorsLoading"
+        :mentors="mentors"
+      />
     </section>
 
     <section class="works-section">

@@ -7,9 +7,9 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import BaseNotification from '@/shared/UI/BaseNotification.vue';
 import 'swiper/css';
-import { register } from 'swiper/element/bundle'
+import { register } from 'swiper/element/bundle';
 
-register()
+register();
 
 const route = useRoute();
 
@@ -22,12 +22,15 @@ const isPromoRoute = computed(() => route.path === '/promo' || route.path === '/
 
 <template>
   <BaseNotification />
-  
+
   <MainHeader v-if="!isPromoRoute" />
-  
-  <MenuNavigation v-if="!isPromoRoute" :backgroundColor="currentBackgroundColor" />
-  
+
+  <MenuNavigation
+    v-if="!isPromoRoute"
+    :background-color="currentBackgroundColor"
+  />
+
   <RouterView />
-  
+
   <MainFooter v-if="!isPromoRoute" />
 </template>

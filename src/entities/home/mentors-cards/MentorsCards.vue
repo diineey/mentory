@@ -14,50 +14,72 @@ const { goToMentorDetails } = useMentorsCards();
 
 <template>
   <div class="mentors-cards-wrapper">
-    <h3 class="center">Наши менторы</h3>
+    <h3 class="center">
+      Наши менторы
+    </h3>
 
-    <div class="mentors-cards" style="display: flex; justify-content: center; position: relative">
-      <img src="@/assets/images/mentors-blur.png" alt="Soon" width="100%" height="100%">
-      
-      <img src="@/assets/images/mentors-soon.png" alt="Soon" class="img-soon" >
-<!--      <div-->
-<!--        class="mentors-card"-->
-<!--        v-for="mentor in props.mentors"-->
-<!--        :key="mentor.id"-->
-<!--      >-->
-<!--        <img-->
-<!--          class="mentors-card-photo"-->
-<!--          src="../../../assets/images/card.jpg"-->
-<!--          alt="Card"-->
-<!--        />-->
+    <div
+      class="mentors-cards"
+      style="display: flex; justify-content: center; position: relative"
+    >
+      <!-- <img src="@/assets/images/mentors-blur.png" alt="Soon" width="100%" height="100%">
 
-<!--        <div class="mentors-card-text">-->
-<!--          <p class="title" style="cursor: pointer" @click="goToMentorDetails(mentor.id)">-->
-<!--            {{ mentor.user.firstname }} {{ mentor.user.lastname }}-->
-<!--          </p>-->
+      <img src="@/assets/images/mentors-soon.png" alt="Soon" class="img-soon" > -->
 
-<!--          <p class="text">{{ mentor.workplace }}</p>-->
+      <div
+        v-for="mentor in props.mentors"
+        :key="mentor.id"
+        class="mentors-card"
+      >
+        <img
+          v-if="mentor.photoUrl"
+          class="mentors-img"
+          :src="mentor.photoUrl"
+          alt="photo"
+        >
 
-<!--          <div class="mentors-tags">-->
-<!--            <BaseTag-->
-<!--              v-for="category in mentor.categoryList"-->
-<!--              :key="category.name"-->
-<!--              variant="tag-secondary"-->
-<!--              :text="category.name"-->
-<!--            />-->
-<!--          </div>-->
+        <img
+          v-else
+          class="mentors-card-photo"
+          src="../../../assets/images/card.jpg"
+          alt="Card"
+        >
 
-<!--          <BaseButton-->
-<!--            variant="button-no-fill"-->
-<!--            @click="goToMentorDetails(mentor.id)"-->
-<!--          >-->
-<!--            <template #text> Подробнее </template>-->
-<!--            <template #icon>-->
-<!--              <Arrow />-->
-<!--            </template>-->
-<!--          </BaseButton>-->
-<!--        </div>-->
-<!--      </div>-->
+        <div class="mentors-card-text">
+          <p
+            class="title"
+            style="cursor: pointer"
+            @click="goToMentorDetails(mentor.id)"
+          >
+            {{ mentor.user.firstname }} {{ mentor.user.lastname }}
+          </p>
+
+          <p class="text">
+            {{ mentor.workplace }}
+          </p>
+
+          <div class="mentors-tags">
+            <BaseTag
+              v-for="category in mentor.categoryList"
+              :key="category.name"
+              variant="tag-secondary"
+              :text="category.name"
+            />
+          </div>
+
+          <BaseButton
+            variant="button-no-fill"
+            @click="goToMentorDetails(mentor.id)"
+          >
+            <template #text>
+              Подробнее
+            </template>
+            <template #icon>
+              <Arrow />
+            </template>
+          </BaseButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>

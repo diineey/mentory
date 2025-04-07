@@ -1,8 +1,6 @@
 import { reactive, computed } from 'vue';
 
-export const notificationStore = reactive({
-  notifications: [],
-});
+export const notificationStore = reactive({ notifications: [], });
 
 export const notificationsList = computed(
   () => notificationStore.notifications

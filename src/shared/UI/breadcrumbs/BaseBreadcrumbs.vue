@@ -12,11 +12,19 @@ const currentPageTitle = computed(() => {
 
 <template>
   <nav class="breadcrumbs">
-    <router-link class="tag" to="/">Главная</router-link>
+    <router-link
+      class="tag"
+      to="/"
+    >
+      Главная
+    </router-link>
 
     <ArrowType />
 
-    <span v-if="currentPageTitle" class="tag">
+    <span
+      v-if="currentPageTitle"
+      class="tag"
+    >
       {{ currentPageTitle }}
     </span>
   </nav>

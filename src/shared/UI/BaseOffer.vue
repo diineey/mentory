@@ -1,6 +1,6 @@
 <script setup>
 import IconCheck from '@/components/icons/done.svg?url';
-import { defineProps, ref } from 'vue';
+import { defineProps } from 'vue';
 
 const props = defineProps({
   label: {
@@ -10,7 +10,7 @@ const props = defineProps({
   isChecked: Boolean
 });
 
-const emit = defineEmits(['downloadOffer', 'toggleOffer']);
+const emit = defineEmits([ 'downloadOffer', 'toggleOffer' ]);
 
 const handleChange = () => emit('toggleOffer');
 
@@ -23,22 +23,31 @@ const downloadOffer = () => emit('downloadOffer');
       <input
         class="base-radio-input"
         type="checkbox"
-        :checked="isChecked"
-      />
-      
-      <span class="custom-offer-radio" @click="handleChange">
-        <img :src="IconCheck" alt="Done" class="icon-check">
+        :checked="props.isChecked"
+      >
+
+      <span
+        class="custom-offer-radio"
+        @click="handleChange"
+      >
+        <img
+          :src="IconCheck"
+          alt="Done"
+          class="icon-check"
+        >
       </span>
-      
-      <span class="input-text base-radio-label" @click="downloadOffer">
-      Принять
+
+      <span
+        class="input-text base-radio-label"
+        @click="downloadOffer"
+      >
+        Принять
         <span class="offer-link">
-          {{ label }}
+          {{ props.label }}
         </span>
-    </span>
+      </span>
     </div>
   </div>
-
 </template>
 
 <style scoped>

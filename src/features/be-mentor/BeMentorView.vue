@@ -28,7 +28,7 @@ const {
     :rates="rates"
     :errors="errors"
     :rules="formRules"
-    @handleSubmit="onSubmit"
-    @downloadOffer="downloadMentorAgreement"
+    @handle-submit="onSubmit"
+    @download-offer="downloadMentorAgreement"
   />
 </template>

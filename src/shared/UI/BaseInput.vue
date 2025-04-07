@@ -1,5 +1,4 @@
 <script setup>
-import moment from 'moment';
 import { watch, ref } from 'vue';
 import {
   allowOnlyLetters,
@@ -25,7 +24,7 @@ const props = defineProps({
   min: Date,
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([ 'update:modelValue' ]);
 
 const inputValue = ref(props.modelValue || '');
 const isFocused = ref(false);
@@ -48,7 +47,7 @@ const handleDateInput = (event) => {
 
   value = value.replace(/[^0-9.]/g, '');
 
-  const isValidDate = moment(value, 'DD.MM.YYYY', true).isValid();
+  // const isValidDate = moment(value, 'DD.MM.YYYY', true).isValid();
 
   inputValue.value = value;
   emit('update:modelValue', inputValue.value);
@@ -92,7 +91,10 @@ watch(
 
 <template>
   <div class="input-container">
-    <span v-if="search" class="search-icon">
+    <span
+      v-if="search"
+      class="search-icon"
+    >
       <SearchIcon
         :class="{
           'search-color': !isFocused,
@@ -104,36 +106,36 @@ watch(
     <input
       v-if="isPhone"
       v-bind="$attrs"
-      class="input"
       v-model="inputValue"
       v-maska="FIELD_MASK.phone"
+      class="input"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
       :style="{ width: fluid ? '100%' : '550px' }"
       :placeholder="placeholder"
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"
-    />
+    >
 
     <input
       v-if="isDate"
       v-bind="$attrs"
-      class="input"
       v-model="inputValue"
       v-maska="FIELD_MASK.date"
+      class="input"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
       :style="{ width: fluid ? '100%' : '550px' }"
       :placeholder="placeholder"
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"
-    />
+    >
 
     <input
       v-if="type"
       v-bind="$attrs"
-      class="input"
       v-model="inputValue"
+      class="input"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
       :style="{ width: fluid ? '100%' : '550px' }"
       :placeholder="placeholder"
@@ -142,33 +144,33 @@ watch(
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"
-    />
+    >
 
     <input
       v-if="!isPhone && !isDate && !rows && !type"
       v-bind="$attrs"
-      class="input"
       v-model="inputValue"
+      class="input"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
       :style="{ width: fluid ? '100%' : '550px' }"
       :placeholder="placeholder"
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"
-    />
+    >
 
     <textarea
       v-if="rows"
       v-bind="$attrs"
-      class="input textarea"
       v-model="inputValue"
+      class="input textarea"
       :class="{ 'input-with-icon': search, 'input-error': isError }"
       :placeholder="placeholder"
       :rows="rows"
+      :style="{ width: fluid ? '100%' : '550px' }"
       @focus="handleFocus"
       @blur="handleBlur"
       @input="handleInput"
-      :style="{ width: fluid ? '100%' : '550px' }"
     />
   </div>
 </template>

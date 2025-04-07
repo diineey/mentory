@@ -1,6 +1,6 @@
 <script setup>
-import useLanguageSwitch from '@/shared/composables/languages-switch/useLanguageSwitch.js'
-import formatCamelCase from '@/shared/utils/formatCamelCase.js'
+import useLanguageSwitch from '@/shared/composables/languages-switch/useLanguageSwitch.js';
+import formatCamelCase from '@/shared/utils/formatCamelCase.js';
 
 const {
   currentLanguage,
@@ -10,11 +10,14 @@ const {
 </script>
 
 <template>
-  <div class="lang-wrapper-promo" style="">
+  <div
+    class="lang-wrapper-promo"
+    ы
+  >
     <button
       v-for="lang in languages"
-      class="language-button-promo"
       :key="lang"
+      class="language-button-promo"
       :class="{ active: currentLanguage === lang }"
       @click="changeLanguage(lang)"
     >

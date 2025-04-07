@@ -4,4 +4,4 @@ export const MentorDetailsFormProps = {
   mentorPhoto: String
 };
 
-export const MentorDetailsFormEmits = ['scrollToBookingSection'];
+export const MentorDetailsFormEmits = [ 'scrollToBookingSection' ];

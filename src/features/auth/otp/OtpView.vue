@@ -25,7 +25,7 @@ const {
     :errors="errors"
     :button-text="buttonText"
     :is-button-disabled="isButtonDisabled"
-    @handleSubmit="onSubmit"
-    @handleResendClick="handleResendClick"
+    @handle-submit="onSubmit"
+    @handle-resend-click="handleResendClick"
   />
 </template>

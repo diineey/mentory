@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue';
+import {
+  onMounted, onBeforeUnmount, ref, watch
+} from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { defineExpose } from 'vue';
 
@@ -28,9 +30,7 @@ if (!props.noPreventRoute) {
       window.onbeforeunload = () => true;
       isModelChanged = true;
     },
-    {
-      deep: true,
-    }
+    { deep: true, }
   );
 
   onBeforeRouteLeave((_, __, next) => {
@@ -64,7 +64,11 @@ defineExpose({
 </script>
 
 <template>
-  <form ref="formRef" v-bind="$attrs" @submit.prevent>
+  <form
+    ref="formRef"
+    v-bind="$attrs"
+    @submit.prevent
+  >
     <slot />
   </form>
 </template>

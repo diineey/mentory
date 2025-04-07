@@ -48,7 +48,9 @@ const {
     <BaseBreadcrumbs class="mb-4" />
     <main class="be-mentor-main">
       <BaseCard class="mb-4">
-        <h3 class="be-mentor-card-title">Менторство - это</h3>
+        <h3 class="be-mentor-card-title">
+          Менторство - это
+        </h3>
         <div class="be-mentor-card">
           <p class="text be-mentor-text">
             Путь к самопознанию и развитию. Ментор – это опытный проводник,
@@ -92,7 +94,9 @@ const {
           :rules="props.rules"
           @submit.prevent="handleSubmit"
         >
-          <h3 class="mb-4">Данные о тебе</h3>
+          <h3 class="mb-4">
+            Данные о тебе
+          </h3>
 
           <base-form-item
             label="Знание языков"
@@ -100,24 +104,24 @@ const {
           >
             <div class="checkboxes">
               <BaseCheckbox
+                v-model="selectedLanguages"
                 label="Узбекский"
-                v-model="selectedLanguages"
                 value="UZB"
-                @update:modelValue="updateModelValue('language', $event)"
+                @update:model-value="updateModelValue('language', $event)"
               />
 
               <BaseCheckbox
+                v-model="selectedLanguages"
                 label="Русский"
-                v-model="selectedLanguages"
                 value="RUS"
-                @update:modelValue="updateModelValue('language', $event)"
+                @update:model-value="updateModelValue('language', $event)"
               />
 
               <BaseCheckbox
-                label="Английский"
                 v-model="selectedLanguages"
+                label="Английский"
                 value="ENG"
-                @update:modelValue="updateModelValue('language', $event)"
+                @update:model-value="updateModelValue('language', $event)"
               />
             </div>
           </base-form-item>
@@ -167,11 +171,11 @@ const {
             <div class="be-mentor-categories">
               <BaseCheckbox
                 v-for="category in props.categoriesList"
-                v-model="selectedCategories"
                 :key="category.id"
+                v-model="selectedCategories"
                 :label="category.name"
                 :value="category.name"
-                @update:modelValue="updateModelValue('categories', $event)"
+                @update:model-value="updateModelValue('categories', $event)"
               />
 
               <BaseCheckbox
@@ -224,12 +228,22 @@ const {
           </base-form-item>
 
           <base-form-item label="Или загрузите файл с вашим резюме">
-            <div v-if="fileName" class="file-name">
-              <p class="input-text">{{ fileName }}</p>
+            <div
+              v-if="fileName"
+              class="file-name"
+            >
+              <p class="input-text">
+                {{ fileName }}
+              </p>
 
-              <RemoveIcon @click="removeFile" class="file-remove-icon" />
+              <RemoveIcon
+                class="file-remove-icon"
+                @click="removeFile"
+              />
 
-              <div class="success-upload text">Файл загружен</div>
+              <div class="success-upload text">
+                Файл загружен
+              </div>
             </div>
 
             <BaseButton
@@ -238,20 +252,22 @@ const {
               type="button"
               @click="triggerFileInput"
             >
-              <template #text> Загрузить файл </template>
+              <template #text>
+                Загрузить файл
+              </template>
               <template #icon>
                 <UploadIcon />
               </template>
             </BaseButton>
 
             <input
-              type="file"
               ref="fileInput"
+              type="file"
               style="display: none"
               @change="handleFileChange"
-            />
+            >
           </base-form-item>
-          
+
           <BaseOffer
             class="w-100 mt-1"
             label="Оферту ментора"
@@ -266,7 +282,9 @@ const {
             variant="button-main"
             :disabled="!isOfferChecked"
           >
-            <template #text> Оставить заявку </template>
+            <template #text>
+              Оставить заявку
+            </template>
           </BaseButton>
         </BaseForm>
       </BaseCard>

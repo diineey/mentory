@@ -13,7 +13,9 @@ import useSignIn from '@/entities/auth/sign-in/useSignIn.js';
 const props = defineProps(SignInFormProps);
 const emit = defineEmits(SignInFormEmits);
 
-const { phone, handleSubmit, updateModelValue } = useSignIn(props, emit);
+const {
+  phone, handleSubmit, updateModelValue
+} = useSignIn(props, emit);
 </script>
 
 <template>
@@ -21,9 +23,17 @@ const { phone, handleSubmit, updateModelValue } = useSignIn(props, emit);
     <BaseCard class="login-card">
       <div class="login-wrapper">
         <div class="login-text">
-          <RouterLink class="menu active-link" to=""> Вход </RouterLink>
+          <RouterLink
+            class="menu active-link"
+            to=""
+          >
+            Вход
+          </RouterLink>
 
-          <RouterLink class="menu inactive-link" to="sign-up">
+          <RouterLink
+            class="menu inactive-link"
+            to="sign-up"
+          >
             Регистрация
           </RouterLink>
         </div>
@@ -45,8 +55,7 @@ const { phone, handleSubmit, updateModelValue } = useSignIn(props, emit);
               is-phone
               :error="!!props.errors.phone"
               @input="updateModelValue('phone', $event.target.value)"
-            >
-            </BaseInput>
+            />
           </base-form-item>
 
           <BaseButton
@@ -54,7 +63,9 @@ const { phone, handleSubmit, updateModelValue } = useSignIn(props, emit);
             variant="button-main"
             type="submit"
           >
-            <template #text> Войти </template>
+            <template #text>
+              Войти
+            </template>
           </BaseButton>
         </BaseForm>
       </div>

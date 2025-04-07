@@ -12,7 +12,7 @@ export default function useRegistrationView() {
   const router = useRouter();
   const otpTitleStore = useOtpTitleStore();
   const agreementId = ref('');
-  
+
   const formData = ref({
     firstName: '',
     lastName: '',
@@ -21,76 +21,66 @@ export default function useRegistrationView() {
     email: '',
     gender: '',
   });
-  
+
   const formRules = {
     firstName: required,
     phoneNumber: required,
     gender: required,
     dateOfBirth: validDate,
   };
-  
+
   const { errors, validate } = useFormValidation(formData, formRules);
-  
+
   function goToOtp() {
     otpTitleStore.setTitle('Подтверждение');
     router.push({
       name: 'confirm-otp',
-      query: {
-        phone: formData.value.phoneNumber,
-      },
+      query: { phone: formData.value.phoneNumber, },
     });
   }
-  
+
   const downloadMentyAgreement = async () => {
     await downloadFile({
       url: 'agreement/get-public-agreement-for-role',
-      params: { role: 'MENTY' }
-    })
+      params: { role: 'MENTY' },
+      filename: 'menty-agreement.pdf'
+    });
   };
-  
+
   const getMentyOffer = async () => {
     try {
-      const response = await publicApi.get('agreement/get-public-agreement-for-role', {
-        params: {
-          role: 'MENTY',
-        },
-      });
-      
-      const allHeaders = response.headers;
-      
-      console.log(allHeaders);
-      
+      const response = await publicApi.get('agreement/get-public-agreement-for-role', { params: { role: 'MENTY', }, });
+
       agreementId.value = response.headers['agreement-id'];
-      console.log(agreementId.value)
     } catch (err) {
       const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
       addToast.error(errorMessage);
     }
   };
-  
+
   const onSubmit = async () => {
     formData.value.phoneNumber = unmaskPhoneNumber(
       formData.value.phoneNumber,
     );
-    
+
     let unmaskedDateOfBirth = '';
-    
+
     if (formData.value.dateOfBirth) {
       unmaskedDateOfBirth = unmaskDate(formData.value.dateOfBirth);
     }
-    
+
     if (validate()) {
       const dataToSend = {
         ...formData.value,
         dateOfBirth: unmaskedDateOfBirth,
-        agreementId: agreementId.value
+        agreementId: +agreementId.value
       };
-      
+
       try {
         await publicApi.post('auth/signup', dataToSend);
-        
+
         await publicApi.post(`auth/login-otp?phone=${formData.value.phoneNumber}`);
-        
+
         goToOtp();
       } catch (err) {
         const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
@@ -98,9 +88,9 @@ export default function useRegistrationView() {
       }
     }
   };
-  
+
   onMounted(getMentyOffer);
-  
+
   return {
     formData,
     formRules,

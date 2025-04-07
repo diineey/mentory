@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import Header from '@/promo/shared/composables/header/BaseHeader.vue'
-import Footer from '@/promo/shared/composables/footer/BaseFooter.vue'
-import WhenToSearch from '@/promo/components/WhenToSearch.vue'
-import HowItWorks from '@/promo/components/HowItWorks.vue'
-import MainSteps from '@/promo/components/MainSteps.vue'
-import TelegramCard from '@/promo/components/TelegramCard.vue'
-import WhyWe from '@/promo/components/WhyWe.vue'
+import Header from '@/promo/shared/composables/header/BaseHeader.vue';
+import Footer from '@/promo/shared/composables/footer/BaseFooter.vue';
+import WhenToSearch from '@/promo/components/WhenToSearch.vue';
+import HowItWorks from '@/promo/components/HowItWorks.vue';
+import MainSteps from '@/promo/components/MainSteps.vue';
+import TelegramCard from '@/promo/components/TelegramCard.vue';
+import WhyWe from '@/promo/components/WhyWe.vue';
 
 </script>
 
 <template>
-  <Header class="font"/>
-  
-  <HowItWorks class="font"/>
-  
-  <WhenToSearch class="font"/>
-  
-  <MainSteps class="font"/>
-  
-  <WhyWe class="font"/>
-  
-  <TelegramCard class="font"/>
-  
-  <Footer class="font"/>
+  <Header class="font" />
+
+  <HowItWorks class="font" />
+
+  <WhenToSearch class="font" />
+
+  <MainSteps class="font" />
+
+  <WhyWe class="font" />
+
+  <TelegramCard class="font" />
+
+  <Footer class="font" />
 </template>
 
 <style lang="scss" scoped>

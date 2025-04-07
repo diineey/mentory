@@ -1,5 +1,5 @@
 <script setup>
-import BaseButton from '@/promo/shared/UI/BaseButton.vue'
+import BaseButton from '@/promo/shared/UI/BaseButton.vue';
 </script>
 
 <template>
@@ -18,7 +18,10 @@ import BaseButton from '@/promo/shared/UI/BaseButton.vue'
       </div>
 
       <div class="telegram-card-img">
-        <img src="@/promo/assets/img/telegram.png" alt="Telegram">
+        <img
+          src="@/promo/assets/img/telegram.png"
+          alt="Telegram"
+        >
       </div>
     </div>
   </main>

@@ -19,7 +19,7 @@ function preloadImages() {
     new URL('@/promo/assets/img/logo.svg', import.meta.url).href,
     new URL('@/promo/assets/img/telegram.png', import.meta.url).href,
   ];
-  
+
   images.forEach((src) => {
     const img = new Image();
     img.src = src;
@@ -40,64 +40,108 @@ document.body.style.overflow = isMenuOpen.value ? 'hidden' : 'auto';
 <template>
   <header class="header-wrapper-promo">
     <div class="header-section-black">
-      
       <div class="header-menu">
-        <img :src="LogoUrl" alt="Logo" class="logo" @click="router.push('/')">
-        
+        <img
+          :src="LogoUrl"
+          alt="Logo"
+          class="logo"
+          @click="router.push('/')"
+        >
+
         <div class="header-menu-lang">
           <LanguagesSwitch />
         </div>
-        
-        <div class="menu-icon" @click="toggleMenu">
-          <Menu width="32" height="24" />
+
+        <div
+          class="menu-icon"
+          @click="toggleMenu"
+        >
+          <Menu
+            width="32"
+            height="24"
+          />
         </div>
       </div>
-      
+
       <div class="header-section-text">
-        <h1 class="h1-promo" v-html="$t('header-title')" />
-        
-        <p v-html="$t('header-text')" class="header-section-p p-promo" />
-        
+        <h1
+          class="h1-promo"
+          v-html="$t('header-title')"
+        />
+
+        <p
+          class="header-section-p p-promo"
+          v-html="$t('header-text')"
+        />
+
         <BaseButton color="--white" />
       </div>
     </div>
-    
+
     <div class="header-section-blue">
       <div class="lang">
         <LanguagesSwitch />
       </div>
-      
+
       <div class="header-img">
-        <img :src="HeaderImg" alt="Image" class="header-img" />
+        <img
+          :src="HeaderImg"
+          alt="Image"
+          class="header-img"
+        >
       </div>
     </div>
-    
-    <div v-if="isMenuOpen" class="menu-overlay">
+
+    <div
+      v-if="isMenuOpen"
+      class="menu-overlay"
+    >
       <div class="menu-icon-close">
-        <CloseIcon width="32" height="24" @click="toggleMenu" />
+        <CloseIcon
+          width="32"
+          height="24"
+          @click="toggleMenu"
+        />
       </div>
-      
+
       <div class="menu-promo">
         <div>
-          <img :src="LogoUrl" alt="Logo" class="menu-logo" @click="router.push('/')" >
-        
+          <img
+            :src="LogoUrl"
+            alt="Logo"
+            class="menu-logo"
+            @click="router.push('/')"
+          >
         </div>
-        
+
         <div class="menu-lang">
           <LanguagesSwitch />
         </div>
-        
+
         <div class="tg-img">
-          <img src="@/promo/assets/img/telegram.png" alt="Telegram" width="171" height="auto" />
+          <img
+            src="@/promo/assets/img/telegram.png"
+            alt="Telegram"
+            width="171"
+            height="auto"
+          >
         </div>
-        
+
         <BaseButton class="menu-button" />
-        
+
         <div class="menu-icons">
-          <a class="a-promo" href="https://www.linkedin.com/company/mentoryuz" target="_blank">
+          <a
+            class="a-promo"
+            href="https://www.linkedin.com/company/mentoryuz"
+            target="_blank"
+          >
             <Linkedin />
           </a>
-          <a class="a-promo" href="https://www.instagram.com/mentory.uz" target="_blank">
+          <a
+            class="a-promo"
+            href="https://www.instagram.com/mentory.uz"
+            target="_blank"
+          >
             <Instagram />
           </a>
         </div>
@@ -259,26 +303,26 @@ document.body.style.overflow = isMenuOpen.value ? 'hidden' : 'auto';
     flex-direction: column;
     border-radius: 0 0 26px 26px;
   }
-  
+
   .header-section-black,
   .header-section-blue {
     width: 100%;
     border-radius: 0 0 26px 26px;
   }
-  
+
   .header-menu-lang {
     display: block;
     padding-right: 60px;
   }
-  
+
   .header-section-blue {
     padding: 0;
   }
-  
+
   .header-img img {
     padding: 0;
   }
-  
+
   .lang {
     display: none;
     padding: 0;
@@ -289,40 +333,39 @@ document.body.style.overflow = isMenuOpen.value ? 'hidden' : 'auto';
   br {
     display: none;
   }
-  
+
   .header-section-black {
     padding: 40px 20px 30px 20px;
   }
-  
+
   .logo {
     width: 134px;
   }
-  
-  
+
   .header-menu-lang {
     display: none;
   }
-  
+
   .header-section-text {
     padding: 45px 0 10px 0;
   }
-  
+
   .header-section-p {
     font-size: 18px;
     line-height: 23px;
     padding: 16px 0 20px 0;
   }
-  
+
   .header-section-blue {
     padding: 0;
   }
-  
+
   .header-img img {
     padding: 0;
     width: 400px;
     height: auto;
   }
-  
+
   .menu-icon {
     display: flex;
   }

@@ -34,9 +34,7 @@ export default function useMainHeader() {
   const goToProfile = () => {
     router.push({
       name: 'profile',
-      query: {
-        id: user.value.mentorUserEntity.id,
-      },
+      query: { id: user.value.mentorUserEntity.id, },
     });
   };
 

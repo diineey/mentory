@@ -19,9 +19,9 @@ const {
 <template>
   <main>
     <SearchMentors
-      style="padding-top: 20px; margin-bottom: 30px"
       v-model="formData"
       v-model:skill="formData.skill"
+      style="padding-top: 20px; margin-bottom: 30px"
       :categories="categories"
       :is-loading="isCategoriesLoading"
       @handle-search-by-skill="getMentorsBySkill"

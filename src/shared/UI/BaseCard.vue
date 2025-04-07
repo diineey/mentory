@@ -3,7 +3,7 @@
 <template>
   <div class="base-card center">
     <div class="base-card-content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

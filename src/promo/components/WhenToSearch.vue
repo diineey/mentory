@@ -4,12 +4,12 @@
       <h2 class="h2-promo">
         {{ $t('when-to-search') }}
       </h2>
-      
+
       <p
-        v-html="$t('when-to-search-text')"
         class="text-center p-promo"
+        v-html="$t('when-to-search-text')"
       />
-      
+
       <div class="when-cards">
         <div class="when-card">
           <div class="when-card-title">
@@ -17,45 +17,51 @@
               {{ $t('when-to-search-prepare') }}
             </p>
           </div>
-          
+
           <div class="when-card-text">
-            <p v-html="$t('when-to-search-prepare-text')" class="when-card-text-p p-promo" />
+            <p
+              class="when-card-text-p p-promo"
+              v-html="$t('when-to-search-prepare-text')"
+            />
           </div>
         </div>
-        
+
         <div class="when-card">
           <div class="when-card-title">
             <p class="when-card-title-p p-promo">
               {{ $t('when-to-search-team') }}
             </p>
           </div>
-          
+
           <div class="when-card-text">
             <p class="when-card-text-p p-promo">
               {{ $t('when-to-search-team-text') }}
             </p>
           </div>
         </div>
-        
+
         <div class="when-card">
           <div class="when-card-title">
             <p class="when-card-title-p p-promo">
               {{ $t('when-to-search-stuck') }}
             </p>
           </div>
-          
+
           <div class="when-card-text">
-            <p v-html="$t('when-to-search-stuck-text')" class="when-card-text-p p-promo" />
+            <p
+              class="when-card-text-p p-promo"
+              v-html="$t('when-to-search-stuck-text')"
+            />
           </div>
         </div>
-        
+
         <div class="when-card">
           <div class="when-card-title">
             <p class="when-card-title-p p-promo">
               {{ $t('when-to-search-level') }}
             </p>
           </div>
-          
+
           <div class="when-card-text">
             <p class="when-card-text-p p-promo">
               {{ $t('when-to-search-level-text') }}
@@ -63,7 +69,6 @@
           </div>
         </div>
       </div>
-    
     </div>
   </main>
 </template>
@@ -139,25 +144,25 @@
   .when-wrapper {
     padding-bottom: 40px;
   }
-  
+
   .when-content {
     width: 100%;
     padding: 20px 0;
   }
-  
+
   .when-card {
     width: 298px;
   }
-  
+
   .when-card-title {
     width: 293px;
   }
-  
+
   .when-card-title-p {
     font-size: 18px;
     line-height: 19px;
   }
-  
+
   .when-card-text-p {
     font-size: 16px;
     line-height: 17px;
@@ -168,7 +173,7 @@
   .when-content {
     width: 100%;
   }
-  
+
   .when-cards {
     gap: 20px;
     width: 100%;
@@ -179,22 +184,22 @@
   .when-card {
     width: 100%;
   }
-  
+
   .when-cards {
     margin-top: 6px;
     gap: 10px;
   }
-  
+
   .when-card-title {
     width: 100%;
     padding: 6px 0;
   }
-  
+
   .when-card-text {
     height: max-content;
     padding: 10px;
   }
-  
+
   .when-wrapper {
     padding: 20px;
   }

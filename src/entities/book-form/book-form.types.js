@@ -14,4 +14,4 @@ export const BookFormProps = {
   data: Object,
 };
 
-export const BookFormEmits = ['update:modelValue', 'handleSubmit'];
+export const BookFormEmits = [ 'update:modelValue', 'handleSubmit' ];

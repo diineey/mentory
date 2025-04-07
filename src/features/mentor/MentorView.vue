@@ -22,14 +22,14 @@ const {
     <MentorDetails
       :data="data"
       :mentor-photo="mentorPhoto"
-      @scrollToBookingSection="scrollToBookingSection"
+      @scroll-to-booking-section="scrollToBookingSection"
     />
 
     <BookForm
       v-model="formData"
       :rules="formRules"
       :errors="errors"
-      @handleSubmit="onSubmit"
+      @handle-submit="onSubmit"
     />
 
     <SuccessBookModal

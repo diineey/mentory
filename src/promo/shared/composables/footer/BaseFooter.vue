@@ -9,16 +9,29 @@ import LogoUrl from '@/promo/assets/img/logo.svg?url';
 <template>
   <footer class="footer-wrapper">
     <div class="footer-content">
-      <img :src="LogoUrl" alt="Logo" class="footer-logo">
+      <img
+        :src="LogoUrl"
+        alt="Logo"
+        class="footer-logo"
+      >
 
       <div class="footer-icons">
-        <a href="https://www.linkedin.com/company/mentoryuz" target="_blank">
+        <a
+          href="https://www.linkedin.com/company/mentoryuz"
+          target="_blank"
+        >
           <Linkedin />
         </a>
-        <a href="https://t.me/mentory_uz_bot" target="_blank">
+        <a
+          href="https://t.me/mentory_uz_bot"
+          target="_blank"
+        >
           <Telegram />
         </a>
-        <a href="https://www.instagram.com/mentory.uz" target="_blank">
+        <a
+          href="https://www.instagram.com/mentory.uz"
+          target="_blank"
+        >
           <Instagram />
         </a>
       </div>

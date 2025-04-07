@@ -2,7 +2,9 @@
 import useSignInView from '@/features/auth/sign-in/useSignInView.js';
 import SignIn from '@/entities/auth/sign-in/SignIn.vue';
 
-const { formData, formRules, errors, onSubmit } = useSignInView();
+const {
+  formData, formRules, errors, onSubmit
+} = useSignInView();
 </script>
 
 <template>
@@ -11,6 +13,6 @@ const { formData, formRules, errors, onSubmit } = useSignInView();
     v-model:phone="formData.phone"
     :rules="formRules"
     :errors="errors"
-    @handleSubmit="onSubmit"
+    @handle-submit="onSubmit"
   />
 </template>

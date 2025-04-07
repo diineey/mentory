@@ -9,13 +9,13 @@ const props = defineProps({
     default: () => [],
   },
   modelValue: {
-    type: [String, Number],
+    type: [ String, Number ],
     default: '',
   },
   error: Boolean,
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([ 'update:modelValue' ]);
 
 const selectedValue = ref(props.modelValue);
 
@@ -34,8 +34,8 @@ watch(selectedValue, (newId) => {
 <template>
   <div class="select-container">
     <select
-      class="select"
       v-model="selectedValue"
+      class="select"
       :class="{ 'select-error': error }"
     >
       <!--			<option disabled value="">Выберите тариф</option>-->
@@ -47,7 +47,10 @@ watch(selectedValue, (newId) => {
         {{ option.name }} - {{ option.costPerHour }}
       </option>
     </select>
-    <Arrow class="select-arrow" :class="{ 'select-arrow-error': error }" />
+    <Arrow
+      class="select-arrow"
+      :class="{ 'select-arrow-error': error }"
+    />
   </div>
 </template>
 

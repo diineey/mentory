@@ -13,4 +13,4 @@ export const SignInFormProps = {
   },
 };
 
-export const SignInFormEmits = ['update:modelValue', 'handleSubmit'];
+export const SignInFormEmits = [ 'update:modelValue', 'handleSubmit' ];

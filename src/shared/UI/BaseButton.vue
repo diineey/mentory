@@ -8,17 +8,22 @@ const props = defineProps({
 <template>
   <button
     class="base-button"
-    :class="['base-button', 'button', variant, { 'button-disabled': disabled }]"
-    :disabled="disabled"
+    :class="[
+      'base-button',
+      'button',
+      props.variant,
+      { 'button-disabled': props.disabled }
+    ]"
+    :disabled="props.disabled"
   >
-    <template v-if="variant === 'button-no-fill-borders'">
-      <slot name="icon"></slot>
-      <slot name="text"></slot>
+    <template v-if="props.variant === 'button-no-fill-borders'">
+      <slot name="icon" />
+      <slot name="text" />
     </template>
 
     <template v-else>
-      <slot name="text"></slot>
-      <slot name="icon"></slot>
+      <slot name="text" />
+      <slot name="icon" />
     </template>
   </button>
 </template>

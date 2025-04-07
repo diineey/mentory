@@ -1,5 +1,5 @@
 <script setup>
-import useIsMobile from '@/promo/shared/utils/useIsMobile.js'
+import useIsMobile from '@/promo/shared/utils/useIsMobile.js';
 
 const { isMobileForSteps } = useIsMobile();
 </script>
@@ -14,74 +14,112 @@ const { isMobileForSteps } = useIsMobile();
 
         <div class="step">
           <div class="step-content">
-            <img src="../assets/img/01.png" alt="Step 1">
+            <img
+              src="../assets/img/01.png"
+              alt="Step 1"
+            >
             <div class="step-info">
               <div class="number">
                 <p>1</p>
               </div>
-              <p v-html="$t('step-1')" class="step-info-p p-promo" />
+              <p
+                class="step-info-p p-promo"
+                v-html="$t('step-1')"
+              />
             </div>
 
-            <hr class="step-divider" />
+            <hr class="step-divider">
           </div>
         </div>
 
         <div class="step">
           <div class="step-content">
-            <img src="../assets/img/02.png" alt="Step 2">
+            <img
+              src="../assets/img/02.png"
+              alt="Step 2"
+            >
             <div class="step-info">
               <div class="number">
                 <p>2</p>
               </div>
-              <p v-html="$t('step-2')" class="step-info-p text-right p-promo"></p>
+              <p
+                class="step-info-p text-right p-promo"
+                v-html="$t('step-2')"
+              />
             </div>
 
-            <hr class="step-divider" />
+            <hr class="step-divider">
           </div>
         </div>
 
         <div class="step">
           <div class="step-content">
-            <img src="../assets/img/03.png" alt="Step 3">
+            <img
+              src="../assets/img/03.png"
+              alt="Step 3"
+            >
             <div class="step-info">
               <div class="number">
                 <p>3</p>
               </div>
-              <p v-html="$t('step-3')" class="step-info-p p-promo"></p>
+              <p
+                class="step-info-p p-promo"
+                v-html="$t('step-3')"
+              />
             </div>
 
-            <hr class="step-divider" />
+            <hr class="step-divider">
           </div>
         </div>
 
         <div class="step">
           <div class="step-content">
-            <img src="../assets/img/04.png" alt="Step 4">
+            <img
+              src="../assets/img/04.png"
+              alt="Step 4"
+            >
             <div class="step-info">
               <div class="number">
                 <p>4</p>
               </div>
-              <p v-html="$t('step-4')" class="step-info-p text-right p-promo" />
+              <p
+                class="step-info-p text-right p-promo"
+                v-html="$t('step-4')"
+              />
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="gradient-1">
-        <img v-if="isMobileForSteps" src="@/promo/assets/img/gradient-mobile-1.png" alt="Gradient">
+        <img
+          v-if="isMobileForSteps"
+          src="@/promo/assets/img/gradient-mobile-1.png"
+          alt="Gradient"
+        >
 
-        <img v-else src="@/promo/assets/img/gradient1.png" alt="Gradient">
+        <img
+          v-else
+          src="@/promo/assets/img/gradient1.png"
+          alt="Gradient"
+        >
       </div>
 
       <div class="gradient-2">
-        <img v-if="isMobileForSteps" src="@/promo/assets/img/gradient-mobile-2.png" alt="Gradient">
+        <img
+          v-if="isMobileForSteps"
+          src="@/promo/assets/img/gradient-mobile-2.png"
+          alt="Gradient"
+        >
 
-        <img v-else src="@/promo/assets/img/gradient2.png" alt="Gradient">
+        <img
+          v-else
+          src="@/promo/assets/img/gradient2.png"
+          alt="Gradient"
+        >
       </div>
     </main>
   </div>
-
 </template>
 
 <style>

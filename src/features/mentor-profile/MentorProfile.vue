@@ -21,22 +21,22 @@ const {
   <main class="mentor-main">
     <MentorDetails
       :data="data"
-      :mentorPhoto="mentorPhoto"
+      :mentor-photo="mentorPhoto"
       is-editable
-      @handleOpenEditModal="onToggleEditModal"
+      @handle-open-edit-modal="onToggleEditModal"
     />
 
     <MentorForm
       v-model="formData"
-      :showModal="isEditModalActive"
-      :categoriesList="categoriesList"
+      :show-modal="isEditModalActive"
+      :categories-list="categoriesList"
       :rates="rates"
       :data="data"
-      :mentorPhoto="mentorPhoto"
-      :isLoading="isSubmitting"
-      @onCloseModal="onToggleEditModal"
-      @handleSubmit="onSubmit"
-      @deletePhoto="deletePhoto"
+      :mentor-photo="mentorPhoto"
+      :is-loading="isSubmitting"
+      @on-close-modal="onToggleEditModal"
+      @handle-submit="onSubmit"
+      @delete-photo="deletePhoto"
     />
   </main>
 </template>

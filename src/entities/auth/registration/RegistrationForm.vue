@@ -34,13 +34,19 @@ const {
     <BaseCard class="login-card">
       <div class="login-wrapper">
         <div class="login-text">
-          <RouterLink class="menu inactive-link" to="sign-in"
-            >Вход</RouterLink
+          <RouterLink
+            class="menu inactive-link"
+            to="sign-in"
           >
+            Вход
+          </RouterLink>
 
-          <RouterLink class="menu active-link" to="sign-up"
-            >Регистрация</RouterLink
+          <RouterLink
+            class="menu active-link"
+            to="sign-up"
           >
+            Регистрация
+          </RouterLink>
         </div>
 
         <BaseForm
@@ -109,23 +115,23 @@ const {
           >
             <div class="radio-buttons">
               <BaseRadioButton
-                label="Мужчина"
                 v-model="gender"
+                label="Мужчина"
                 name="gender"
                 value="MALE"
                 @input="updateModelValue('gender', $event.target.value)"
               />
 
               <BaseRadioButton
-                label="Женщина"
                 v-model="gender"
+                label="Женщина"
                 name="gender"
                 value="FEMALE"
                 @input="updateModelValue('gender', $event.target.value)"
               />
             </div>
           </base-form-item>
-          
+
           <BaseOffer
             label="Оферту менти"
             :is-checked="isOfferChecked"
@@ -133,8 +139,15 @@ const {
             @download-offer="onDownloadOffer"
           />
 
-          <BaseButton type="submit" class="w-100" variant="button-main" :disabled="!isOfferChecked">
-            <template #text> Регистрация </template>
+          <BaseButton
+            type="submit"
+            class="w-100"
+            variant="button-main"
+            :disabled="!isOfferChecked"
+          >
+            <template #text>
+              Регистрация
+            </template>
           </BaseButton>
         </BaseForm>
       </div>

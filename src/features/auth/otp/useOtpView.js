@@ -16,11 +16,11 @@ export default function useOtpView() {
   const phone = route.query.phone;
   const useTokenStore = useUserTokenStore();
   const { getUser } = useUserStore();
-  
+
   const countdown = ref(60);
   const isButtonDisabled = ref(true);
   const buttonText = ref('');
-  
+
   const startCountdown = () => {
     updateButtonText();
     const interval = setInterval(() => {
@@ -34,16 +34,16 @@ export default function useOtpView() {
       }
     }, 1000);
   };
-  
+
   const updateButtonText = () => {
     const minutes = Math.floor(countdown.value / 60);
     const seconds = countdown.value % 60;
     buttonText.value = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
-  
+
   const handleResendClick = () => {
     getOtpAgain();
-    
+
     isButtonDisabled.value = true;
     countdown.value = 60;
     updateButtonText();
@@ -55,9 +55,7 @@ export default function useOtpView() {
     otp: '',
   });
 
-  const formRules = {
-    otp: required,
-  };
+  const formRules = { otp: required, };
 
   const { errors, validate } = useFormValidation(formData, formRules);
 
@@ -80,11 +78,11 @@ export default function useOtpView() {
       }
     }
   };
-  
+
   const getOtpAgain = async () => {
-    await publicApi.post(`auth/login-otp?phone=${phone}`)
-  }
-  
+    await publicApi.post(`auth/login-otp?phone=${phone}`);
+  };
+
   onMounted(() => {
     startCountdown();
   });

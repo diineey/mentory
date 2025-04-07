@@ -1,5 +1,7 @@
 <script setup>
-import { ref, watch, defineProps, defineEmits } from 'vue';
+import {
+  ref, watch, defineProps, defineEmits
+} from 'vue';
 import IconCheck from '@/components/icons/done.svg';
 
 const props = defineProps({
@@ -15,7 +17,7 @@ const props = defineProps({
   error: Boolean,
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([ 'update:modelValue', 'update:error' ]);
 
 const isChecked = ref(props.modelValue.includes(props.value));
 
@@ -24,7 +26,7 @@ const hasError = ref(props.error);
 const toggleCheckbox = () => {
   isChecked.value = !isChecked.value;
 
-  const updatedValue = [...props.modelValue];
+  const updatedValue = [ ...props.modelValue ];
 
   if (isChecked.value) {
     updatedValue.push(props.value);
@@ -59,17 +61,29 @@ watch(
 </script>
 
 <template>
-  <div class="base-checkbox" @click="toggleCheckbox">
+  <div
+    class="base-checkbox"
+    @click="toggleCheckbox"
+  >
     <span
       class="custom-checkbox"
-      :class="{ checked: isChecked, 'checked-error': hasError }"
+      :class="{
+        checked: isChecked,
+        'checked-error': hasError
+      }"
     >
-      <IconCheck v-if="isChecked" class="icon" />
+      <IconCheck
+        v-if="isChecked"
+        class="icon"
+      />
     </span>
     <label
       v-if="label"
       class="label input-text"
-      :class="{ 'label-checked': isChecked, 'label-error': hasError }"
+      :class="{
+        'label-checked': isChecked,
+        'label-error': hasError
+      }"
     >
       {{ label }}
     </label>

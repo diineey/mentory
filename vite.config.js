@@ -11,9 +11,5 @@ export default defineConfig({
     vueJsx(),
     svgLoader()
   ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+  resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } }
+});

@@ -1,4 +1,6 @@
-import { computed, ref, watch } from 'vue';
+import {
+  computed, ref, watch
+} from 'vue';
 import { useUserTokenStore } from '@/stores/authStore.js';
 import { useRouter } from 'vue-router';
 
@@ -15,9 +17,7 @@ export default function useBookForm(props, emit) {
   };
 
   const updateModelValue = () => {
-    localFormData.value = {
-      ...localFormData.value,
-    };
+    localFormData.value = { ...localFormData.value, };
 
     emit('update:modelValue', localFormData.value);
   };

@@ -21,7 +21,10 @@ const {
 <template>
   <header class="header">
     <div class="header-wrapper">
-      <router-link class="center" to="/">
+      <router-link
+        class="center"
+        to="/"
+      >
         <Logo />
       </router-link>
 
@@ -34,7 +37,9 @@ const {
             variant="button-secondary"
             @click="handleRoute"
           >
-            <template #text> Стать ментором </template>
+            <template #text>
+              Стать ментором
+            </template>
           </BaseButton>
 
           <BaseButton
@@ -55,7 +60,9 @@ const {
             variant="button-secondary"
             @click="onLogout"
           >
-            <template #text> Выход </template>
+            <template #text>
+              Выход
+            </template>
           </BaseButton>
 
           <BaseButton
@@ -63,7 +70,9 @@ const {
             variant="button-main"
             @click="router.push('/sign-in')"
           >
-            <template #text> Вход </template>
+            <template #text>
+              Вход
+            </template>
             <template #icon>
               <Arrow />
             </template>

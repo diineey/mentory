@@ -1,9 +1,6 @@
 import { useRouter } from 'vue-router';
 import { onMounted, ref } from 'vue';
-import {
-  required,
-  requiredCheckbox,
-} from '@/shared/utils/validationRules.js';
+import { required, requiredCheckbox } from '@/shared/utils/validationRules.js';
 import { useFormValidation } from '@/shared/utils/formValidate.js';
 import { publicApi, withAuth } from '@/shared/utils/api/axiosInstance.js';
 import { addToast } from '@/shared/utils/notifications.js';
@@ -60,7 +57,7 @@ export default function useBeMentorView() {
         canHelpWith: '',
         about: '',
         cvName: '',
-        mentorAgreementId: agreementId.value
+        mentorAgreementId: +agreementId.value
       };
 
       const fileData = new FormData();
@@ -71,9 +68,7 @@ export default function useBeMentorView() {
 
       try {
         if (formData.value.cv) {
-          const response = await withAuth.post('upload-cv', fileData, {
-            headers: { 'Content-Type': 'multipart/form-data' },
-          });
+          const response = await withAuth.post('upload-cv', fileData, { headers: { 'Content-Type': 'multipart/form-data' }, });
 
           requestData.cvName = response.data;
 
@@ -117,36 +112,25 @@ export default function useBeMentorView() {
       addToast.error(errorMessage);
     }
   };
-  
+
   const getMentorOffer = async () => {
     try {
-      const response = await publicApi.get('agreement/get-public-agreement-for-role', {
-        params: {
-          role: 'MENTOR',
-        },
-      });
-      
-      const allHeaders = response.headers;
-      
-      console.log(allHeaders);
-      
+      const response = await publicApi.get('agreement/get-public-agreement-for-role', { params: { role: 'MENTOR', }, });
+
       agreementId.value = response.headers['agreement-id'];
-      console.log(agreementId.value)
     } catch (err) {
       const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
       addToast.error(errorMessage);
     }
   };
-  
+
   const downloadMentorAgreement = async () => {
     try {
       const response = await publicApi.get('agreement/get-public-agreement-for-role', {
-        params: {
-          role: 'MENTOR',
-        },
+        params: { role: 'MENTOR', },
         responseType: 'blob',
       });
-      
+
       // const blob = new Blob([response.data], { type: 'application/pdf' });
       // const url = window.URL.createObjectURL(blob);
       //
@@ -154,17 +138,12 @@ export default function useBeMentorView() {
       //
       // window.URL.revokeObjectURL(url);
 
-      const blob = new Blob([response.data], { type: 'application/pdf' });
+      const blob = new Blob([ response.data ], { type: 'application/pdf' });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
 
-      const contentDisposition = response.headers['content-disposition'];
-      const filename = contentDisposition
-        ? contentDisposition.split('filename=')[1]?.replace(/"/g, '')
-        : '';
-
-      a.download = filename || '';
+      a.download = 'mentor-agreement.pdf';
       a.click();
       window.URL.revokeObjectURL(url);
     } catch (err) {
@@ -174,7 +153,7 @@ export default function useBeMentorView() {
   };
 
   onMounted(async () => {
-    await Promise.all([getCategories(), getRates(), getMentorOffer()]);
+    await Promise.all([ getCategories(), getRates(), getMentorOffer() ]);
   });
 
   return {

@@ -11,13 +11,9 @@ export default function useSignInView() {
   const router = useRouter();
   const otpTitleStore = useOtpTitleStore();
 
-  const formData = ref({
-    phone: '',
-  });
+  const formData = ref({ phone: '', });
 
-  const formRules = {
-    phone: phoneLength,
-  };
+  const formRules = { phone: phoneLength, };
 
   const { errors, validate } = useFormValidation(formData, formRules);
 
@@ -25,9 +21,7 @@ export default function useSignInView() {
     otpTitleStore.setTitle('Вход');
     router.push({
       name: 'confirm-otp',
-      query: {
-        phone: formData.value.phone,
-      },
+      query: { phone: formData.value.phone, },
     });
   }
 

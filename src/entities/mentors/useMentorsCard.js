@@ -2,7 +2,7 @@ import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/userStore.js';
 import { computed } from 'vue';
 
-export default function UseMentorsCard(props) {
+export default function UseMentorsCard() {
   const router = useRouter();
   const userStore = useUserStore();
 
@@ -11,9 +11,7 @@ export default function UseMentorsCard(props) {
   function goToMentor(id) {
     router.push({
       name: user?.value.mentorUserEntity?.id === id ? 'profile' : 'mentor',
-      query: {
-        id,
-      },
+      query: { id, },
     });
   }
 

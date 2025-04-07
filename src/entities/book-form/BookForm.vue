@@ -14,15 +14,22 @@ import useBookForm from '@/entities/book-form/useBookForm.js';
 const props = defineProps(BookFormProps);
 const emit = defineEmits(BookFormEmits);
 
-const { localFormData, todayDate, submitHandler, updateModelValue } =
+const {
+  localFormData, todayDate, submitHandler, updateModelValue
+} =
   useBookForm(props, emit);
 </script>
 
 <template>
-  <div class="mentor-book-wrapper" id="book-form-section">
+  <div
+    id="book-form-section"
+    class="mentor-book-wrapper"
+  >
     <div class="mentor-book-container">
       <div class="book-section">
-        <p class="menu mb-3">Забронировать встречу с ментором</p>
+        <p class="menu mb-3">
+          Забронировать встречу с ментором
+        </p>
 
         <BaseForm
           no-prevent-route
@@ -30,7 +37,10 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
           :rules="props.rules"
           @submit.prevent="submitHandler"
         >
-          <base-form-item label="Тема" :error="props.errors.title">
+          <base-form-item
+            label="Тема"
+            :error="props.errors.title"
+          >
             <BaseInput
               v-model="localFormData.title"
               fluid
@@ -58,7 +68,9 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
             />
           </base-form-item>
 
-          <p class="menu mb-3">Выберите дату и время</p>
+          <p class="menu mb-3">
+            Выберите дату и время
+          </p>
 
           <div class="date-and-time">
             <base-form-item
@@ -67,8 +79,8 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
               class="input-50"
             >
               <BaseInput
-                type="date"
                 v-model="localFormData.date"
+                type="date"
                 class="input-50"
                 placeholder="Выберите удобную дату"
                 :error="!!props.errors.date"
@@ -83,8 +95,8 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
               class="input-50"
             >
               <BaseInput
-                type="time"
                 v-model="localFormData.time"
+                type="time"
                 placeholder="Укажите удобное для вас время"
                 :error="!!props.errors.time"
                 @input="updateModelValue('time', $event.target.value)"
@@ -98,7 +110,7 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
               label="Обязуюсь оплатить ментору за сессию"
               :error="!!props.errors.hasToPay"
               value="checked"
-              @update:modelValue="updateModelValue('hasToPay', $event)"
+              @update:model-value="updateModelValue('hasToPay', $event)"
             />
           </base-form-item>
 
@@ -107,7 +119,9 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
             variant="button-main"
             type="submit"
           >
-            <template #text> Запросить консультацию </template>
+            <template #text>
+              Запросить консультацию
+            </template>
             <template #icon>
               <ArrowIcon />
             </template>
@@ -116,7 +130,10 @@ const { localFormData, todayDate, submitHandler, updateModelValue } =
       </div>
 
       <div class="book-img">
-        <img src="@/assets/images/feedback.png" alt="Book" />
+        <img
+          src="@/assets/images/feedback.png"
+          alt="Book"
+        >
       </div>
     </div>
   </div>

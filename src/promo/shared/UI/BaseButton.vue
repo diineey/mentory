@@ -1,22 +1,29 @@
 <script setup>
-import TgIcon from '@/promo/assets/icons/tg.svg'
+import TgIcon from '@/promo/assets/icons/tg.svg';
 
 defineProps({
   color: {
     type: String,
     default: 'white'
   }
-})
+});
 </script>
 
 <template>
   <div class="button-wrapper">
-    <a class="button-promo" href="https://t.me/mentory_uz_bot" target="_blank">
+    <a
+      class="button-promo"
+      href="https://t.me/mentory_uz_bot"
+      target="_blank"
+    >
       {{ $t('tg') }}
-      <TgIcon/>
+      <TgIcon />
     </a>
 
-    <span class="border" :style="{ borderColor: color }"/>
+    <span
+      class="border"
+      :style="{ borderColor: color }"
+    />
   </div>
 </template>
 
