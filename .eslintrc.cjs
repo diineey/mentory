@@ -20,16 +20,34 @@ module.exports = {
     'no-unused-vars': 'warn',
     'semi': [ 'error', 'always' ],
     'quotes': [ 'error', 'single' ],
-    'indent': [ 'error', 2, { SwitchCase: 1 } ],
+    'indent': [
+      'error', 2, {
+        SwitchCase: 1
+      }
+    ],
     'array-bracket-spacing': [ 'error', 'always' ],
     'object-curly-spacing': [ 'error', 'always' ],
-    'object-curly-newline': [ 'error', {
-      ObjectExpression: { multiline: true, minProperties: 3 },
-      ObjectPattern: { multiline: true, minProperties: 3 },
-      ImportDeclaration: { multiline: true, minProperties: 3 },
-      ExportDeclaration: { multiline: true, minProperties: 3 },
-    } ],
-    'no-multiple-empty-lines': [ 'error', { max: 1 } ],
+    'object-curly-newline': [
+      'error', {
+        ObjectExpression: {
+          multiline: true, minProperties: 1
+        },
+        ObjectPattern: {
+          multiline: true, minProperties: 1
+        },
+        ImportDeclaration: {
+          multiline: true, minProperties: 2
+        },
+        ExportDeclaration: {
+          multiline: true, minProperties: 2
+        },
+      }
+    ],
+    'no-multiple-empty-lines':[
+      'error', {
+        max: 1
+      }
+    ],
     'vue/require-default-prop': 'off',
     'vue/attributes-order': 'error',
     'vue/no-unused-components': 'warn',
@@ -38,5 +56,5 @@ module.exports = {
     'vue/no-multi-spaces': 'error',
     'vue/html-closing-bracket-spacing': 'error',
     'vue/no-v-html': 'off',
-  }
+  },
 };

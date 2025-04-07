@@ -8,5 +8,7 @@ export const useOtpTitleStore = defineStore('otpTitle', () => {
     newOtpTitle.value = title;
   }
 
-  return { setTitle, newOtpTitle };
+  return {
+    setTitle, newOtpTitle
+  };
 });

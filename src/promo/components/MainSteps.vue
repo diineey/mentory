@@ -1,7 +1,9 @@
 <script setup>
-import useIsMobile from '@/promo/shared/utils/useIsMobile.js';
+import useIsMobile from '@/promo/shared/utils/useIsMobile';
 
-const { isMobileForSteps } = useIsMobile();
+const {
+  isMobileForSteps
+} = useIsMobile();
 </script>
 
 <template>

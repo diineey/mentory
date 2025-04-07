@@ -1,7 +1,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import { languageMap } from '@/shared/utils/enums.js';
-import { formatYearsAndMonths } from '@/shared/utils/formatters.js';
+import { languageMap } from '@/shared/utils/enums';
+import { formatYearsAndMonths } from '@/shared/utils/formatters';
 
 export default function useMentorDetailsForm(props, emit) {
   const router = useRouter();

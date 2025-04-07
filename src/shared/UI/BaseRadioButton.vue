@@ -1,6 +1,8 @@
 <script setup>
 import { computed } from 'vue';
-import { defineProps, defineEmits } from 'vue';
+import {
+  defineProps, defineEmits
+} from 'vue';
 import IconCheck from '@/components/icons/done.svg';
 
 const props = defineProps({

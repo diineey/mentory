@@ -1,11 +1,15 @@
 import axios from 'axios';
-import { useUserTokenStore } from '@/stores/authStore.js';
+import { useUserTokenStore } from '@/stores/authStore';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-const axiosBase = axios.create({ baseURL: baseUrl, });
+const axiosBase = axios.create({
+  baseURL: baseUrl,
+});
 
-const withAuth = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL, });
+const withAuth = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+});
 
 withAuth.interceptors.request.use(
   (config) => {
@@ -25,4 +29,6 @@ withAuth.interceptors.request.use(
 
 const publicApi = axiosBase;
 
-export { withAuth, publicApi };
+export {
+  withAuth, publicApi
+};

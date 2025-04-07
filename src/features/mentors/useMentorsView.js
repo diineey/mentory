@@ -1,9 +1,11 @@
 import {
   onMounted, onUnmounted, ref, watch
 } from 'vue';
-import { publicApi } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
-import { useRoute, useRouter } from 'vue-router';
+import { publicApi } from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
+import {
+  useRoute, useRouter
+} from 'vue-router';
 
 export default function useMentorsView() {
   const route = useRoute();
@@ -13,7 +15,9 @@ export default function useMentorsView() {
   const isCategoriesLoading = ref(false);
   const isMentorsLoading = ref(false);
 
-  const formData = ref({ skill: '', });
+  const formData = ref({
+    skill: '',
+  });
 
   const getMentors = async () => {
     isMentorsLoading.value = true;
@@ -76,7 +80,11 @@ export default function useMentorsView() {
 
       mentors.value = response.data.mentors;
 
-      router.push({ query: { parameter: filter, }, });
+      router.push({
+        query: {
+          parameter: filter,
+        },
+      });
     } catch (err) {
       const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
       addToast.error(errorMessage);
@@ -86,7 +94,9 @@ export default function useMentorsView() {
   const getMentorsPhoto = async (id) => {
     try {
       const response = await publicApi.get('mentor-common-info/get-mentor-photo', {
-        params: { id },
+        params: {
+          id
+        },
         responseType: 'blob'
       });
 

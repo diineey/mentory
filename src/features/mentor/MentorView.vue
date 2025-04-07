@@ -2,7 +2,7 @@
 import MentorDetails from '@/entities/mentor/MentorDetails.vue';
 import BookForm from '@/entities/book-form/BookForm.vue';
 import SuccessBookModal from '@/entities/success-book-modal/SuccessBookModal.vue';
-import useMentorView from '@/features/mentor/useMentorView.js';
+import useMentorView from '@/features/mentor/useMentorView';
 
 const {
   data,

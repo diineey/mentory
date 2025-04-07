@@ -2,13 +2,13 @@
 import BaseInput from '@/shared/UI/BaseInput.vue';
 import BaseButton from '@/shared/UI/BaseButton.vue';
 import BaseTag from '@/shared/UI/BaseTag.vue';
-import useSearchMentors from '@/entities/home/search/useSearchMentors.js';
+import useSearchMentors from '@/entities/home/search/useSearchMentors';
 import BaseForm from '@/shared/UI/BaseForm.vue';
 import BaseFormItem from '@/shared/UI/BaseFormItem.vue';
 import {
   SearchMentorsEmits,
   SearchMentorsProps,
-} from '@/entities/home/search/search-mentors.types.js';
+} from '@/entities/home/search/search-mentors.types';
 
 const props = defineProps(SearchMentorsProps);
 const emit = defineEmits(SearchMentorsEmits);

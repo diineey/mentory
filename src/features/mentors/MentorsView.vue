@@ -1,7 +1,7 @@
 <script setup>
 import MentorsCard from '@/entities/mentors/MentorsCard.vue';
 import SearchMentors from '@/entities/home/search/SearchMentors.vue';
-import useMentorsView from '@/features/mentors/useMentorsView.js';
+import useMentorsView from '@/features/mentors/useMentorsView';
 import NotFound from '@/entities/not-found/NotFound.vue';
 
 const {

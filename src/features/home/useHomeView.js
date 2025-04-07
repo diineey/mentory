@@ -1,8 +1,8 @@
 import {
   onMounted, onUnmounted, ref
 } from 'vue';
-import { publicApi } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
+import { publicApi } from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
 import { useRouter } from 'vue-router';
 
 export default function useHomeView() {
@@ -12,7 +12,9 @@ export default function useHomeView() {
   const isMentorsLoading = ref(false);
   const isCategoriesLoading = ref(false);
 
-  const formData = ref({ skill: '', });
+  const formData = ref({
+    skill: '',
+  });
 
   const getMentors = async () => {
     isMentorsLoading.value = true;
@@ -46,7 +48,9 @@ export default function useHomeView() {
   const getMentorsPhoto = async (id) => {
     try {
       const response = await publicApi.get('mentor-common-info/get-mentor-photo', {
-        params: { id },
+        params: {
+          id
+        },
         responseType: 'blob',
       });
 
@@ -80,14 +84,18 @@ export default function useHomeView() {
   const handleSearchMentorsBySkill = async () => {
     router.push({
       name: 'mentors',
-      query: { parameter: formData.value.skill, },
+      query: {
+        parameter: formData.value.skill,
+      },
     });
   };
 
   const handleSearchMentorsByCategory = async (category) => {
     router.push({
       name: 'mentors',
-      query: { parameter: category, },
+      query: {
+        parameter: category,
+      },
     });
   };
 

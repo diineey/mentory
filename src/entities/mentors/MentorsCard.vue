@@ -5,16 +5,18 @@ import Arrow from '@/components/icons/arrow.svg';
 import {
   formatAmount,
   formatYearsAndMonths,
-} from '@/shared/utils/formatters.js';
-import useMentorsCard from '@/entities/mentors/useMentorsCard.js';
-import { languageMap } from '@/shared/utils/enums.js';
+} from '@/shared/utils/formatters';
+import useMentorsCard from '@/entities/mentors/useMentorsCard';
+import { languageMap } from '@/shared/utils/enums';
 
 const props = defineProps({
   mentors: Array,
   isLoading: Boolean,
 });
 
-const { goToMentor } = useMentorsCard();
+const {
+  goToMentor
+} = useMentorsCard();
 </script>
 
 <template>

@@ -1,12 +1,18 @@
-import { onMounted, ref } from 'vue';
+import {
+  onMounted, ref
+} from 'vue';
 import { useRouter } from 'vue-router';
-import { useOtpTitleStore } from '@/stores/otpTitle.js';
-import { unmaskDate, unmaskPhoneNumber } from '@/shared/utils/masks.js';
-import { useFormValidation } from '@/shared/utils/formValidate.js';
-import { required, validDate } from '@/shared/utils/validationRules.js';
-import { publicApi } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
-import { downloadFile } from '@/shared/utils/functions/download-file.js';
+import { useOtpTitleStore } from '@/stores/otpTitle';
+import {
+  unmaskDate, unmaskPhoneNumber
+} from '@/shared/utils/masks';
+import { useFormValidation } from '@/shared/utils/formValidate';
+import {
+  required, validDate
+} from '@/shared/utils/validationRules';
+import { publicApi } from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
+import { downloadFile } from '@/shared/utils/functions/download-file';
 
 export default function useRegistrationView() {
   const router = useRouter();
@@ -29,27 +35,37 @@ export default function useRegistrationView() {
     dateOfBirth: validDate,
   };
 
-  const { errors, validate } = useFormValidation(formData, formRules);
+  const {
+    errors, validate
+  } = useFormValidation(formData, formRules);
 
   function goToOtp() {
     otpTitleStore.setTitle('Подтверждение');
     router.push({
       name: 'confirm-otp',
-      query: { phone: formData.value.phoneNumber, },
+      query: {
+        phone: formData.value.phoneNumber,
+      },
     });
   }
 
   const downloadMentyAgreement = async () => {
     await downloadFile({
       url: 'agreement/get-public-agreement-for-role',
-      params: { role: 'MENTY' },
+      params: {
+        role: 'MENTY'
+      },
       filename: 'menty-agreement.pdf'
     });
   };
 
   const getMentyOffer = async () => {
     try {
-      const response = await publicApi.get('agreement/get-public-agreement-for-role', { params: { role: 'MENTY', }, });
+      const response = await publicApi.get('agreement/get-public-agreement-for-role', {
+        params: {
+          role: 'MENTY',
+        },
+      });
 
       agreementId.value = response.headers['agreement-id'];
     } catch (err) {

@@ -1,13 +1,19 @@
-import { reactive, computed } from 'vue';
+import {
+  reactive, computed
+} from 'vue';
 
-export const notificationStore = reactive({ notifications: [], });
+export const notificationStore = reactive({
+  notifications: [],
+});
 
 export const notificationsList = computed(
   () => notificationStore.notifications
 );
 
 export function addNotification(message, type = 'success') {
-  const notification = { message, type };
+  const notification = {
+    message, type
+  };
 
   notificationStore.notifications.push(notification);
 

@@ -4,7 +4,7 @@ import BaseButton from '@/shared/UI/BaseButton.vue';
 import BaseCard from '@/shared/UI/BaseCard.vue';
 import BaseForm from '@/shared/UI/BaseForm.vue';
 import BaseInput from '@/shared/UI/BaseInput.vue';
-import useOtpForm from '@/entities/auth/otp/useFormOtp.js';
+import useOtpForm from '@/entities/auth/otp/useFormOtp';
 import {
   OtpFormProps,
   OtpFormEmits,

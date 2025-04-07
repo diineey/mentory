@@ -2,14 +2,16 @@
 import BaseButton from '@/shared/UI/BaseButton.vue';
 import BaseTag from '@/shared/UI/BaseTag.vue';
 import Arrow from '@/components/icons/arrow.svg';
-import useMentorsCards from '@/entities/home/mentors-cards/useMentorsCards.js';
+import useMentorsCards from '@/entities/home/mentors-cards/useMentorsCards';
 
 const props = defineProps({
   mentors: Array,
   isLoading: Boolean,
 });
 
-const { goToMentorDetails } = useMentorsCards();
+const {
+  goToMentorDetails
+} = useMentorsCards();
 </script>
 
 <template>

@@ -7,8 +7,8 @@ import BaseForm from '@/shared/UI/BaseForm.vue';
 import {
   SignInFormEmits,
   SignInFormProps,
-} from '@/entities/auth/sign-in/sign-in.types.js';
-import useSignIn from '@/entities/auth/sign-in/useSignIn.js';
+} from '@/entities/auth/sign-in/sign-in.types';
+import useSignIn from '@/entities/auth/sign-in/useSignIn';
 
 const props = defineProps(SignInFormProps);
 const emit = defineEmits(SignInFormEmits);

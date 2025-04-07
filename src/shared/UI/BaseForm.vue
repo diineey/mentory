@@ -30,7 +30,9 @@ if (!props.noPreventRoute) {
       window.onbeforeunload = () => true;
       isModelChanged = true;
     },
-    { deep: true, }
+    {
+      deep: true,
+    }
   );
 
   onBeforeRouteLeave((_, __, next) => {

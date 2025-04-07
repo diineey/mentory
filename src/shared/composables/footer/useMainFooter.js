@@ -1,8 +1,10 @@
-import { useUserTokenStore } from '@/stores/authStore.js';
-import { downloadFile } from '@/shared/utils/functions/download-file.js';
+import { useUserTokenStore } from '@/stores/authStore';
+import { downloadFile } from '@/shared/utils/functions/download-file';
 
 export default function useMainFooter() {
-  const { isAuthenticated } = useUserTokenStore();
+  const {
+    isAuthenticated
+  } = useUserTokenStore();
 
   const downloadAgreement = async () => {
     await downloadFile({
@@ -14,7 +16,9 @@ export default function useMainFooter() {
   const downloadMentyAgreement = async () => {
     await downloadFile({
       url: 'agreement/get-public-agreement-for-role',
-      params: { role: 'MENTY' },
+      params: {
+        role: 'MENTY'
+      },
       filename: 'menty-agreement.pdf',
     });
   };
@@ -22,7 +26,9 @@ export default function useMainFooter() {
   const downloadMentorAgreement = async () => {
     await downloadFile({
       url: 'agreement/get-public-agreement-for-role',
-      params: { role: 'MENTOR' },
+      params: {
+        role: 'MENTOR'
+      },
       filename: 'mentor-agreement.pdf'
     });
   };

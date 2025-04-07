@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import formatPhoneNumber from '@/shared/utils/formatters.js';
+import formatPhoneNumber from '@/shared/utils/formatters';
 
 export default function useOtpForm(props, emit) {
   const updateModelValue = (field, value) => {

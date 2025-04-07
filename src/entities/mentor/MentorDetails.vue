@@ -1,12 +1,12 @@
 <script setup>
 import BaseButton from '@/shared/UI/BaseButton.vue';
 import BaseTag from '@/shared/UI/BaseTag.vue';
-import useMentorDetailsForm from '@/entities/mentor/useMentorDetails.js';
+import useMentorDetailsForm from '@/entities/mentor/useMentorDetails';
 import {
   MentorDetailsFormEmits,
   MentorDetailsFormProps,
-} from '@/entities/mentor/mentor-details.types.js';
-import { formatAmount } from '@/shared/utils/formatters.js';
+} from '@/entities/mentor/mentor-details.types';
+import { formatAmount } from '@/shared/utils/formatters';
 import EditIcon from '@/components/icons/edit.svg';
 
 const props = defineProps(MentorDetailsFormProps);

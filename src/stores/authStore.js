@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
-import { addToast } from '@/shared/utils/notifications.js';
-import router from '@/router/index.js';
+import {
+  computed, ref
+} from 'vue';
+import { addToast } from '@/shared/utils/notifications';
+import router from '@/router/index';
 import { jwtDecode } from 'jwt-decode';
-import { useUserStore } from '@/stores/userStore.js';
+import { useUserStore } from '@/stores/userStore';
 
 export const useUserTokenStore = defineStore('fingerprint', () => {
   const fingerprint = ref(localStorage.getItem('fingerprint') || null);

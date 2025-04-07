@@ -1,6 +1,6 @@
 <script setup>
 import BaseButton from '@/shared/UI/BaseButton.vue';
-import router from '@/router/index.js';
+import router from '@/router/index';
 import ArrowType from '@/components/icons/arrow-long.svg';
 </script>
 

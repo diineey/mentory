@@ -1,6 +1,8 @@
 <script setup>
 import Arrow from '@/components/icons/arrow-down.svg';
-import { ref, watch } from 'vue';
+import {
+  ref, watch
+} from 'vue';
 
 const props = defineProps({
   options: {

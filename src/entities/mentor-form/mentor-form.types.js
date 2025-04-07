@@ -1,5 +1,7 @@
 export const MentorFormProps = {
-  modelValue: { type: Object, },
+  modelValue: {
+    type: Object,
+  },
   rules: {
     type: Object,
     required: false,

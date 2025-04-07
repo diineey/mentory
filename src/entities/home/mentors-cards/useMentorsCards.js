@@ -1,5 +1,5 @@
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/stores/userStore.js';
+import { useUserStore } from '@/stores/userStore';
 import { computed } from 'vue';
 
 export default function useMentorsCards() {
@@ -11,9 +11,13 @@ export default function useMentorsCards() {
   function goToMentorDetails(id) {
     router.push({
       name: user?.value.mentorUserEntity?.id === id ? 'profile' : 'mentor',
-      query: { id, },
+      query: {
+        id,
+      },
     });
   }
 
-  return { goToMentorDetails, };
+  return {
+    goToMentorDetails,
+  };
 }

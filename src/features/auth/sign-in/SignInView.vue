@@ -1,5 +1,5 @@
 <script setup>
-import useSignInView from '@/features/auth/sign-in/useSignInView.js';
+import useSignInView from '@/features/auth/sign-in/useSignInView';
 import SignIn from '@/entities/auth/sign-in/SignIn.vue';
 
 const {

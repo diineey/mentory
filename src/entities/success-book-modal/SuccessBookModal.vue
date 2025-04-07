@@ -1,17 +1,19 @@
 <script setup>
 import BaseModal from '@/shared/UI/BaseModal.vue';
 import SuccessIcon from '@/components/icons/success-modal.svg';
-import useSuccessBookModal from '@/entities/success-book-modal/useSuccessBookModal.js';
+import useSuccessBookModal from '@/entities/success-book-modal/useSuccessBookModal';
 import {
   SuccessBookModalEmits,
   SuccessBookModalProps,
-} from '@/entities/success-book-modal/succes-modal-book.types.js';
+} from '@/entities/success-book-modal/succes-modal-book.types';
 import BaseButton from '@/shared/UI/BaseButton.vue';
 
 const props = defineProps(SuccessBookModalProps);
 const emit = defineEmits(SuccessBookModalEmits);
 
-const { onCloseModal } = useSuccessBookModal(props, emit);
+const {
+  onCloseModal
+} = useSuccessBookModal(props, emit);
 </script>
 
 <template>

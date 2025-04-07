@@ -8,8 +8,8 @@ import BaseBreadcrumbs from '@/shared/UI/breadcrumbs/BaseBreadcrumbs.vue';
 import {
   BeMentorProps,
   BeMentorEmits,
-} from '@/entities/be-mentor/be-mentor.types.js';
-import useBeMentor from '@/entities/be-mentor/useBeMentor.js';
+} from '@/entities/be-mentor/be-mentor.types';
+import useBeMentor from '@/entities/be-mentor/useBeMentor';
 import BaseForm from '@/shared/UI/BaseForm.vue';
 import BaseSelect from '@/shared/UI/BaseSelect.vue';
 import RemoveIcon from '@/components/icons/remove.svg?component';

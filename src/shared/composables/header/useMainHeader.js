@@ -1,9 +1,11 @@
 import { computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { useUserTokenStore } from '@/stores/authStore.js';
-import { useUserStore } from '@/stores/userStore.js';
-import { withAuth } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
+import {
+  useRoute, useRouter
+} from 'vue-router';
+import { useUserTokenStore } from '@/stores/authStore';
+import { useUserStore } from '@/stores/userStore';
+import { withAuth } from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
 
 export default function useMainHeader() {
   const router = useRouter();
@@ -34,7 +36,9 @@ export default function useMainHeader() {
   const goToProfile = () => {
     router.push({
       name: 'profile',
-      query: { id: user.value.mentorUserEntity.id, },
+      query: {
+        id: user.value.mentorUserEntity.id,
+      },
     });
   };
 

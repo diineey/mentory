@@ -1,5 +1,7 @@
 <script setup>
-defineProps({ backgroundColor: String, });
+defineProps({
+  backgroundColor: String,
+});
 </script>
 
 <template>

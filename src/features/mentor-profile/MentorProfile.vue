@@ -1,7 +1,7 @@
 <script setup>
 import MentorDetails from '@/entities/mentor/MentorDetails.vue';
 import MentorForm from '@/entities/mentor-form/MentorForm.vue';
-import useMentorProfile from '@/features/mentor-profile/useMentorProfile.js';
+import useMentorProfile from '@/features/mentor-profile/useMentorProfile';
 
 const {
   data,

@@ -1,7 +1,9 @@
 <script setup>
 import BaseButton from '@/promo/shared/UI/BaseButton.vue';
 import LanguagesSwitch from '@/promo/shared/composables/languages-switch/LanguagesSwitch.vue';
-import { onMounted, ref } from 'vue';
+import {
+  onMounted, ref
+} from 'vue';
 import LogoUrl from '@/promo/assets/img/logo.svg?url';
 import Menu from '@/promo/assets/icons/menu.svg';
 import HeaderImg from '@/promo/assets/img/header-img.svg?url';

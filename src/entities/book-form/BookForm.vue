@@ -8,8 +8,8 @@ import ArrowIcon from '@/components/icons/arrow.svg';
 import {
   BookFormEmits,
   BookFormProps,
-} from '@/entities/book-form/book-form.types.js';
-import useBookForm from '@/entities/book-form/useBookForm.js';
+} from '@/entities/book-form/book-form.types';
+import useBookForm from '@/entities/book-form/useBookForm';
 
 const props = defineProps(BookFormProps);
 const emit = defineEmits(BookFormEmits);

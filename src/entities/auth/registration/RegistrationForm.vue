@@ -8,8 +8,8 @@ import BaseRadioButton from '@/shared/UI/BaseRadioButton.vue';
 import {
   RegistrationFormEmits,
   RegistrationFormProps,
-} from '@/entities/auth/registration/registration-form.types.js';
-import useRegistrationForm from '@/entities/auth/registration/useRegistrationForm.js';
+} from '@/entities/auth/registration/registration-form.types';
+import useRegistrationForm from '@/entities/auth/registration/useRegistrationForm';
 import BaseOffer from '@/shared/UI/BaseOffer.vue';
 
 const props = defineProps(RegistrationFormProps);

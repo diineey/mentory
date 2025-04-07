@@ -1,10 +1,12 @@
-import { useLanguageStore } from '@/stores/languageStore.js';
+import { useLanguageStore } from '@/stores/languageStore';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 
 export default function useLanguageSwitch() {
   const languageStore = useLanguageStore();
-  const { locale } = useI18n();
+  const {
+    locale
+  } = useI18n();
 
   const languages = [ 'uz', 'ru', 'en' ];
   const currentLanguage = computed(() => languageStore.currentLanguage);

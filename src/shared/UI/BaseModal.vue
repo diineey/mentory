@@ -1,5 +1,7 @@
 <script setup>
-import { ref, watch } from 'vue';
+import {
+  ref, watch
+} from 'vue';
 import CloseIcon from '@/components/icons/close.svg';
 
 const props = defineProps({
@@ -39,7 +41,9 @@ watch(
       document.removeEventListener('keydown', handleEscapeKey);
     }
   },
-  { immediate: true }
+  {
+    immediate: true
+  }
 );
 </script>
 

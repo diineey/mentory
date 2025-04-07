@@ -1,5 +1,5 @@
 <script setup>
-import { notificationsList } from '../utils/notifications.js';
+import { notificationsList } from '../utils/notifications';
 
 const getIcon = (type) => {
   return type === 'success'

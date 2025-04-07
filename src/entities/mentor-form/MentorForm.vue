@@ -2,8 +2,8 @@
 import {
   MentorFormEmits,
   MentorFormProps,
-} from '@/entities/mentor-form/mentor-form.types.js';
-import useMentorForm from '@/entities/mentor-form/useMentorForm.js';
+} from '@/entities/mentor-form/mentor-form.types';
+import useMentorForm from '@/entities/mentor-form/useMentorForm';
 import BaseForm from '@/shared/UI/BaseForm.vue';
 import BaseInput from '@/shared/UI/BaseInput.vue';
 import BaseFormItem from '@/shared/UI/BaseFormItem.vue';

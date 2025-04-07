@@ -1,5 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import { useUserStore } from '@/stores/userStore.js';
+import {
+  createRouter, createWebHistory
+} from 'vue-router';
+import { useUserStore } from '@/stores/userStore';
 import { useUserTokenStore } from '@/stores/authStore';
 
 const router = createRouter({
@@ -8,38 +10,50 @@ const router = createRouter({
     if (savedPosition) {
       return savedPosition;
     } else {
-      return { top: 0 };
+      return {
+        top: 0
+      };
     }
   },
   routes: [
     {
       path: '/',
       name: 'home',
-      meta: { title: 'Главная', },
+      meta: {
+        title: 'Главная',
+      },
       component: () => import('@/pages/home/HomePage.vue'),
     },
     {
       path: '/sign-in',
       name: 'sign-in',
-      meta: { title: 'Вход', },
+      meta: {
+        title: 'Вход',
+      },
       component: () => import('@/pages/login/LoginPage.vue'),
     },
     {
       path: '/confirm-otp',
       name: 'confirm-otp',
-      meta: { title: 'Подтверждение ОТП', },
+      meta: {
+        title: 'Подтверждение ОТП',
+      },
       component: () => import('@/pages/login-otp/LoginOtp.vue'),
     },
     {
       path: '/sign-up',
       name: 'sign-up',
-      meta: { title: 'Регистрация', },
+      meta: {
+        title: 'Регистрация',
+      },
       component: () => import('@/pages/registration/RegistrationPage.vue'),
     },
     {
       path: '/be-mentor',
       name: 'be-mentor',
-      meta: { title: 'Стать ментором', },
+      meta: {
+        title: 'Стать ментором',
+      },
       component: () => import('@/pages/be-mentor/BeMentorPage.vue'),
       beforeEnter: (to, from, next) => {
         const userTokenStore = useUserTokenStore();
@@ -47,7 +61,9 @@ const router = createRouter({
         if (userTokenStore.isAuthenticated) {
           next();
         } else {
-          next({ path: '/' });
+          next({
+            path: '/'
+          });
         }
       },
     },
@@ -91,7 +107,9 @@ const router = createRouter({
         if (loggedInUserId && profileId && String(loggedInUserId) === String(profileId)) {
           next();
         } else {
-          next({ path: '/' });
+          next({
+            path: '/'
+          });
         }
       }
     },

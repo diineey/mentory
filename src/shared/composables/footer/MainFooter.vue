@@ -1,5 +1,5 @@
 <script setup>
-import useMainFooter from '@/shared/composables/footer/useMainFooter.js';
+import useMainFooter from '@/shared/composables/footer/useMainFooter';
 import Logo from '@/assets/logo.svg';
 
 const {

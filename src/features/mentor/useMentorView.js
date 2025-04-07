@@ -1,13 +1,15 @@
 import {
   onMounted, onUnmounted, ref
 } from 'vue';
-import { useFormValidation } from '@/shared/utils/formValidate.js';
+import { useFormValidation } from '@/shared/utils/formValidate';
 import {
   required,
   requiredCheckbox,
-} from '@/shared/utils/validationRules.js';
-import { publicApi, withAuth } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
+} from '@/shared/utils/validationRules';
+import {
+  publicApi, withAuth
+} from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
 import { useRoute } from 'vue-router';
 
 export default function useMentorView() {
@@ -35,13 +37,19 @@ export default function useMentorView() {
     hasToPay: requiredCheckbox,
   };
 
-  const { errors, validate } = useFormValidation(formData, formRules);
+  const {
+    errors, validate
+  } = useFormValidation(formData, formRules);
 
   const getMentorInfo = async () => {
     try {
       const response = await publicApi.get(
         'mentor-common-info/get-mentor-info',
-        { params: { id: mentorId }, }
+        {
+          params: {
+            id: mentorId
+          },
+        }
       );
 
       data.value = response.data;
@@ -55,7 +63,9 @@ export default function useMentorView() {
 
   const onSubmit = async () => {
     if (validate()) {
-      const { date, time } = formData.value;
+      const {
+        date, time
+      } = formData.value;
       const dateTimeString = `${date}T${time}:00`;
       const localDate = new Date(dateTimeString + 'Z');
       const formattedBookingDate = localDate.toISOString().slice(0, 16);
@@ -81,11 +91,15 @@ export default function useMentorView() {
   const getPhoto = async () => {
     try {
       const response = await publicApi.get('mentor-common-info/get-mentor-photo', {
-        params: { id: mentorId },
+        params: {
+          id: mentorId
+        },
         responseType: 'blob',
       });
 
-      const blob = new Blob([ response.data ], { type: response.headers['content-type'] });
+      const blob = new Blob([ response.data ], {
+        type: response.headers['content-type']
+      });
       mentorPhoto.value = URL.createObjectURL(blob);
     } catch (err) {
       const errorMessage = err.response?.data?.errorMessage || 'Internal server error';
@@ -101,7 +115,9 @@ export default function useMentorView() {
     const bookFormElement = document.querySelector('#book-form-section');
 
     if (bookFormElement) {
-      bookFormElement.scrollIntoView({ behavior: 'smooth' });
+      bookFormElement.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
 

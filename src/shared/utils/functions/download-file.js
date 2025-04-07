@@ -1,5 +1,5 @@
-import { publicApi } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
+import { publicApi } from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
 
 export const downloadFile = async ({
   url, params = {}, responseType = 'blob', filename
@@ -10,7 +10,9 @@ export const downloadFile = async ({
       responseType
     });
 
-    const blob = new Blob([ response.data ], { type: 'application/pdf' });
+    const blob = new Blob([ response.data ], {
+      type: 'application/pdf'
+    });
     const fileUrl = window.URL.createObjectURL(blob);
 
     const a = document.createElement('a');

@@ -1,9 +1,13 @@
-import { ref, watch } from 'vue';
+import {
+  ref, watch
+} from 'vue';
 
 export default function useMentorForm(props, emit) {
   const isCustomCategorySelected = ref(false);
   const customCategory = ref('');
-  const localFormData = ref({ ...props.modelValue });
+  const localFormData = ref({
+    ...props.modelValue
+  });
   const skills = ref(Array.isArray(props.modelValue.skills)
     ? props.modelValue.skills.join(',')
     : props.modelValue.skills || ''
@@ -102,13 +106,17 @@ export default function useMentorForm(props, emit) {
         selectedImage.value = newPhoto;
       }
     },
-    { immediate: true }
+    {
+      immediate: true
+    }
   );
 
   watch(
     () => props.modelValue,
     (newValue) => {
-      localFormData.value = { ...newValue };
+      localFormData.value = {
+        ...newValue
+      };
       skills.value = Array.isArray(newValue.skills)
         ? newValue.skills.join(',')
         : newValue.skills || '';
@@ -116,7 +124,9 @@ export default function useMentorForm(props, emit) {
       selectedLanguages.value = [ ...newValue.languages ];
       selectedMentorRate.value = newValue.mentorRateId.id;
     },
-    { deep: true, immediate: true },
+    {
+      deep: true, immediate: true
+    },
   );
 
   return {

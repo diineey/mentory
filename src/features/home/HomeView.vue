@@ -3,7 +3,7 @@ import FindMentor from '@/entities/home/find-mentor/FindMentor.vue';
 import HowItWorks from '@/entities/home/how-it-works/HowItWorks.vue';
 import SearchMentors from '@/entities/home/search/SearchMentors.vue';
 import MentorsCards from '@/entities/home/mentors-cards/MentorsCards.vue';
-import useHomeView from '@/features/home/useHomeView.js';
+import useHomeView from '@/features/home/useHomeView';
 
 const {
   formData,

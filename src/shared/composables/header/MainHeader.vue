@@ -2,7 +2,7 @@
 import BaseButton from '@/shared/UI/BaseButton.vue';
 import LanguagesSwitch from '@/shared/composables/languages-switch/LanguagesSwitch.vue';
 import Arrow from '@/components/icons/arrow.svg';
-import useMainHeader from '@/shared/composables/header/useMainHeader.js';
+import useMainHeader from '@/shared/composables/header/useMainHeader';
 import UserIcon from '@/components/icons/user.svg';
 import Logo from '@/assets/logo.svg';
 

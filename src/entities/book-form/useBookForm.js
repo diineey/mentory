@@ -1,13 +1,15 @@
 import {
   computed, ref, watch
 } from 'vue';
-import { useUserTokenStore } from '@/stores/authStore.js';
+import { useUserTokenStore } from '@/stores/authStore';
 import { useRouter } from 'vue-router';
 
 export default function useBookForm(props, emit) {
   const userToken = useUserTokenStore();
   const router = useRouter();
-  const localFormData = ref({ ...props.modelValue });
+  const localFormData = ref({
+    ...props.modelValue
+  });
 
   const isAuthenticated = computed(() => userToken.isAuthenticated);
 
@@ -17,7 +19,9 @@ export default function useBookForm(props, emit) {
   };
 
   const updateModelValue = () => {
-    localFormData.value = { ...localFormData.value, };
+    localFormData.value = {
+      ...localFormData.value,
+    };
 
     emit('update:modelValue', localFormData.value);
   };
@@ -32,16 +36,22 @@ export default function useBookForm(props, emit) {
 
       emit('update:modelValue', {});
     } else {
-      router.push({ name: 'sign-in' });
+      router.push({
+        name: 'sign-in'
+      });
     }
   }
 
   watch(
     () => props.modelValue,
     (newValue) => {
-      localFormData.value = { ...newValue };
+      localFormData.value = {
+        ...newValue
+      };
     },
-    { deep: true, immediate: true }
+    {
+      deep: true, immediate: true
+    }
   );
 
   return {

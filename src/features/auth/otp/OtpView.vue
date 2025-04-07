@@ -1,5 +1,5 @@
 <script setup>
-import useOtpView from '@/features/auth/otp/useOtpView.js';
+import useOtpView from '@/features/auth/otp/useOtpView';
 import ConfirmOtp from '@/entities/auth/otp/ConfirmOtp.vue';
 
 const {

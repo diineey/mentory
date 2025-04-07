@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { withAuth } from '@/shared/utils/api/axiosInstance.js';
-import { addToast } from '@/shared/utils/notifications.js';
+import { withAuth } from '@/shared/utils/api/axiosInstance';
+import { addToast } from '@/shared/utils/notifications';
 import { ref } from 'vue';
 
 export const useUserStore = defineStore('user', () => {

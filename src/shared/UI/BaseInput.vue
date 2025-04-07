@@ -1,11 +1,13 @@
 <script setup>
-import { watch, ref } from 'vue';
+import {
+  watch, ref
+} from 'vue';
 import {
   allowOnlyLetters,
   allowOnlyLettersAndSpaces,
   allowOnlyNumbers,
-} from '@/shared/utils/input-allows-rules.js';
-import { FIELD_MASK } from '@/shared/constants/field-mask.js';
+} from '@/shared/utils/input-allows-rules';
+import { FIELD_MASK } from '@/shared/constants/field-mask';
 import { vMaska } from 'maska/vue';
 import SearchIcon from '@/components/icons/search.svg';
 
